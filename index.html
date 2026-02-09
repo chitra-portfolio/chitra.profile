@@ -168,93 +168,87 @@
         .flip-card.enlarged .flip-card-front { min-height: 500px; }
 
         /* ===== ENABLEMENT TOOLKIT – HORIZONTAL TABS ===== */
-        .toolkit-container {
-            background: #1E4EA7;
-            border-radius: 18px;
-            padding: 1.1rem;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+        .toolkit-wrapper {
             max-width: 1100px;
             margin: 0 auto;
         }
         .toolkit-tabs {
             display: flex;
-            gap: 0.15rem;
-            margin-bottom: 0.9rem;
+            width: 100%;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            margin-bottom: 1rem;
         }
         .toolkit-tab {
-            position: relative;
-            padding: 0.55rem 1.4rem 0.6rem;
+            flex: 1; /* equal widths */
+            text-align: center;
+            padding: 0.7rem 0.5rem;
+            cursor: pointer;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #e0ecff;
-            cursor: pointer;
-            background: linear-gradient(to bottom, #4f8df9, #2563eb);
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            box-shadow: 0 3px 0 rgba(0,0,0,0.15);
-            transition: background 0.25s, color 0.25s, transform 0.2s;
+            color: var(--color-text-light);
+            background: rgba(19,24,54,0.8);
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            border: 1px solid transparent;
+            border-bottom: none;
+            position: relative;
+            transition: background 0.25s, color 0.25s, transform 0.2s, border-color 0.25s;
         }
-        .toolkit-tab::after {
-            content: "";
-            position: absolute;
-            right: -16px;
-            top: 0;
-            width: 16px;
-            height: 100%;
-            background: inherit;
-            clip-path: polygon(0 0, 100% 0, 0 100%);
+        .toolkit-tab:not(:last-child) {
+            margin-right: 0.3rem;
         }
-        .toolkit-tab:last-child::after { display:none; }
         .toolkit-tab span {
-            display:block;
+            display: block;
         }
         .toolkit-tab small {
-            display:block;
-            font-size:0.72rem;
-            opacity:0.85;
+            display: block;
+            font-size: 0.72rem;
+            opacity: 0.8;
         }
         .toolkit-tab.active {
-            background: linear-gradient(to bottom, #ffffff, #dbeafe);
-            color: #15428f;
+            background: var(--color-bg-light);
+            color: #ffffff;
+            border-color: rgba(255,255,255,0.25);
             transform: translateY(1px);
         }
 
         .toolkit-body {
-            background: linear-gradient(to bottom, #f9fbff, #e5edf8);
-            border-radius: 12px;
-            padding: 1.4rem 1.6rem;
+            background: var(--color-bg-light);
+            border-radius: 0 16px 16px 16px;
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 1.5rem 1.7rem;
             display: grid;
             grid-template-columns: minmax(0,1.8fr) minmax(0,1.2fr);
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
         @media(max-width:900px){
             .toolkit-body {
                 grid-template-columns: 1fr;
             }
         }
+        .toolkit-panel { display: none; }
+        .toolkit-panel.active { display: grid; }
+
         .toolkit-text h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.35rem;
-            color: #163561;
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: var(--color-text);
         }
         .toolkit-text p {
-            font-size: 0.9rem;
-            color: #333;
-            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-bottom: 0.7rem;
         }
         .toolkit-list {
             list-style: disc;
-            padding-left: 1.1rem;
-            margin: 0.3rem 0 0;
+            padding-left: 1.2rem;
         }
         .toolkit-list li {
-            font-size: 0.9rem;
-            color: #333;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.45rem;
+            font-size: 0.93rem;
+            color: var(--color-text-light);
         }
-        .toolkit-list strong {
-            font-weight: 600;
-        }
+        .toolkit-list strong { font-weight: 600; color: var(--color-text); }
 
         .toolkit-hex-wrap {
             display:flex;
@@ -263,40 +257,15 @@
         }
         .toolkit-hex {
             width: 150px;
-            height: 90px;
-            background: #2563eb;
-            clip-path: polygon(10% 0,90% 0,100% 50%,90% 100%,10% 100%,0 50%);
+            height: 130px;
+            clip-path: polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);
+            background: radial-gradient(circle at top, rgba(255,255,255,0.18), transparent 55%), #1B75D1;
             display:flex;
             align-items:center;
             justify-content:center;
-            color:#fff;
             font-size:2.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.5);
         }
-
-        /* ===== DISCLAIMER POPUP ===== */
-        .disclaimer-overlay {
-            display: none; position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(6px); z-index: 3000;
-            align-items: center; justify-content: center;
-        }
-        .disclaimer-overlay.active { display: flex; }
-        .disclaimer-popup {
-            background: linear-gradient(135deg, #0f1429, #1B263B);
-            border: 1px solid var(--color-primary); border-radius: 24px;
-            padding: 2.5rem; max-width: 680px; width: 90%; position: relative;
-            box-shadow: 0 0 60px rgba(32,201,151,0.15);
-        }
-        .disclaimer-popup h2 { color: var(--color-primary); font-size: 1.5rem; margin-bottom: 1rem; }
-        .disclaimer-popup p { font-size: 0.98rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: 0.75rem; }
-        .disclaimer-close {
-            position: absolute; top: 1rem; right: 1rem;
-            background: rgba(255,255,255,0.1); border: none; color: #fff;
-            font-size: 1.3rem; width: 36px; height: 36px;
-            border-radius: 50%; cursor: pointer; transition: 0.3s;
-        }
-        .disclaimer-close:hover { background: var(--color-primary); color: #000; }
 
         /* ===== METRICS ===== */
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap: 1.5rem; margin-top: var(--spacing-lg); }
@@ -307,6 +276,14 @@
 
         /* ===== AWARDS ===== */
         .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
+        .artifact-card {
+            background: rgba(255,255,255,0.03); border-radius: 20px; padding: 2rem;
+            border: 1px solid var(--color-border); transition: 0.3s;
+            display: flex; flex-direction: column; gap: 0.75rem; text-align: center;
+        }
+        .artifact-card:hover { border-color: var(--color-primary); background: rgba(255,255,255,0.05); }
+        .artifact-icon { font-size: 2.5rem; }
+        .artifact-description { font-size: 0.95rem; color: var(--color-text-light); line-height: 1.5; }
 
         /* ===== FEEDBACK CAROUSEL ===== */
         .testimonial-card {
@@ -401,18 +378,20 @@
                 if(category === 'all'){ card.style.display = 'block'; }
                 else { card.style.display = card.getAttribute('data-category').split(' ').includes(category) ? 'block' : 'none'; }
             });
-            document.querySelector('.flip-overlay').style.display = 'none';
+            const overlay = document.querySelector('.flip-overlay');
+            if(overlay) overlay.style.display = 'none';
         }
         function enlargeCard(card){
             const overlay = document.querySelector('.flip-overlay');
             document.querySelectorAll('.flip-card').forEach(c => { if(c!==card){ c.classList.remove('enlarged','flipped'); }});
             const isE = card.classList.toggle('enlarged');
             card.classList.toggle('flipped', isE);
-            overlay.style.display = isE ? 'block' : 'none';
+            if(overlay) overlay.style.display = isE ? 'block' : 'none';
         }
         function closeEnlarged(){
             document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('enlarged','flipped'));
-            document.querySelector('.flip-overlay').style.display = 'none';
+            const overlay = document.querySelector('.flip-overlay');
+            if(overlay) overlay.style.display = 'none';
         }
         function openAboutModal(section){
             const modal = document.getElementById('aboutModal');
@@ -443,20 +422,7 @@
             sets[currentTestimonialSet].classList.add('active');
         }
 
-        let disclaimerShown = false;
-        function showDisclaimer(){
-            document.getElementById('disclaimerPopup').classList.add('active');
-            disclaimerShown = true;
-        }
-        function closeDisclaimer(){ document.getElementById('disclaimerPopup').classList.remove('active'); }
-
         document.addEventListener('DOMContentLoaded', function(){
-            const obs = new IntersectionObserver(entries => {
-                entries.forEach(e => { if(e.isIntersecting && !disclaimerShown) showDisclaimer(); });
-            }, { threshold: 0.2 });
-            const target = document.getElementById('toolkit');
-            if(target) obs.observe(target);
-
             document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
                 link.addEventListener('click', function(ev){
                     const id = this.getAttribute('href').substring(1);
@@ -474,7 +440,7 @@
             const panels = document.querySelectorAll('.toolkit-panel');
             function activateToolkit(id){
                 tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === id));
-                panels.forEach(p => p.style.display = (p.dataset.tab === id ? 'grid' : 'none'));
+                panels.forEach(p => p.classList.toggle('active', p.dataset.tab === id));
             }
             tabs.forEach(t => t.addEventListener('click', () => activateToolkit(t.dataset.tab)));
             if(tabs.length){ activateToolkit('1'); }
@@ -482,31 +448,20 @@
 
         window.onclick = function(e){
             if(e.target === document.getElementById('aboutModal')) closeModal();
-            if(e.target === document.getElementById('disclaimerPopup')) closeDisclaimer();
         }
     </script>
 </head>
 <body>
 
-    <!-- DISCLAIMER POPUP -->
-    <div id="disclaimerPopup" class="disclaimer-overlay">
-        <div class="disclaimer-popup">
-            <button class="disclaimer-close" onclick="closeDisclaimer()">&times;</button>
-            <h2>Portfolio Context &amp; Disclaimer</h2>
-            <p>This portfolio contains select examples of my work created during my time at Workday. These artifacts are shared solely for interview and evaluation purposes and include public-facing or externally shareable content.</p>
-            <p>The materials are provided to demonstrate my design thinking, learning strategy, and execution and are not intended for reuse, redistribution, or commercial use.</p>
-        </div>
-    </div>
-
     <!-- HEADER -->
     <header>
         <div class="header-inner">
-            <div class="logo">Portfolio Dive</div>
+            <div class="logo">Profile Dive</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#experience">Expertise</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#toolkit" onclick="showDisclaimer()">Toolkit</a></li>
+                <li><a href="#toolkit">Toolkit</a></li>
                 <li><a href="#metrics">Metrics</a></li>
                 <li><a href="#recognition">Awards</a></li>
                 <li><a href="#voices">Feedback</a></li>
@@ -545,15 +500,17 @@
         <h2 class="section-title">Areas of Expertise</h2>
         <div class="section-divider"></div>
         <div class="pillars">
-            <!-- same pillar cards as in your code (omitted here for brevity) -->
+            <!-- keep your existing pillar cards here -->
         </div>
     </section>
 
-    <!-- 3. PROJECTS -->
+    <!-- 3. IMPACT STORIES / PROJECTS -->
     <section id="projects">
         <h2 class="section-title">Impact Stories</h2>
         <div class="section-divider"></div>
-        <p style="text-align:center; max-width:800px; margin:0 auto var(--spacing-md); font-size:1.05rem; color:var(--color-text-light);">Program design, stakeholder engagement, and measurable outcomes. Click any card to explore the full story.</p>
+        <p style="text-align:center; max-width:800px; margin:0 auto var(--spacing-md); font-size:1.05rem; color:var(--color-text-light);">
+            Program design, stakeholder engagement, and measurable outcomes. Click any card to explore the full story.
+        </p>
 
         <div class="filter-buttons">
             <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
@@ -566,17 +523,17 @@
         </div>
 
         <div class="projects">
-            <!-- keep all your flip-card project items here (as in your existing file) -->
+            <!-- all your flip-card projects go here exactly as in the original file -->
         </div>
         <div class="flip-overlay" onclick="closeEnlarged()"></div>
     </section>
 
-    <!-- 4. ENABLEMENT TOOLKIT (replaces Portfolio) -->
+    <!-- 4. ENABLEMENT TOOLKIT -->
     <section id="toolkit">
         <h2 class="section-title">Enablement Toolkit</h2>
         <div class="section-divider"></div>
 
-        <div class="toolkit-container">
+        <div class="toolkit-wrapper">
             <div class="toolkit-tabs">
                 <div class="toolkit-tab" data-tab="1">
                     <span>Strategy</span>
@@ -600,15 +557,14 @@
                 </div>
             </div>
 
-            <!-- Tab 1 -->
             <div class="toolkit-body toolkit-panel" data-tab="1">
                 <div class="toolkit-text">
                     <h3>Strategic Architecture &amp; Program Design</h3>
-                    <p>Structured curricula that align learning with functional goals and high‑stakes milestones.</p>
+                    <p>Structured curricula that align learning with functional business goals and high‑stakes milestones.</p>
                     <ul class="toolkit-list">
                         <li><strong>Immersive In‑Person Programs</strong>: End‑to‑end architecture for multi‑day, high‑impact sessions (e.g., Consulting Essentials 2‑day onboarding).</li>
                         <li><strong>Multi‑Module Digital Courses</strong>: Scalable, self‑paced curricula designed to build specific functional competencies.</li>
-                        <li><strong>Strategic Learning Paths</strong>: Logic‑based sequencing of courses for launches and M&amp;A integrations.</li>
+                        <li><strong>Strategic Learning Paths</strong>: Logic‑based sequencing of courses for product launches and M&amp;A integrations.</li>
                         <li><strong>Curriculum Blueprints</strong>: Blended frameworks that combine live sessions, labs, and digital follow‑ups.</li>
                     </ul>
                 </div>
@@ -617,16 +573,15 @@
                 </div>
             </div>
 
-            <!-- Tab 2 -->
-            <div class="toolkit-body toolkit-panel" data-tab="2" style="display:none;">
+            <div class="toolkit-body toolkit-panel" data-tab="2">
                 <div class="toolkit-text">
                     <h3>Interactive Media &amp; Technical Innovation</h3>
-                    <p>Custom‑built media and code that turn critical enablement into engaging, memorable experiences.</p>
+                    <p>Custom‑built code and media that make critical enablement feel dynamic, modern, and fun.</p>
                     <ul class="toolkit-list">
-                        <li><strong>Vibe‑Coded Training Assets</strong>: Custom interactive components for VILT/ILT sessions like CX Lift Off.</li>
-                        <li><strong>Gamified Experiences</strong>: Story‑driven, challenge‑based paths (e.g., “Amazing Race”) that unlock content.</li>
-                        <li><strong>Simulated Practice Environments</strong>: Tool‑based simulations and role‑plays for safe skill application.</li>
-                        <li><strong>Embedded Validation</strong>: Knowledge checks and assessments built directly into the learning flow.</li>
+                        <li><strong>Vibe‑Coded Training Assets</strong>: Interactive components used in VILT/ILT experiences like CX Lift Off.</li>
+                        <li><strong>Gamified Experiences</strong>: Story‑driven paths (e.g., “Amazing Race”) that unlock content as teams progress.</li>
+                        <li><strong>Simulated Practice Environments</strong>: Tool‑based simulations and role‑plays for safe, realistic skill application.</li>
+                        <li><strong>Embedded Validation</strong>: Knowledge checks and assessments built directly into the learning journey.</li>
                     </ul>
                 </div>
                 <div class="toolkit-hex-wrap">
@@ -634,11 +589,10 @@
                 </div>
             </div>
 
-            <!-- Tab 3 -->
-            <div class="toolkit-body toolkit-panel" data-tab="3" style="display:none;">
+            <div class="toolkit-body toolkit-panel" data-tab="3">
                 <div class="toolkit-text">
                     <h3>Performance Support &amp; Just‑in‑Time Assets</h3>
-                    <p>High‑impact resources designed for the exact moment of need, not just the moment of training.</p>
+                    <p>High‑impact resources built for the moment of need, not just the moment of training.</p>
                     <ul class="toolkit-list">
                         <li><strong>Technical Video Tutorials</strong>: Step‑by‑step walkthroughs for internal tools, optimized for quick reference.</li>
                         <li><strong>Performance Support Assets</strong>: At‑a‑glance guides, quick cards, and one‑pagers for fast problem‑solving.</li>
@@ -651,16 +605,15 @@
                 </div>
             </div>
 
-            <!-- Tab 4 -->
-            <div class="toolkit-body toolkit-panel" data-tab="4" style="display:none;">
+            <div class="toolkit-body toolkit-panel" data-tab="4">
                 <div class="toolkit-text">
                     <h3>Strategic Comms &amp; Adoption Campaigns</h3>
                     <p>Multi‑channel campaigns that make enablement visible, exciting, and easy to act on.</p>
                     <ul class="toolkit-list">
                         <li><strong>Explainer Videos</strong>: Motion graphics that simplify complex changes and tool rollouts.</li>
-                        <li><strong>Enablement Newsletters</strong>: Curated updates highlighting launches, patterns, and wins.</li>
+                        <li><strong>Enablement Newsletters</strong>: Curated updates highlighting launches, success patterns, and wins.</li>
                         <li><strong>Multi‑Channel Engagement</strong>: Slack banners, intranet features, and campaigns that keep initiatives top‑of‑mind.</li>
-                        <li><strong>Adoption Tracking</strong>: Reach and sentiment monitoring to tune campaigns in real time.</li>
+                        <li><strong>Adoption Tracking</strong>: Monitoring reach and sentiment so campaigns can be tuned in real time.</li>
                     </ul>
                 </div>
                 <div class="toolkit-hex-wrap">
@@ -668,13 +621,12 @@
                 </div>
             </div>
 
-            <!-- Tab 5 -->
-            <div class="toolkit-body toolkit-panel" data-tab="5" style="display:none;">
+            <div class="toolkit-body toolkit-panel" data-tab="5">
                 <div class="toolkit-text">
                     <h3>Learning Insights &amp; Data Strategy</h3>
-                    <p>Data‑driven views that connect enablement activity to readiness, proficiency, and business decisions.</p>
+                    <p>Data‑driven views that connect enablement activity to readiness, proficiency, and leadership decisions.</p>
                     <ul class="toolkit-list">
-                        <li><strong>Real‑Time Readiness Insights</strong>: Platform views (e.g., Sana widgets) showing completion and engagement.</li>
+                        <li><strong>Real‑Time Readiness Insights</strong>: Platform views (e.g., Sana widgets) that show completion and engagement.</li>
                         <li><strong>Impact Evaluation</strong>: CSAT plus pre/post‑confidence data to prove and improve program value.</li>
                         <li><strong>Proficiency Benchmarking</strong>: KPIs such as time‑to‑proficiency for new hire ramp.</li>
                         <li><strong>Enablement Labs &amp; Reporting</strong>: Hands‑on labs and executive‑ready dashboards for high‑stakes milestones.</li>
@@ -687,8 +639,70 @@
         </div>
     </section>
 
-    <!-- 5. METRICS, 6. AWARDS, 7. FEEDBACK, 8. ABOUT, 9. CONNECT -->
-    <!-- keep your existing sections here exactly as in your file -->
+    <!-- 5. METRICS -->
+    <section id="metrics">
+        <h2 class="section-title">Impact Metrics</h2>
+        <div class="section-divider"></div>
+        <div class="metrics-grid">
+            <!-- your metric cards unchanged -->
+        </div>
+    </section>
+
+    <!-- 6. AWARDS -->
+    <section id="recognition">
+        <h2 class="section-title">Awards &amp; Recognition</h2>
+        <div class="section-divider"></div>
+        <div class="awards-grid">
+            <!-- your awards cards unchanged -->
+        </div>
+    </section>
+
+    <!-- 7. FEEDBACK -->
+    <section id="voices">
+        <h2 class="section-title">Feedback</h2>
+        <div class="section-divider"></div>
+        <div class="carousel-container">
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+            <div class="testimonials-carousel">
+                <!-- your testimonial-set blocks unchanged -->
+            </div>
+            <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
+        </div>
+    </section>
+
+    <!-- 8. ABOUT -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="section-divider"></div>
+        <div style="max-width:1000px; margin:0 auto;">
+            <p style="text-align:center; font-size:1.05rem; max-width:800px; margin:0 auto 2rem; color:var(--color-text-light);">
+                I build learning and enablement programs that turn strategy into day‑to‑day behavior change. My work spans education, SaaS, CX, and SRE‑adjacent teams, with a through‑line of measurable impact, stakeholder trust, and learner‑first design.
+            </p>
+            <div class="about-grid">
+                <!-- your about cards unchanged -->
+            </div>
+        </div>
+    </section>
+
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle" style="margin-bottom:1.5rem;"></h2>
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- 9. CONNECT -->
+    <section id="contact">
+        <h2 class="section-title">Connect</h2>
+        <div class="section-divider"></div>
+        <div class="contact-info">
+            <div class="contact-links">
+                <span class="contact-btn">📧 kaycee.3025@gmail.com</span>
+                <a href="https://www.linkedin.com/in/chitrasrisankar" class="contact-btn" target="_blank">💼 LinkedIn</a>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
