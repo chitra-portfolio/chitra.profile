@@ -137,13 +137,39 @@
             margin-top: 0.75rem;
         }
 
-        /* ===== PROJECTS (existing flip cards kept) ===== */
+        /* ===== PROJECTS – flip cards (original) ===== */
         .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
-        /* flip-card styles omitted for brevity – keep the ones from your previous working version */
-
+        .flip-card { height: 400px; perspective: 1000px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back {
+            position: absolute; width: 100%; height: 100%;
+            backface-visibility: hidden; border-radius: 24px;
+            padding: 2rem; border: 1px solid var(--color-border); overflow: hidden;
+        }
+        .flip-card-front {
+            background: rgba(27,38,59,0.8);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+        }
+        .flip-card-back { background: var(--color-bg-light); transform: rotateY(180deg); overflow-y: auto; }
+        .project-category { display: inline-block; background: rgba(32,201,151,0.12); color: var(--color-primary); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; }
+        .impact-number { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin: 0.4rem 0; }
+        .impact-label { font-size: 0.88rem; color: var(--color-accent); font-weight: 600; margin-bottom: 0.4rem; }
+        .project-title { font-size: 1.25rem; margin-bottom: 0.3rem; font-weight: 600; line-height: 1.3; }
+        .project-description { font-size: 0.92rem; color: var(--color-text-light); line-height: 1.4; }
+        .click-hint { font-size: 0.82rem; opacity: 0.65; margin-top: 0.5rem; }
+        .project-back-content { width: 100%; }
+        .project-back-content h3 { font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem; font-weight: 600; }
+        .project-back-content p { font-size: 1rem; line-height: 1.7; margin-bottom: 0.8rem; }
+        .project-tag { display: inline-block; background: rgba(255,193,7,0.15); color: var(--color-accent); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.82rem; margin-right: 0.5rem; margin-top: 0.5rem; }
         .filter-buttons { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
         .filter-btn { background: transparent; border: 1px solid var(--color-primary); color: var(--color-text); padding: 0.55rem 1.4rem; border-radius: 50px; cursor: pointer; transition: 0.3s; font-weight: 600; font-size: 0.92rem; }
         .filter-btn.active, .filter-btn:hover { background: var(--color-primary); color: #000; }
+        .flip-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1500; }
+        .flip-card.enlarged { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) !important; width: 80%; max-width: 800px; height: auto; min-height: 500px; max-height: 80vh; z-index: 1600; cursor: default; }
+        .flip-card.enlarged .flip-card-inner { min-height: 500px; height: auto; }
+        .flip-card.enlarged .flip-card-back { min-height: 500px; position: relative; }
+        .flip-card.enlarged .flip-card-front { min-height: 500px; }
 
         /* ===== METRICS ===== */
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap: 1.5rem; margin-top: var(--spacing-lg); }
@@ -152,7 +178,67 @@
         .metric-number { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.25rem; }
         .metric-label { font-size: 0.92rem; color: var(--color-text-light); line-height: 1.4; }
 
-        /* ===== AWARDS / FEEDBACK / ABOUT styles – keep identical to your last file ===== */
+        /* ===== AWARDS ===== */
+        .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
+        .artifact-card {
+            background: rgba(255,255,255,0.03); border-radius: 20px; padding: 2rem;
+            border: 1px solid var(--color-border); transition: 0.3s;
+            display: flex; flex-direction: column; gap: 0.75rem; text-align: center;
+        }
+        .artifact-card:hover { border-color: var(--color-primary); background: rgba(255,255,255,0.05); }
+        .artifact-icon { font-size: 2.5rem; }
+        .artifact-description { font-size: 0.95rem; color: var(--color-text-light); line-height: 1.5; }
+
+        /* ===== FEEDBACK CAROUSEL ===== */
+        .testimonial-card {
+            background: rgba(255,255,255,0.03);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--color-border);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .testimonial-card:hover { border-color: var(--color-primary); }
+        .quote-icon { font-size: 3rem; opacity: 0.25; color: var(--color-primary); font-family: Georgia, serif; }
+        .testimonial-text { font-size: 1rem; margin: 0.75rem 0 1.25rem; line-height: 1.7; font-style: italic; }
+        .testimonial-author {
+            border-top: 1px solid var(--color-border);
+            padding-top: 0.75rem;
+            margin-top: auto;
+        }
+        .testimonial-author strong { color: var(--color-primary); font-size: 1.05rem; }
+        .carousel-container { position: relative; padding: 0 50px; margin-top: var(--spacing-xl); }
+        .testimonials-carousel { position: relative; min-height: 350px; }
+        .testimonial-set { display: none; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+        .testimonial-set.active { display: grid; }
+        .carousel-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: var(--color-primary); border: none;
+            width: 44px; height: 44px; border-radius: 50%;
+            cursor: pointer; color: #000; font-size: 1.4rem; transition: 0.3s;
+        }
+        .carousel-btn:hover { background: #fff; }
+        .carousel-btn.prev { left: 0; }
+        .carousel-btn.next { right: 0; }
+
+        /* ===== ABOUT ===== */
+        .about-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: var(--spacing-md); margin-top: var(--spacing-xl); }
+        .about-card {
+            background: rgba(27,38,59,0.5); padding: var(--spacing-lg); border-radius: 16px;
+            border: 1px solid var(--color-border); cursor: pointer; text-align: center; transition: 0.3s;
+        }
+        .about-card:hover { border-color: var(--color-primary); background: rgba(27,38,59,0.7); transform: translateY(-3px); }
+        .about-card-icon { font-size: 2rem; margin-bottom: 0.4rem; }
+        .about-card h3 { color: var(--color-primary); font-size: 1rem; }
+
+        /* ===== MODAL ===== */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
+        .modal.active { display: flex; }
+        .modal-content { background: var(--color-bg-light); padding: 2.5rem; border-radius: 24px; max-width: 800px; width: 90%; position: relative; border: 1px solid var(--color-primary); }
+        .close-btn { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 1.5rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); margin-top: var(--spacing-md); }
+        .skill-tag { background: rgba(255,255,255,0.05); padding: 0.3rem 0.9rem; border-radius: 999px; border: 1px solid var(--color-border); font-size: 0.9rem; }
 
         /* ===== CONNECT ===== */
         .contact-info { text-align: center; max-width: 600px; margin: 0 auto; }
@@ -179,9 +265,7 @@
             align-items: flex-start;
         }
         @media (max-width: 900px) {
-            .accelerators-layout {
-                grid-template-columns: 1fr;
-            }
+            .accelerators-layout { grid-template-columns: 1fr; }
         }
 
         .acc-tabs {
@@ -216,13 +300,8 @@
             font-size: 1.2rem;
             background: rgba(255,255,255,0.06);
         }
-        .acc-tab-label-main {
-            font-weight: 600;
-        }
-        .acc-tab-label-sub {
-            font-size: 0.78rem;
-            opacity: 0.75;
-        }
+        .acc-tab-label-main { font-weight: 600; }
+        .acc-tab-label-sub { font-size: 0.78rem; opacity: 0.75; }
 
         .acc-tab[data-tab="1"] .acc-tab-icon { color: var(--tab-1); }
         .acc-tab[data-tab="2"] .acc-tab-icon { color: var(--tab-2); }
@@ -267,7 +346,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-
         .acc-panel-title {
             font-size: 1.25rem;
             font-weight: 700;
@@ -294,6 +372,10 @@
         }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width:1024px){
+            .testimonial-set.active { grid-template-columns: repeat(2,1fr); }
+            .about-grid { grid-template-columns: repeat(3,1fr); }
+        }
         @media (max-width:768px){
             section { padding: var(--spacing-xxl) 1.5rem; }
             .hero { padding-left: 1.5rem; padding-right: 1.5rem; }
@@ -301,12 +383,74 @@
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
             .projects { grid-template-columns: 1fr; }
+            .testimonial-set.active { grid-template-columns: 1fr; }
+            .carousel-container { padding: 0 35px; }
+            .about-grid { grid-template-columns: repeat(2,1fr); }
+            .flip-card.enlarged { width: 95%; }
+            .pillars { grid-auto-flow: row; overflow-x: visible; }
         }
         ul { margin: var(--spacing-md) 0; padding-left: var(--spacing-lg); }
         li { margin-bottom: var(--spacing-sm); }
     </style>
     <script>
-        // simple tabbed matrix for Readiness Accelerators
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.flip-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if(event && event.target) event.target.classList.add('active');
+            cards.forEach(card => {
+                card.classList.remove('flipped','enlarged');
+                if(category === 'all'){ card.style.display = 'block'; }
+                else {
+                    card.style.display = card.getAttribute('data-category').split(' ').includes(category) ? 'block' : 'none';
+                }
+            });
+            const overlay = document.querySelector('.flip-overlay');
+            if(overlay) overlay.style.display = 'none';
+        }
+        function enlargeCard(card){
+            const overlay = document.querySelector('.flip-overlay');
+            document.querySelectorAll('.flip-card').forEach(c => { if(c!==card){ c.classList.remove('enlarged','flipped'); }});
+            const isE = card.classList.toggle('enlarged');
+            card.classList.toggle('flipped', isE);
+            if(overlay) overlay.style.display = isE ? 'block' : 'none';
+        }
+        function closeEnlarged(){
+            document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('enlarged','flipped'));
+            const overlay = document.querySelector('.flip-overlay');
+            if(overlay) overlay.style.display = 'none';
+        }
+
+        function openAboutModal(section){
+            const modal = document.getElementById('aboutModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+            const c = {
+                education: { title:'🎓 Education', html:'<p><strong>MBA</strong>, Human Resources & Marketing — University of Madras</p><p><strong>Bachelor of Business Administration</strong> — University of Madras</p><p><strong>C2 in French</strong> — Alliance Française de Pune, India</p>' },
+                certifications: { title:'📜 Certifications', html:'<ul><li><strong>Google Project Management Professional Certificate</strong></li><li><strong>Google Cloud Digital Leader Professional Certificate</strong></li></ul>' },
+                tools: { title:'🛠️ Tools & Platforms', html:'<div class="skills-grid"><span class="skill-tag">Articulate Storyline</span><span class="skill-tag">Sana Learn</span><span class="skill-tag">Adobe Captivate</span><span class="skill-tag">Vyond</span><span class="skill-tag">Camtasia</span><span class="skill-tag">Canva</span><span class="skill-tag">Figma</span><span class="skill-tag">Miro</span><span class="skill-tag">Google Workspace</span><span class="skill-tag">Gemini</span><span class="skill-tag">Workday Learning</span><span class="skill-tag">Smartsheet</span></div>' },
+                interests: { title:'💡 Interests', html:'<p>Passionate about travel, dance, and cultural exchange. Active advocate for career returners and women at work.</p>' },
+                volunteering: { title:'🤝 Volunteering', html:'<p>Program Director and active volunteer across STEM and community initiatives:</p><ul><li><strong>Program Director, Science Gurus:</strong> Lead STEM programming and outreach, connecting learners with hands‑on science experiences.</li><li><strong>Career Development:</strong> Mock interviews and mentoring for YearUp, JVS, Upwardly Global, and career returners.</li><li><strong>Community Engagement:</strong> Workday EBCs (Women at Workday, Dosti), CX Giving & Doing, Kids Against Hunger, IRUSA, and other local initiatives.</li></ul>' }
+            };
+            title.innerHTML = c[section].title;
+            body.innerHTML = c[section].html;
+            modal.classList.add('active');
+        }
+        function closeModal(){ document.getElementById('aboutModal').classList.remove('active'); }
+
+        let currentTestimonialSet = 0;
+        const totalTestimonialSets = 3;
+        function moveCarousel(dir){
+            const sets = document.querySelectorAll('.testimonial-set');
+            if(!sets.length) return;
+            sets[currentTestimonialSet].classList.remove('active');
+            currentTestimonialSet += dir;
+            if(currentTestimonialSet < 0) currentTestimonialSet = totalTestimonialSets - 1;
+            if(currentTestimonialSet >= totalTestimonialSets) currentTestimonialSet = 0;
+            sets[currentTestimonialSet].classList.add('active');
+        }
+
+        // Readiness Accelerators tabs
         document.addEventListener('DOMContentLoaded', function(){
             const tabs = document.querySelectorAll('.acc-tab');
             const panels = document.querySelectorAll('.acc-panel-inner');
@@ -323,14 +467,15 @@
             }
 
             tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    activateTab(tab.dataset.tab);
-                });
+                tab.addEventListener('click', () => activateTab(tab.dataset.tab));
             });
 
-            // default first
             if(tabs.length){ activateTab('1'); }
         });
+
+        window.onclick = function(e){
+            if(e.target === document.getElementById('aboutModal')) closeModal();
+        }
     </script>
 </head>
 <body>
@@ -372,11 +517,46 @@
     <h2 class="section-title">Areas of Expertise</h2>
     <div class="section-divider"></div>
     <div class="pillars">
-        <!-- your existing pillar cards here -->
+        <div class="pillar-card">
+            <div class="pillar-title">
+                <h3>🚀 Enterprise Enablement Programs at Scale</h3>
+            </div>
+            <p>Design and delivery of global onboarding, consulting readiness, and workforce development programs for organizations of 4,500+ employees.</p>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-title">
+                <h3>🤖 AI Adoption &amp; Strategic Enablement</h3>
+            </div>
+            <p>Drive organizational AI adoption to a 62%+ usage target in FY26 through embedded workflows, live labs, and enablement campaigns.</p>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-title">
+                <h3>🔄 M&amp;A Integration Enablement</h3>
+            </div>
+            <p>Rapid‑response learning strategies for acquisitions like Paradox, HiredScore, and Sana Labs, focused on readiness lift under aggressive timelines.</p>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-title">
+                <h3>🎯 Learning Architecture &amp; Instructional Design</h3>
+            </div>
+            <p>Blended learning ecosystems combining ILT/VILT, eLearning, microlearning, simulations, and job aids grounded in adult learning principles.</p>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-title">
+                <h3>📋 Strategic Program Management</h3>
+            </div>
+            <p>End‑to‑end ownership of complex, cross‑functional programs with compressed timelines, stakeholder alignment, and measurable outcomes.</p>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-title">
+                <h3>⚙️ Technical Learning Systems</h3>
+            </div>
+            <p>Technical enablement for engineering and operations teams, including simulations and project‑based learning experiences for complex tools and platforms.</p>
+        </div>
     </div>
 </section>
 
-<!-- 3. PROJECTS (unchanged) -->
+<!-- 3. PROJECTS -->
 <section id="projects">
     <h2 class="section-title">Impact Stories</h2>
     <div class="section-divider"></div>
@@ -395,21 +575,20 @@
     </div>
 
     <div class="projects">
-        <!-- keep all your flip-card project HTML exactly as before -->
+        <!-- paste all your existing flip-card project items here -->
     </div>
     <div class="flip-overlay" onclick="closeEnlarged()"></div>
 </section>
 
-<!-- 4. READINESS ACCELERATORS (replaces old Portfolio section) -->
+<!-- 4. READINESS ACCELERATORS -->
 <section id="accelerators">
     <h2 class="section-title">Readiness Accelerators</h2>
     <div class="section-divider"></div>
     <p class="accelerators-intro">
-        A tabbed matrix of assets and insights that function as modular **readiness accelerators**—each one designed to move teams from awareness to confident execution.
+        A tabbed matrix of assets and insights that function as modular readiness accelerators—each one designed to move teams from awareness to confident execution.
     </p>
 
     <div class="accelerators-layout">
-        <!-- LEFT: VERTICAL TABS -->
         <div class="acc-tabs">
             <div class="acc-tab" data-tab="1">
                 <div class="acc-tab-icon">📐</div>
@@ -448,7 +627,6 @@
             </div>
         </div>
 
-        <!-- RIGHT: CONTENT PANEL -->
         <div class="acc-panel">
             <div class="acc-panel-inner" data-tab="1">
                 <div class="acc-panel-title">Strategic Architecture &amp; Program Design</div>
@@ -482,7 +660,7 @@
                     High‑impact resources designed for the exact moment of need, not just the moment of training.
                 </div>
                 <ul class="acc-list">
-                    <li><strong>Technical Video Tutorials</strong>: Step‑by‑step “how‑to” walkthroughs for internal enterprise platforms, optimized for quick reference.</li>
+                    <li><strong>Technical Video Tutorials</strong>: Step‑by‑step “how‑to” walkthroughs for internal enterprise platforms, designed for immediate use.</li>
                     <li><strong>Performance Support Assets</strong>: At‑a‑glance guides, quick cards, and one‑pagers built for fast problem‑solving in the field.</li>
                     <li><strong>Digital Job Aids</strong>: Standardized playbooks and procedural templates embedded into daily workflows.</li>
                     <li><strong>Rapid Enablement Kits</strong>: Just‑in‑time materials delivered under compressed timelines for M&amp;A events and product launches.</li>
@@ -519,39 +697,66 @@
     </div>
 </section>
 
-<!-- 5. METRICS, 6. AWARDS, 7. FEEDBACK, 8. ABOUT, 9. CONNECT -->
-<!-- keep all of your existing sections below exactly as in your previous file -->
-
+<!-- 5. METRICS -->
 <section id="metrics">
     <h2 class="section-title">Impact Metrics</h2>
     <div class="section-divider"></div>
     <div class="metrics-grid">
-        <!-- existing metric cards -->
+        <div class="metric-card"><div class="metric-number">400+</div><div class="metric-label">New Workmates Onboarded (6 months)</div></div>
+        <div class="metric-card"><div class="metric-number">4.89/5</div><div class="metric-label">Average Satisfaction Score (CX Lift Off)</div></div>
+        <div class="metric-card"><div class="metric-number">829+</div><div class="metric-label">AI Slides GEM Views</div></div>
+        <div class="metric-card"><div class="metric-number">690+</div><div class="metric-label">Workmates Trained on Gemini GEMs &amp; Miro AI</div></div>
+        <div class="metric-card"><div class="metric-number">664%</div><div class="metric-label">CX Central View Increase</div></div>
+        <div class="metric-card"><div class="metric-number">207%</div><div class="metric-label">Paradox Readiness Lift</div></div>
+        <div class="metric-card"><div class="metric-number">85%</div><div class="metric-label">Sana Readiness Lift</div></div>
     </div>
 </section>
 
+<!-- 6. AWARDS -->
 <section id="recognition">
     <h2 class="section-title">Awards &amp; Recognition</h2>
     <div class="section-divider"></div>
     <div class="awards-grid">
-        <!-- existing awards cards -->
+        <!-- keep your existing award cards here -->
     </div>
 </section>
 
+<!-- 7. FEEDBACK -->
 <section id="voices">
     <h2 class="section-title">Feedback</h2>
     <div class="section-divider"></div>
     <div class="carousel-container">
-        <!-- existing testimonial carousel -->
+        <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+        <div class="testimonials-carousel">
+            <!-- your existing testimonial-set blocks go here -->
+        </div>
+        <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
     </div>
 </section>
 
+<!-- 8. ABOUT -->
 <section id="about">
     <h2 class="section-title">About Me</h2>
     <div class="section-divider"></div>
-    <!-- existing about content + cards -->
+    <div style="max-width:1000px; margin:0 auto;">
+        <p style="text-align:center; font-size:1.05rem; max-width:800px; margin:0 auto 2rem; color:var(--color-text-light);">
+            I build learning and enablement programs that turn strategy into day‑to‑day behavior change. My work spans education, SaaS, CX, and SRE‑adjacent teams, with a through‑line of measurable impact, stakeholder trust, and learner‑first design.
+        </p>
+        <div class="about-grid">
+            <!-- your existing about-cards -->
+        </div>
+    </div>
 </section>
 
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <h2 id="modalTitle" style="margin-bottom:1.5rem;"></h2>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<!-- 9. CONNECT -->
 <section id="contact">
     <h2 class="section-title">Connect</h2>
     <div class="section-divider"></div>
