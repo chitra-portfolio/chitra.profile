@@ -21,12 +21,6 @@
             --spacing-xl: 3rem;
             --spacing-xxl: 4rem;
             --header-height: 56px;
-
-            --tab-1: #4c8dff;
-            --tab-2: #b388ff;
-            --tab-3: #20c997;
-            --tab-4: #ffc107;
-            --tab-5: #ff6384;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -62,7 +56,7 @@
         }
         .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
 
-        /* ===== SECTIONS ===== */
+        /* ===== FULL-WIDTH SECTIONS ===== */
         section { padding: var(--spacing-xxl) 3.5rem; scroll-margin-top: var(--header-height); }
         section:nth-child(even) { background: rgba(19,24,54,0.25); }
         .section-title {
@@ -116,6 +110,7 @@
             padding: var(--spacing-md);
             border-radius: 24px;
             border: 1px solid var(--color-border);
+            transition: transform 0.3s, border-color 0.3s, background 0.3s;
             min-width: 260px;
             display: flex;
             flex-direction: column;
@@ -137,8 +132,9 @@
             margin-top: 0.75rem;
         }
 
-        /* ===== PROJECTS – flip cards (original) ===== */
+        /* ===== IMPACT STORIES FLIP CARDS ===== */
         .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
+        @media (min-width:1024px){ .projects { grid-template-columns: repeat(3,1fr); } }
         .flip-card { height: 400px; perspective: 1000px; cursor: pointer; }
         .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
         .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
@@ -171,6 +167,137 @@
         .flip-card.enlarged .flip-card-back { min-height: 500px; position: relative; }
         .flip-card.enlarged .flip-card-front { min-height: 500px; }
 
+        /* ===== ENABLEMENT TOOLKIT – HORIZONTAL TABS ===== */
+        .toolkit-container {
+            background: #1E4EA7;
+            border-radius: 18px;
+            padding: 1.1rem;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .toolkit-tabs {
+            display: flex;
+            gap: 0.15rem;
+            margin-bottom: 0.9rem;
+        }
+        .toolkit-tab {
+            position: relative;
+            padding: 0.55rem 1.4rem 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #e0ecff;
+            cursor: pointer;
+            background: linear-gradient(to bottom, #4f8df9, #2563eb);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            box-shadow: 0 3px 0 rgba(0,0,0,0.15);
+            transition: background 0.25s, color 0.25s, transform 0.2s;
+        }
+        .toolkit-tab::after {
+            content: "";
+            position: absolute;
+            right: -16px;
+            top: 0;
+            width: 16px;
+            height: 100%;
+            background: inherit;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+        .toolkit-tab:last-child::after { display:none; }
+        .toolkit-tab span {
+            display:block;
+        }
+        .toolkit-tab small {
+            display:block;
+            font-size:0.72rem;
+            opacity:0.85;
+        }
+        .toolkit-tab.active {
+            background: linear-gradient(to bottom, #ffffff, #dbeafe);
+            color: #15428f;
+            transform: translateY(1px);
+        }
+
+        .toolkit-body {
+            background: linear-gradient(to bottom, #f9fbff, #e5edf8);
+            border-radius: 12px;
+            padding: 1.4rem 1.6rem;
+            display: grid;
+            grid-template-columns: minmax(0,1.8fr) minmax(0,1.2fr);
+            gap: 1.2rem;
+        }
+        @media(max-width:900px){
+            .toolkit-body {
+                grid-template-columns: 1fr;
+            }
+        }
+        .toolkit-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.35rem;
+            color: #163561;
+        }
+        .toolkit-text p {
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 0.6rem;
+        }
+        .toolkit-list {
+            list-style: disc;
+            padding-left: 1.1rem;
+            margin: 0.3rem 0 0;
+        }
+        .toolkit-list li {
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 0.4rem;
+        }
+        .toolkit-list strong {
+            font-weight: 600;
+        }
+
+        .toolkit-hex-wrap {
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .toolkit-hex {
+            width: 150px;
+            height: 90px;
+            background: #2563eb;
+            clip-path: polygon(10% 0,90% 0,100% 50%,90% 100%,10% 100%,0 50%);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#fff;
+            font-size:2.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* ===== DISCLAIMER POPUP ===== */
+        .disclaimer-overlay {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(6px); z-index: 3000;
+            align-items: center; justify-content: center;
+        }
+        .disclaimer-overlay.active { display: flex; }
+        .disclaimer-popup {
+            background: linear-gradient(135deg, #0f1429, #1B263B);
+            border: 1px solid var(--color-primary); border-radius: 24px;
+            padding: 2.5rem; max-width: 680px; width: 90%; position: relative;
+            box-shadow: 0 0 60px rgba(32,201,151,0.15);
+        }
+        .disclaimer-popup h2 { color: var(--color-primary); font-size: 1.5rem; margin-bottom: 1rem; }
+        .disclaimer-popup p { font-size: 0.98rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: 0.75rem; }
+        .disclaimer-close {
+            position: absolute; top: 1rem; right: 1rem;
+            background: rgba(255,255,255,0.1); border: none; color: #fff;
+            font-size: 1.3rem; width: 36px; height: 36px;
+            border-radius: 50%; cursor: pointer; transition: 0.3s;
+        }
+        .disclaimer-close:hover { background: var(--color-primary); color: #000; }
+
         /* ===== METRICS ===== */
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap: 1.5rem; margin-top: var(--spacing-lg); }
         .metric-card { text-align: center; padding: var(--spacing-lg); background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px solid var(--color-border); transition: 0.3s; }
@@ -180,14 +307,6 @@
 
         /* ===== AWARDS ===== */
         .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
-        .artifact-card {
-            background: rgba(255,255,255,0.03); border-radius: 20px; padding: 2rem;
-            border: 1px solid var(--color-border); transition: 0.3s;
-            display: flex; flex-direction: column; gap: 0.75rem; text-align: center;
-        }
-        .artifact-card:hover { border-color: var(--color-primary); background: rgba(255,255,255,0.05); }
-        .artifact-icon { font-size: 2.5rem; }
-        .artifact-description { font-size: 0.95rem; color: var(--color-text-light); line-height: 1.5; }
 
         /* ===== FEEDBACK CAROUSEL ===== */
         .testimonial-card {
@@ -250,127 +369,6 @@
         }
         .contact-btn:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
 
-        /* ===== READINESS ACCELERATORS – VERTICAL TABS ===== */
-        .accelerators-intro {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto var(--spacing-xl);
-            color: var(--color-text-light);
-            font-size: 1.05rem;
-        }
-        .accelerators-layout {
-            display: grid;
-            grid-template-columns: 280px minmax(0, 1fr);
-            gap: var(--spacing-xl);
-            align-items: flex-start;
-        }
-        @media (max-width: 900px) {
-            .accelerators-layout { grid-template-columns: 1fr; }
-        }
-
-        .acc-tabs {
-            background: rgba(11,18,40,0.9);
-            border-radius: 24px;
-            padding: var(--spacing-md);
-            border: 1px solid rgba(255,255,255,0.18);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.6);
-        }
-        .acc-tab {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.7rem 0.9rem;
-            margin-bottom: 0.4rem;
-            border-radius: 999px;
-            cursor: pointer;
-            border: 1px solid transparent;
-            color: var(--color-text-light);
-            transition: background 0.25s, transform 0.2s, border-color 0.25s, color 0.25s;
-            font-size: 0.92rem;
-        }
-        .acc-tab-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            background: rgba(255,255,255,0.06);
-        }
-        .acc-tab-label-main { font-weight: 600; }
-        .acc-tab-label-sub { font-size: 0.78rem; opacity: 0.75; }
-
-        .acc-tab[data-tab="1"] .acc-tab-icon { color: var(--tab-1); }
-        .acc-tab[data-tab="2"] .acc-tab-icon { color: var(--tab-2); }
-        .acc-tab[data-tab="3"] .acc-tab-icon { color: var(--tab-3); }
-        .acc-tab[data-tab="4"] .acc-tab-icon { color: var(--tab-4); }
-        .acc-tab[data-tab="5"] .acc-tab-icon { color: var(--tab-5); }
-
-        .acc-tab.active {
-            transform: translateX(4px);
-            color: #fff;
-            border-color: rgba(255,255,255,0.3);
-            background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-        }
-
-        .acc-panel {
-            position: relative;
-            background: rgba(10,14,39,0.85);
-            border-radius: 24px;
-            padding: var(--spacing-lg);
-            border: 1px solid rgba(255,255,255,0.16);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.65);
-            overflow: hidden;
-        }
-        .acc-panel::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 55%);
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        .acc-panel-inner {
-            position: relative;
-            z-index: 1;
-            opacity: 0;
-            transform: translateY(6px);
-            transition: opacity 0.25s ease, transform 0.25s ease;
-        }
-        .acc-panel-inner.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .acc-panel-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-        .acc-panel-focus {
-            font-size: 0.96rem;
-            color: var(--color-text-light);
-            margin-bottom: var(--spacing-md);
-        }
-        .acc-list {
-            list-style: disc;
-            margin: 0;
-            padding-left: 1.25rem;
-        }
-        .acc-list li {
-            margin-bottom: 0.55rem;
-            font-size: 0.97rem;
-            color: var(--color-text-light);
-        }
-        .acc-list strong {
-            font-weight: 700;
-            color: #fff;
-        }
-
         /* ===== RESPONSIVE ===== */
         @media (max-width:1024px){
             .testimonial-set.active { grid-template-columns: repeat(2,1fr); }
@@ -401,26 +399,21 @@
             cards.forEach(card => {
                 card.classList.remove('flipped','enlarged');
                 if(category === 'all'){ card.style.display = 'block'; }
-                else {
-                    card.style.display = card.getAttribute('data-category').split(' ').includes(category) ? 'block' : 'none';
-                }
+                else { card.style.display = card.getAttribute('data-category').split(' ').includes(category) ? 'block' : 'none'; }
             });
-            const overlay = document.querySelector('.flip-overlay');
-            if(overlay) overlay.style.display = 'none';
+            document.querySelector('.flip-overlay').style.display = 'none';
         }
         function enlargeCard(card){
             const overlay = document.querySelector('.flip-overlay');
             document.querySelectorAll('.flip-card').forEach(c => { if(c!==card){ c.classList.remove('enlarged','flipped'); }});
             const isE = card.classList.toggle('enlarged');
             card.classList.toggle('flipped', isE);
-            if(overlay) overlay.style.display = isE ? 'block' : 'none';
+            overlay.style.display = isE ? 'block' : 'none';
         }
         function closeEnlarged(){
             document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('enlarged','flipped'));
-            const overlay = document.querySelector('.flip-overlay');
-            if(overlay) overlay.style.display = 'none';
+            document.querySelector('.flip-overlay').style.display = 'none';
         }
-
         function openAboutModal(section){
             const modal = document.getElementById('aboutModal');
             const title = document.getElementById('modalTitle');
@@ -450,404 +443,252 @@
             sets[currentTestimonialSet].classList.add('active');
         }
 
-        // Readiness Accelerators tabs
-        document.addEventListener('DOMContentLoaded', function(){
-            const tabs = document.querySelectorAll('.acc-tab');
-            const panels = document.querySelectorAll('.acc-panel-inner');
+        let disclaimerShown = false;
+        function showDisclaimer(){
+            document.getElementById('disclaimerPopup').classList.add('active');
+            disclaimerShown = true;
+        }
+        function closeDisclaimer(){ document.getElementById('disclaimerPopup').classList.remove('active'); }
 
-            function activateTab(id){
-                tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === id));
-                panels.forEach(p => {
-                    if(p.dataset.tab === id){
-                        p.classList.add('active');
-                    } else {
-                        p.classList.remove('active');
+        document.addEventListener('DOMContentLoaded', function(){
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(e => { if(e.isIntersecting && !disclaimerShown) showDisclaimer(); });
+            }, { threshold: 0.2 });
+            const target = document.getElementById('toolkit');
+            if(target) obs.observe(target);
+
+            document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(ev){
+                    const id = this.getAttribute('href').substring(1);
+                    const el = document.getElementById(id);
+                    if(el){
+                        ev.preventDefault();
+                        const y = el.getBoundingClientRect().top + window.scrollY - 60;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
                     }
                 });
-            }
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => activateTab(tab.dataset.tab));
             });
 
-            if(tabs.length){ activateTab('1'); }
+            // Enablement Toolkit tabs
+            const tabs = document.querySelectorAll('.toolkit-tab');
+            const panels = document.querySelectorAll('.toolkit-panel');
+            function activateToolkit(id){
+                tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === id));
+                panels.forEach(p => p.style.display = (p.dataset.tab === id ? 'grid' : 'none'));
+            }
+            tabs.forEach(t => t.addEventListener('click', () => activateToolkit(t.dataset.tab)));
+            if(tabs.length){ activateToolkit('1'); }
         });
 
         window.onclick = function(e){
             if(e.target === document.getElementById('aboutModal')) closeModal();
+            if(e.target === document.getElementById('disclaimerPopup')) closeDisclaimer();
         }
     </script>
 </head>
 <body>
 
-<header>
-    <div class="header-inner">
-        <div class="logo">Profile Dive</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#experience">Expertise</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#accelerators">Readiness</a></li>
-            <li><a href="#metrics">Metrics</a></li>
-            <li><a href="#recognition">Awards</a></li>
-            <li><a href="#voices">Feedback</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Connect</a></li>
-        </ul>
-    </div>
-</header>
-
-<!-- 1. HOME -->
-<section id="home" class="hero">
-    <h1>Chitra Srisankar</h1>
-    <div class="section-divider"></div>
-    <div class="hero-badges">
-        <div class="hero-badge"><span>🎯</span><span>Learning &amp; Enablement Program Leader</span></div>
-        <div class="hero-badge"><span>🤖</span><span>AI-First Enablement Strategy</span></div>
-        <div class="hero-badge"><span>🌍</span><span>Enterprise CX, Consulting &amp; M&amp;A</span></div>
-    </div>
-    <p class="tagline">
-        Enterprise Learning &amp; Enablement Program Leader driving measurable business outcomes at scale.<br>
-        Fourteen years of cross‑industry experience spanning education, SaaS, and enterprise technology, with the last four years specializing in tech enablement programs that accelerate readiness, improve performance, and earn stakeholder trust.
-    </p>
-</section>
-
-<!-- 2. EXPERTISE -->
-<section id="experience">
-    <h2 class="section-title">Areas of Expertise</h2>
-    <div class="section-divider"></div>
-    <div class="pillars">
-        <div class="pillar-card">
-            <div class="pillar-title">
-                <h3>🚀 Enterprise Enablement Programs at Scale</h3>
-            </div>
-            <p>Design and delivery of global onboarding, consulting readiness, and workforce development programs for organizations of 4,500+ employees.</p>
-        </div>
-        <div class="pillar-card">
-            <div class="pillar-title">
-                <h3>🤖 AI Adoption &amp; Strategic Enablement</h3>
-            </div>
-            <p>Drive organizational AI adoption to a 62%+ usage target in FY26 through embedded workflows, live labs, and enablement campaigns.</p>
-        </div>
-        <div class="pillar-card">
-            <div class="pillar-title">
-                <h3>🔄 M&amp;A Integration Enablement</h3>
-            </div>
-            <p>Rapid‑response learning strategies for acquisitions like Paradox, HiredScore, and Sana Labs, focused on readiness lift under aggressive timelines.</p>
-        </div>
-        <div class="pillar-card">
-            <div class="pillar-title">
-                <h3>🎯 Learning Architecture &amp; Instructional Design</h3>
-            </div>
-            <p>Blended learning ecosystems combining ILT/VILT, eLearning, microlearning, simulations, and job aids grounded in adult learning principles.</p>
-        </div>
-        <div class="pillar-card">
-            <div class="pillar-title">
-                <h3>📋 Strategic Program Management</h3>
-            </div>
-            <p>End‑to‑end ownership of complex, cross‑functional programs with compressed timelines, stakeholder alignment, and measurable outcomes.</p>
-        </div>
-        <div class="pillar-card">
-            <div class="pillar-title">
-                <h3>⚙️ Technical Learning Systems</h3>
-            </div>
-            <p>Technical enablement for engineering and operations teams, including simulations and project‑based learning experiences for complex tools and platforms.</p>
+    <!-- DISCLAIMER POPUP -->
+    <div id="disclaimerPopup" class="disclaimer-overlay">
+        <div class="disclaimer-popup">
+            <button class="disclaimer-close" onclick="closeDisclaimer()">&times;</button>
+            <h2>Portfolio Context &amp; Disclaimer</h2>
+            <p>This portfolio contains select examples of my work created during my time at Workday. These artifacts are shared solely for interview and evaluation purposes and include public-facing or externally shareable content.</p>
+            <p>The materials are provided to demonstrate my design thinking, learning strategy, and execution and are not intended for reuse, redistribution, or commercial use.</p>
         </div>
     </div>
-</section>
 
-<!-- 3. PROJECTS -->
-<section id="projects">
-    <h2 class="section-title">Impact Stories</h2>
-    <div class="section-divider"></div>
-    <p style="text-align:center; max-width:800px; margin:0 auto var(--spacing-md); font-size:1.05rem; color:var(--color-text-light);">
-        Program design, stakeholder engagement, and measurable outcomes. Click any card to explore the full story.
-    </p>
-
-    <div class="filter-buttons">
-        <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
-        <button class="filter-btn" onclick="filterProjects('onboarding')">Onboarding</button>
-        <button class="filter-btn" onclick="filterProjects('ai')">AI Enablement</button>
-        <button class="filter-btn" onclick="filterProjects('ma')">M&amp;A</button>
-        <button class="filter-btn" onclick="filterProjects('program')">Program</button>
-        <button class="filter-btn" onclick="filterProjects('skills')">Skills</button>
-        <button class="filter-btn" onclick="filterProjects('process')">Process</button>
-    </div>
-
-    <div class="projects">
-        <!-- paste all your existing flip-card project items here -->
-    </div>
-    <div class="flip-overlay" onclick="closeEnlarged()"></div>
-</section>
-
-<!-- 4. READINESS ACCELERATORS -->
-<section id="accelerators">
-    <h2 class="section-title">Readiness Accelerators</h2>
-    <div class="section-divider"></div>
-    <p class="accelerators-intro">
-        A tabbed matrix of assets and insights that function as modular readiness accelerators—each one designed to move teams from awareness to confident execution.
-    </p>
-
-    <div class="accelerators-layout">
-        <div class="acc-tabs">
-            <div class="acc-tab" data-tab="1">
-                <div class="acc-tab-icon">📐</div>
-                <div>
-                    <div class="acc-tab-label-main">01 Strategy</div>
-                    <div class="acc-tab-label-sub">Architecture &amp; Program Design</div>
-                </div>
-            </div>
-            <div class="acc-tab" data-tab="2">
-                <div class="acc-tab-icon">🎮</div>
-                <div>
-                    <div class="acc-tab-label-main">02 Innovation</div>
-                    <div class="acc-tab-label-sub">Interactive Media</div>
-                </div>
-            </div>
-            <div class="acc-tab" data-tab="3">
-                <div class="acc-tab-icon">⚡</div>
-                <div>
-                    <div class="acc-tab-label-main">03 Support</div>
-                    <div class="acc-tab-label-sub">Performance &amp; JIT Assets</div>
-                </div>
-            </div>
-            <div class="acc-tab" data-tab="4">
-                <div class="acc-tab-icon">📣</div>
-                <div>
-                    <div class="acc-tab-label-main">04 Adoption</div>
-                    <div class="acc-tab-label-sub">Comms &amp; Campaigns</div>
-                </div>
-            </div>
-            <div class="acc-tab" data-tab="5">
-                <div class="acc-tab-icon">📊</div>
-                <div>
-                    <div class="acc-tab-label-main">05 Insight</div>
-                    <div class="acc-tab-label-sub">Learning Data &amp; Labs</div>
-                </div>
-            </div>
+    <!-- HEADER -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">Portfolio Dive</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Expertise</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#toolkit" onclick="showDisclaimer()">Toolkit</a></li>
+                <li><a href="#metrics">Metrics</a></li>
+                <li><a href="#recognition">Awards</a></li>
+                <li><a href="#voices">Feedback</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Connect</a></li>
+            </ul>
         </div>
+    </header>
 
-        <div class="acc-panel">
-            <div class="acc-panel-inner" data-tab="1">
-                <div class="acc-panel-title">Strategic Architecture &amp; Program Design</div>
-                <div class="acc-panel-focus">
-                    Structured curricula that align learning with functional business goals and high‑stakes milestones.
-                </div>
-                <ul class="acc-list">
-                    <li><strong>Immersive In‑Person Programs</strong>: End‑to‑end architecture for multi‑day, high‑impact sessions (e.g., Consulting Essentials 2‑day onboarding).</li>
-                    <li><strong>Multi‑Module Digital Courses</strong>: Scalable, self‑paced learning curricula designed to build specific functional competencies.</li>
-                    <li><strong>Strategic Learning Paths</strong>: Logic‑based sequencing of courses that guide learners through complex product launches or M&amp;A integrations.</li>
-                    <li><strong>Curriculum Blueprints</strong>: Structural design for blended experiences that combine live sessions, labs, and digital follow‑ups.</li>
-                </ul>
-            </div>
-
-            <div class="acc-panel-inner" data-tab="2">
-                <div class="acc-panel-title">Interactive Media &amp; Technical Innovation</div>
-                <div class="acc-panel-focus">
-                    Custom‑built interactions and media that make critical content feel dynamic, memorable, and fun to use.
-                </div>
-                <ul class="acc-list">
-                    <li><strong>Vibe‑Coded Training Assets</strong>: Custom‑coded interactive components used in VILT and ILT, including CX Lift Off experiences.</li>
-                    <li><strong>Gamified Learning Experiences</strong>: Story‑driven, challenge‑based paths (like an “Amazing Race”) that unlock content as teams progress.</li>
-                    <li><strong>Simulated Practice Environments</strong>: Tool‑based simulations and role‑play scenarios for safe, realistic skill application.</li>
-                    <li><strong>Embedded Learning Validation</strong>: Knowledge checks and assessments woven into the flow so mastery is verified, not assumed.</li>
-                </ul>
-            </div>
-
-            <div class="acc-panel-inner" data-tab="3">
-                <div class="acc-panel-title">Performance Support &amp; Just‑in‑Time Assets</div>
-                <div class="acc-panel-focus">
-                    High‑impact resources designed for the exact moment of need, not just the moment of training.
-                </div>
-                <ul class="acc-list">
-                    <li><strong>Technical Video Tutorials</strong>: Step‑by‑step “how‑to” walkthroughs for internal enterprise platforms, designed for immediate use.</li>
-                    <li><strong>Performance Support Assets</strong>: At‑a‑glance guides, quick cards, and one‑pagers built for fast problem‑solving in the field.</li>
-                    <li><strong>Digital Job Aids</strong>: Standardized playbooks and procedural templates embedded into daily workflows.</li>
-                    <li><strong>Rapid Enablement Kits</strong>: Just‑in‑time materials delivered under compressed timelines for M&amp;A events and product launches.</li>
-                </ul>
-            </div>
-
-            <div class="acc-panel-inner" data-tab="4">
-                <div class="acc-panel-title">Strategic Comms &amp; Adoption Campaigns</div>
-                <div class="acc-panel-focus">
-                    Multi‑channel campaigns that make enablement visible, exciting, and easy to act on.
-                </div>
-                <ul class="acc-list">
-                    <li><strong>Explainer Videos</strong>: High‑impact motion graphics simplifying complex organizational changes or new tool rollouts.</li>
-                    <li><strong>Enablement Newsletters</strong>: Curated updates highlighting new programs, success patterns, and wins across CX and consulting.</li>
-                    <li><strong>Multi‑Channel Engagement</strong>: Slack banners, intranet features, and campaign assets that keep initiatives top‑of‑mind.</li>
-                    <li><strong>Adoption Tracking</strong>: Monitoring reach, sentiment, and engagement so campaigns can be tuned in real time.</li>
-                </ul>
-            </div>
-
-            <div class="acc-panel-inner" data-tab="5">
-                <div class="acc-panel-title">Learning Insights &amp; Data Strategy</div>
-                <div class="acc-panel-focus">
-                    Data‑driven reporting that connects learning activity to readiness, proficiency, and leadership decisions.
-                </div>
-                <ul class="acc-list">
-                    <li><strong>Real‑Time Readiness Insights</strong>: Platform views (e.g., Sana widgets) that show completion, engagement, and risk areas at a glance.</li>
-                    <li><strong>Learning Impact Evaluation</strong>: CSAT, pre/post‑confidence, and qualitative feedback used to iterate and prove value.</li>
-                    <li><strong>Proficiency Benchmarking</strong>: KPIs like time‑to‑proficiency that track how quickly new hires reach full productivity.</li>
-                    <li><strong>Enablement Labs</strong>: Facilitated lab environments to observe hands‑on performance and sentiment in real scenarios.</li>
-                    <li><strong>Stakeholder Reporting</strong>: Executive‑ready views of program reach, readiness, and field health during high‑stakes milestones.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 5. IMPACT METRICS -->
-    <section id="metrics">
-        <h2 class="section-title">Impact Metrics</h2>
+    <!-- 1. HOME -->
+    <section id="home" class="hero">
+        <h1>Chitra Srisankar</h1>
         <div class="section-divider"></div>
-        <div class="metrics-grid">
-            <div class="metric-card"><div class="metric-number">400+</div><div class="metric-label">New Workmates Onboarded (6 months)</div></div>
-            <div class="metric-card"><div class="metric-number">4.89/5</div><div class="metric-label">Average Satisfaction Score (CX Lift Off)</div></div>
-            <div class="metric-card"><div class="metric-number">829+</div><div class="metric-label">AI Slides GEM Views</div></div>
-            <div class="metric-card"><div class="metric-number">690+</div><div class="metric-label">Workmates Virtually Trained on Gemini GEMs &amp; Miro AI</div></div>
-            <div class="metric-card"><div class="metric-number">664%</div><div class="metric-label">CX Central View Increase</div></div>
-            <div class="metric-card"><div class="metric-number">207%</div><div class="metric-label">Paradox Readiness Lift</div></div>
-            <div class="metric-card"><div class="metric-number">85%</div><div class="metric-label">Sana Readiness Lift</div></div>
+        <div class="hero-badges">
+            <div class="hero-badge">
+                <span>🎯</span>
+                <span>Learning &amp; Enablement Program Leader</span>
+            </div>
+            <div class="hero-badge">
+                <span>🤖</span>
+                <span>AI-First Enablement Strategy</span>
+            </div>
+            <div class="hero-badge">
+                <span>🌍</span>
+                <span>Enterprise CX, Consulting &amp; M&amp;A</span>
+            </div>
+        </div>
+        <p class="tagline">
+            Enterprise Learning &amp; Enablement Program Leader driving measurable business outcomes at scale.<br>
+            Fourteen years of cross‑industry experience spanning education, SaaS, and enterprise technology, with the last four years specializing in tech enablement programs that accelerate readiness, improve performance, and earn stakeholder trust.
+        </p>
+    </section>
+
+    <!-- 2. EXPERTISE -->
+    <section id="experience">
+        <h2 class="section-title">Areas of Expertise</h2>
+        <div class="section-divider"></div>
+        <div class="pillars">
+            <!-- same pillar cards as in your code (omitted here for brevity) -->
         </div>
     </section>
 
-    <!-- 6. AWARDS -->
-    <section id="recognition">
-        <h2 class="section-title">Awards &amp; Recognition</h2>
+    <!-- 3. PROJECTS -->
+    <section id="projects">
+        <h2 class="section-title">Impact Stories</h2>
         <div class="section-divider"></div>
-        <div class="awards-grid">
-            <div class="artifact-card">
-                <div class="artifact-icon">🏆</div>
-                <h4>Diamond Award</h4>
-                <p class="artifact-description"><strong>FY26 Q2</strong> — Major strategic contribution for CX onboarding, recognizing the design and launch of CX Lift Off.</p>
+        <p style="text-align:center; max-width:800px; margin:0 auto var(--spacing-md); font-size:1.05rem; color:var(--color-text-light);">Program design, stakeholder engagement, and measurable outcomes. Click any card to explore the full story.</p>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('onboarding')">Onboarding</button>
+            <button class="filter-btn" onclick="filterProjects('ai')">AI Enablement</button>
+            <button class="filter-btn" onclick="filterProjects('ma')">M&amp;A</button>
+            <button class="filter-btn" onclick="filterProjects('program')">Program</button>
+            <button class="filter-btn" onclick="filterProjects('skills')">Skills</button>
+            <button class="filter-btn" onclick="filterProjects('process')">Process</button>
+        </div>
+
+        <div class="projects">
+            <!-- keep all your flip-card project items here (as in your existing file) -->
+        </div>
+        <div class="flip-overlay" onclick="closeEnlarged()"></div>
+    </section>
+
+    <!-- 4. ENABLEMENT TOOLKIT (replaces Portfolio) -->
+    <section id="toolkit">
+        <h2 class="section-title">Enablement Toolkit</h2>
+        <div class="section-divider"></div>
+
+        <div class="toolkit-container">
+            <div class="toolkit-tabs">
+                <div class="toolkit-tab" data-tab="1">
+                    <span>Strategy</span>
+                    <small>Architecture &amp; Programs</small>
+                </div>
+                <div class="toolkit-tab" data-tab="2">
+                    <span>Innovation</span>
+                    <small>Interactive Media</small>
+                </div>
+                <div class="toolkit-tab" data-tab="3">
+                    <span>Support</span>
+                    <small>Performance &amp; JIT</small>
+                </div>
+                <div class="toolkit-tab" data-tab="4">
+                    <span>Adoption</span>
+                    <small>Comms &amp; Hype</small>
+                </div>
+                <div class="toolkit-tab" data-tab="5">
+                    <span>Insights</span>
+                    <small>Data &amp; Labs</small>
+                </div>
             </div>
-            <div class="artifact-card">
-                <div class="artifact-icon">⭐</div>
-                <h4>High Five Award</h4>
-                <p class="artifact-description"><strong>FY26 Q1</strong> — Honors expert collaborators who bridge teams and find innovative solutions across CX Enablement.</p>
+
+            <!-- Tab 1 -->
+            <div class="toolkit-body toolkit-panel" data-tab="1">
+                <div class="toolkit-text">
+                    <h3>Strategic Architecture &amp; Program Design</h3>
+                    <p>Structured curricula that align learning with functional goals and high‑stakes milestones.</p>
+                    <ul class="toolkit-list">
+                        <li><strong>Immersive In‑Person Programs</strong>: End‑to‑end architecture for multi‑day, high‑impact sessions (e.g., Consulting Essentials 2‑day onboarding).</li>
+                        <li><strong>Multi‑Module Digital Courses</strong>: Scalable, self‑paced curricula designed to build specific functional competencies.</li>
+                        <li><strong>Strategic Learning Paths</strong>: Logic‑based sequencing of courses for launches and M&amp;A integrations.</li>
+                        <li><strong>Curriculum Blueprints</strong>: Blended frameworks that combine live sessions, labs, and digital follow‑ups.</li>
+                    </ul>
+                </div>
+                <div class="toolkit-hex-wrap">
+                    <div class="toolkit-hex">📐</div>
+                </div>
             </div>
-            <div class="artifact-card">
-                <div class="artifact-icon">🎖️</div>
-                <h4>Challenge Coin</h4>
-                <p class="artifact-description"><strong>FY26 Q1</strong> — Awarded for invaluable contribution to Project Trident and the CX Central launch campaign.</p>
+
+            <!-- Tab 2 -->
+            <div class="toolkit-body toolkit-panel" data-tab="2" style="display:none;">
+                <div class="toolkit-text">
+                    <h3>Interactive Media &amp; Technical Innovation</h3>
+                    <p>Custom‑built media and code that turn critical enablement into engaging, memorable experiences.</p>
+                    <ul class="toolkit-list">
+                        <li><strong>Vibe‑Coded Training Assets</strong>: Custom interactive components for VILT/ILT sessions like CX Lift Off.</li>
+                        <li><strong>Gamified Experiences</strong>: Story‑driven, challenge‑based paths (e.g., “Amazing Race”) that unlock content.</li>
+                        <li><strong>Simulated Practice Environments</strong>: Tool‑based simulations and role‑plays for safe skill application.</li>
+                        <li><strong>Embedded Validation</strong>: Knowledge checks and assessments built directly into the learning flow.</li>
+                    </ul>
+                </div>
+                <div class="toolkit-hex-wrap">
+                    <div class="toolkit-hex">🎮</div>
+                </div>
             </div>
-            <div class="artifact-card">
-                <div class="artifact-icon">🤝</div>
-                <h4>Outstanding Team Collaboration</h4>
-                <p class="artifact-description"><strong>FY26 Q2</strong> — Honorable Mention for CX Lift Off and CX onboarding delivery excellence in a cross‑functional setting.</p>
+
+            <!-- Tab 3 -->
+            <div class="toolkit-body toolkit-panel" data-tab="3" style="display:none;">
+                <div class="toolkit-text">
+                    <h3>Performance Support &amp; Just‑in‑Time Assets</h3>
+                    <p>High‑impact resources designed for the exact moment of need, not just the moment of training.</p>
+                    <ul class="toolkit-list">
+                        <li><strong>Technical Video Tutorials</strong>: Step‑by‑step walkthroughs for internal tools, optimized for quick reference.</li>
+                        <li><strong>Performance Support Assets</strong>: At‑a‑glance guides, quick cards, and one‑pagers for fast problem‑solving.</li>
+                        <li><strong>Digital Job Aids</strong>: Standardized playbooks and templates embedded into daily workflows.</li>
+                        <li><strong>Rapid Enablement Kits</strong>: Just‑in‑time materials delivered under compressed timelines for launches and M&amp;A.</li>
+                    </ul>
+                </div>
+                <div class="toolkit-hex-wrap">
+                    <div class="toolkit-hex">⚡</div>
+                </div>
+            </div>
+
+            <!-- Tab 4 -->
+            <div class="toolkit-body toolkit-panel" data-tab="4" style="display:none;">
+                <div class="toolkit-text">
+                    <h3>Strategic Comms &amp; Adoption Campaigns</h3>
+                    <p>Multi‑channel campaigns that make enablement visible, exciting, and easy to act on.</p>
+                    <ul class="toolkit-list">
+                        <li><strong>Explainer Videos</strong>: Motion graphics that simplify complex changes and tool rollouts.</li>
+                        <li><strong>Enablement Newsletters</strong>: Curated updates highlighting launches, patterns, and wins.</li>
+                        <li><strong>Multi‑Channel Engagement</strong>: Slack banners, intranet features, and campaigns that keep initiatives top‑of‑mind.</li>
+                        <li><strong>Adoption Tracking</strong>: Reach and sentiment monitoring to tune campaigns in real time.</li>
+                    </ul>
+                </div>
+                <div class="toolkit-hex-wrap">
+                    <div class="toolkit-hex">📣</div>
+                </div>
+            </div>
+
+            <!-- Tab 5 -->
+            <div class="toolkit-body toolkit-panel" data-tab="5" style="display:none;">
+                <div class="toolkit-text">
+                    <h3>Learning Insights &amp; Data Strategy</h3>
+                    <p>Data‑driven views that connect enablement activity to readiness, proficiency, and business decisions.</p>
+                    <ul class="toolkit-list">
+                        <li><strong>Real‑Time Readiness Insights</strong>: Platform views (e.g., Sana widgets) showing completion and engagement.</li>
+                        <li><strong>Impact Evaluation</strong>: CSAT plus pre/post‑confidence data to prove and improve program value.</li>
+                        <li><strong>Proficiency Benchmarking</strong>: KPIs such as time‑to‑proficiency for new hire ramp.</li>
+                        <li><strong>Enablement Labs &amp; Reporting</strong>: Hands‑on labs and executive‑ready dashboards for high‑stakes milestones.</li>
+                    </ul>
+                </div>
+                <div class="toolkit-hex-wrap">
+                    <div class="toolkit-hex">📊</div>
+                </div>
             </div>
         </div>
     </section>
 
-<!-- 7. FEEDBACK -->
-    <section id="voices">
-        <h2 class="section-title">Feedback</h2>
-        <div class="section-divider"></div>
-        <p style="text-align:center; max-width:800px; margin:0 auto var(--spacing-xl); font-size:1.05rem; color:var(--color-text-light);">Selected feedback from leaders, partners, and learners.</p>
-
-        <div class="carousel-container">
-            <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
-            <div class="testimonials-carousel">
-                <!-- Set 1 -->
-                <div class="testimonial-set active">
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">That was, by far, the best onboarding experience I have seen delivered in my 9 years in Enablement or 20 years of Field Facing in tech. It was deep, meaningful, purposeful yet, super simple to follow, understand, and demonstrate. The best part? It was super fun!</p>
-                        <div class="testimonial-author"><strong>Alex Salicrup</strong><br>Sr. Director, CX Enablement</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">Thank you so much for your constant willingness to serve as a mentor and guide for others on our team. Your expertise in learning and instructional design elevates our entire team.</p>
-                        <div class="testimonial-author"><strong>Elizabeth Smith</strong><br>Director, CX Enablement</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">Chitra, you are adding a level of value to our CX organization that is well beyond my expectations. I appreciate your leadership, candor and “Glad to be here” mindset execution. You have been a key to CXe success in this first half of FY26.</p>
-                        <div class="testimonial-author"><strong>Alex Salicrup</strong><br>Sr. Director, CX Enablement</div>
-                    </div>
-                </div>
-
-                <!-- Set 2 -->
-                <div class="testimonial-set">
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">The Amazing Race to introduce the new CX Central was an absolute stroke of genius—fresh, fun, and incredibly engaging. With so much happening, this could have felt like just another task. Instead, it was one of the best trainings I've ever had.</p>
-                        <div class="testimonial-author"><strong>Nancy Houston</strong><br>Principal Customer Success Manager</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">Chitra and I collaborated on an eLearning project with a lot of moving parts and quick deadlines. Thank you for being an outstanding partner and learning expert throughout the design and development process!</p>
-                        <div class="testimonial-author"><strong>Justin Hughes</strong><br>Global Revenue Enablement Designer</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">Thank you for your willingness to consult, advise, and champion the use of Sana Learn. You are my go‑to for understanding capabilities and how to apply them to our learning solutions.</p>
-                        <div class="testimonial-author"><strong>Annie Angelo</strong><br>Senior Principal, CX Enablement</div>
-                    </div>
-                </div>
-
-                <!-- Set 3 -->
-                <div class="testimonial-set">
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">A huge thank you for being our office culture star! You bring people together, keep our team connected, and your positivity is a huge asset to our Pleasanton office.</p>
-                        <div class="testimonial-author"><strong>Melony Bravmann</strong><br>Principal, Sales Enablement</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">Chitra has been an invaluable team member, consistently assisting in resolving learning‑related inquiries. Your prompt responses and thorough guidance have significantly enhanced the quality of customer service we provide.</p>
-                        <div class="testimonial-author"><strong>Cruz Payan</strong><br>Instructional Designer, Customer Support</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">A massive thank you for the incredible work you put into the Support People Leader Development Program. The depth of your expertise is the foundation of this program's success.</p>
-                        <div class="testimonial-author"><strong>Ranisha Babbar</strong><br>Role Excellence Manager, Customer Support</div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
-        </div>
-    </section>
-
-    <!-- 8. ABOUT -->
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="section-divider"></div>
-        <div style="max-width:1000px; margin:0 auto;">
-            <p style="text-align:center; font-size:1.05rem; max-width:800px; margin:0 auto 2rem; color:var(--color-text-light);">
-                I build learning and enablement programs that turn strategy into day‑to‑day behavior change. My work spans education, SaaS, CX, and SRE‑adjacent teams, with a through‑line of measurable impact, stakeholder trust, and learner‑first design.
-            </p>
-            <div class="about-grid">
-                <div class="about-card" onclick="openAboutModal('education')"><div class="about-card-icon">🎓</div><h3>Education</h3></div>
-                <div class="about-card" onclick="openAboutModal('certifications')"><div class="about-card-icon">📜</div><h3>Certifications</h3></div>
-                <div class="about-card" onclick="openAboutModal('tools')"><div class="about-card-icon">🛠️</div><h3>Tools &amp; Platforms</h3></div>
-                <div class="about-card" onclick="openAboutModal('interests')"><div class="about-card-icon">💡</div><h3>Interests</h3></div>
-                <div class="about-card" onclick="openAboutModal('volunteering')"><div class="about-card-icon">🤝</div><h3>Volunteering</h3></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT MODAL -->
-    <div id="aboutModal" class="modal">
-        <div class="modal-content">
-            <h2 id="modalTitle" style="margin-bottom:1.5rem;"></h2>
-            <button class="close-btn" onclick="closeModal()">&times;</button>
-            <div id="modalBody"></div>
-        </div>
-    </div>
-
-    <!-- 9. CONNECT -->
-    <section id="contact">
-        <h2 class="section-title">Connect</h2>
-        <div class="section-divider"></div>
-        <div class="contact-info">
-            <div class="contact-links">
-                <span class="contact-btn">📧 kaycee.3025@gmail.com</span>
-                <a href="https://www.linkedin.com/in/chitrasrisankar" class="contact-btn" target="_blank">💼 LinkedIn</a>
-            </div>
-        </div>
-    </section>
+    <!-- 5. METRICS, 6. AWARDS, 7. FEEDBACK, 8. ABOUT, 9. CONNECT -->
+    <!-- keep your existing sections here exactly as in your file -->
 
 </body>
 </html>
