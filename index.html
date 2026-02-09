@@ -23,11 +23,11 @@
             --header-height: 56px;
 
             /* Ecosystem accent colors */
-            --eco-1: rgba(80, 156, 255, 0.18);
-            --eco-2: rgba(179, 136, 255, 0.18);
-            --eco-3: rgba(32, 201, 151, 0.18);
-            --eco-4: rgba(255, 193, 7, 0.18);
-            --eco-5: rgba(255, 99, 132, 0.18);
+            --eco-1: #4c8dff;
+            --eco-2: #b388ff;
+            --eco-3: #20c997;
+            --eco-4: #ffc107;
+            --eco-5: #ff6384;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -139,111 +139,17 @@
             margin-top: 0.75rem;
         }
 
-        /* ===== IMPACT STORIES FLIP CARDS ===== */
+        /* ===== PROJECTS (unchanged placeholder) ===== */
         .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
-        @media (min-width:1024px){ .projects { grid-template-columns: repeat(3,1fr); } }
-        .flip-card { height: 400px; perspective: 1000px; cursor: pointer; }
-        .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
-        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
-        .flip-card-front, .flip-card-back {
-            position: absolute; width: 100%; height: 100%;
-            backface-visibility: hidden; border-radius: 24px;
-            padding: 2rem; border: 1px solid var(--color-border); overflow: hidden;
-        }
-        .flip-card-front {
-            background: rgba(27,38,59,0.8);
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-        }
-        .flip-card-back { background: var(--color-bg-light); transform: rotateY(180deg); overflow-y: auto; }
-        .project-category { display: inline-block; background: rgba(32,201,151,0.12); color: var(--color-primary); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; }
-        .impact-number { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin: 0.4rem 0; }
-        .impact-label { font-size: 0.88rem; color: var(--color-accent); font-weight: 600; margin-bottom: 0.4rem; }
-        .project-title { font-size: 1.25rem; margin-bottom: 0.3rem; font-weight: 600; line-height: 1.3; }
-        .project-description { font-size: 0.92rem; color: var(--color-text-light); line-height: 1.4; }
-        .click-hint { font-size: 0.82rem; opacity: 0.65; margin-top: 0.5rem; }
-        .project-back-content { width: 100%; }
-        .project-back-content h3 { font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem; font-weight: 600; }
-        .project-back-content p { font-size: 1rem; line-height: 1.7; margin-bottom: 0.8rem; }
-        .project-tag { display: inline-block; background: rgba(255,193,7,0.15); color: var(--color-accent); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.82rem; margin-right: 0.5rem; margin-top: 0.5rem; }
-        .filter-buttons { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-        .filter-btn { background: transparent; border: 1px solid var(--color-primary); color: var(--color-text); padding: 0.55rem 1.4rem; border-radius: 50px; cursor: pointer; transition: 0.3s; font-weight: 600; font-size: 0.92rem; }
-        .filter-btn.active, .filter-btn:hover { background: var(--color-primary); color: #000; }
-        .flip-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1500; }
-        .flip-card.enlarged { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) !important; width: 80%; max-width: 800px; height: auto; min-height: 500px; max-height: 80vh; z-index: 1600; cursor: default; }
-        .flip-card.enlarged .flip-card-inner { min-height: 500px; height: auto; }
-        .flip-card.enlarged .flip-card-back { min-height: 500px; position: relative; }
-        .flip-card.enlarged .flip-card-front { min-height: 500px; }
 
-        /* ===== IMPACT METRICS ===== */
+        /* ===== METRICS ===== */
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap: 1.5rem; margin-top: var(--spacing-lg); }
         .metric-card { text-align: center; padding: var(--spacing-lg); background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px solid var(--color-border); transition: 0.3s; }
         .metric-card:hover { border-color: var(--color-primary); background: rgba(32,201,151,0.06); }
         .metric-number { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.25rem; }
         .metric-label { font-size: 0.92rem; color: var(--color-text-light); line-height: 1.4; }
 
-        /* ===== AWARDS ===== */
-        .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
-
-        /* ===== FEEDBACK CAROUSEL ===== */
-        .testimonial-card {
-            background: rgba(255,255,255,0.03);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid var(--color-border);
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-        .testimonial-card:hover { border-color: var(--color-primary); }
-        .quote-icon { font-size: 3rem; opacity: 0.25; color: var(--color-primary); font-family: Georgia, serif; }
-        .testimonial-text { font-size: 1rem; margin: 0.75rem 0 1.25rem; line-height: 1.7; font-style: italic; }
-        .testimonial-author {
-            border-top: 1px solid var(--color-border);
-            padding-top: 0.75rem;
-            margin-top: auto;
-        }
-        .testimonial-author strong { color: var(--color-primary); font-size: 1.05rem; }
-        .carousel-container { position: relative; padding: 0 50px; margin-top: var(--spacing-xl); }
-        .testimonials-carousel { position: relative; min-height: 350px; }
-        .testimonial-set { display: none; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-        .testimonial-set.active { display: grid; }
-        .carousel-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: var(--color-primary); border: none;
-            width: 44px; height: 44px; border-radius: 50%;
-            cursor: pointer; color: #000; font-size: 1.4rem; transition: 0.3s;
-        }
-        .carousel-btn:hover { background: #fff; }
-        .carousel-btn.prev { left: 0; }
-        .carousel-btn.next { right: 0; }
-
-        /* ===== ABOUT ===== */
-        .about-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: var(--spacing-md); margin-top: var(--spacing-xl); }
-        .about-card {
-            background: rgba(27,38,59,0.5); padding: var(--spacing-lg); border-radius: 16px;
-            border: 1px solid var(--color-border); cursor: pointer; text-align: center; transition: 0.3s;
-        }
-        .about-card:hover { border-color: var(--color-primary); background: rgba(27,38,59,0.7); transform: translateY(-3px); }
-        .about-card-icon { font-size: 2rem; margin-bottom: 0.4rem; }
-        .about-card h3 { color: var(--color-primary); font-size: 1rem; }
-
-        /* ===== MODAL ===== */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
-        .modal.active { display: flex; }
-        .modal-content { background: var(--color-bg-light); padding: 2.5rem; border-radius: 24px; max-width: 800px; width: 90%; position: relative; border: 1px solid var(--color-primary); }
-        .close-btn { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 1.5rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; }
-        .skills-grid { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); margin-top: var(--spacing-md); }
-        .skill-tag { background: rgba(255,255,255,0.05); padding: 0.3rem 0.9rem; border-radius: 999px; border: 1px solid var(--color-border); font-size: 0.9rem; }
-
-        /* ===== CONNECT ===== */
-        .contact-info { text-align: center; max-width: 600px; margin: 0 auto; }
-        .contact-links { display: flex; justify-content: center; gap: var(--spacing-lg); margin-top: var(--spacing-xl); flex-wrap: wrap; }
-        .contact-btn {
-            display: inline-flex; align-items: center; gap: var(--spacing-xs);
-            padding: var(--spacing-md) var(--spacing-lg); background: var(--color-primary);
-            color: #000; text-decoration: none; border-radius: 999px; font-weight: 600; transition: 0.3s;
-        }
-        .contact-btn:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
+        /* ===== AWARDS / FEEDBACK / ABOUT styles omitted for brevity – keep your last version ===== */
 
         /* ===== ENABLEMENT HONEYCOMB ===== */
         .ecosystem-intro {
@@ -255,7 +161,7 @@
         }
         .ecosystem-layout {
             display: grid;
-            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
             gap: var(--spacing-xl);
             align-items: center;
         }
@@ -266,69 +172,72 @@
         }
 
         .honeycomb {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
             position: relative;
+            width: 320px;
+            margin: 0 auto;
         }
         .honeycomb-hex {
-            width: 150px;
-            height: 170px;
-            position: relative;
+            width: 120px;
+            height: 138px;
+            position: absolute;
             cursor: pointer;
             transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
             display: flex;
             align-items: center;
             justify-content: center;
         }
+        /* cluster layout: center + ring */
+        .honeycomb-hex[data-hex="1"] { top: 90px; left: 100px; }  /* center */
+        .honeycomb-hex[data-hex="2"] { top: 0; left: 100px; }
+        .honeycomb-hex[data-hex="3"] { top: 45px; left: 210px; }
+        .honeycomb-hex[data-hex="4"] { top: 135px; left: 210px; }
+        .honeycomb-hex[data-hex="5"] { top: 180px; left: 100px; }
+
         .honeycomb-hex-inner {
             width: 100%;
             height: 100%;
             position: relative;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.25);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-            padding: 1.1rem;
+            background: rgba(11,18,40,0.85);
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 0.8rem;
             text-align: center;
+            box-shadow: 0 16px 32px rgba(0,0,0,0.5);
         }
+        .honeycomb-hex[data-hex="1"] .honeycomb-hex-inner { border-color: var(--eco-1); }
+        .honeycomb-hex[data-hex="2"] .honeycomb-hex-inner { border-color: var(--eco-2); }
+        .honeycomb-hex[data-hex="3"] .honeycomb-hex-inner { border-color: var(--eco-3); }
+        .honeycomb-hex[data-hex="4"] .honeycomb-hex-inner { border-color: var(--eco-4); }
+        .honeycomb-hex[data-hex="5"] .honeycomb-hex-inner { border-color: var(--eco-5); }
+
         .honeycomb-hex-icon {
-            font-size: 1.8rem;
-            margin-bottom: 0.45rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.35rem;
         }
         .honeycomb-hex-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            font-size: 0.78rem;
+            font-weight: 600;
+            line-height: 1.25;
         }
-
-        /* Color accents per hex */
-        .honeycomb-hex[data-hex="1"] .honeycomb-hex-inner { border-color: var(--eco-1); box-shadow: 0 18px 40px rgba(80,156,255,0.35); }
-        .honeycomb-hex[data-hex="2"] .honeycomb-hex-inner { border-color: var(--eco-2); box-shadow: 0 18px 40px rgba(179,136,255,0.35); }
-        .honeycomb-hex[data-hex="3"] .honeycomb-hex-inner { border-color: var(--eco-3); box-shadow: 0 18px 40px rgba(32,201,151,0.35); }
-        .honeycomb-hex[data-hex="4"] .honeycomb-hex-inner { border-color: var(--eco-4); box-shadow: 0 18px 40px rgba(255,193,7,0.35); }
-        .honeycomb-hex[data-hex="5"] .honeycomb-hex-inner { border-color: var(--eco-5); box-shadow: 0 18px 40px rgba(255,99,132,0.35); }
 
         .honeycomb-hex:hover {
-            transform: translateY(-6px) scale(1.03);
+            transform: translateY(-6px) scale(1.04);
         }
         .honeycomb.dim-others .honeycomb-hex {
-            opacity: 0.35;
+            opacity: 0.25;
         }
         .honeycomb.dim-others .honeycomb-hex.active {
             opacity: 1;
         }
 
         .ecosystem-quickview {
-            background: rgba(10,14,39,0.7);
+            background: rgba(10,14,39,0.8);
             border-radius: 24px;
             padding: var(--spacing-lg);
             border: 1px solid rgba(255,255,255,0.14);
@@ -363,7 +272,6 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width:1024px){
-            .testimonial-set.active { grid-template-columns: repeat(2,1fr); }
             .about-grid { grid-template-columns: repeat(3,1fr); }
         }
         @media (max-width:768px){
@@ -372,68 +280,15 @@
             header .header-inner { padding: 0 1rem; }
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
-            .projects { grid-template-columns: 1fr; }
-            .testimonial-set.active { grid-template-columns: 1fr; }
-            .carousel-container { padding: 0 35px; }
             .about-grid { grid-template-columns: repeat(2,1fr); }
-            .flip-card.enlarged { width: 95%; }
-            .pillars { grid-auto-flow: row; overflow-x: visible; }
+            .honeycomb {
+                transform: scale(0.9);
+            }
         }
         ul { margin: var(--spacing-md) 0; padding-left: var(--spacing-lg); }
         li { margin-bottom: var(--spacing-sm); }
     </style>
     <script>
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.flip-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if(event && event.target) event.target.classList.add('active');
-            cards.forEach(card => {
-                card.classList.remove('flipped','enlarged');
-                if(category === 'all'){ card.style.display = 'block'; }
-                else { card.style.display = card.getAttribute('data-category').split(' ').includes(category) ? 'block' : 'none'; }
-            });
-            document.querySelector('.flip-overlay').style.display = 'none';
-        }
-        function enlargeCard(card){
-            const overlay = document.querySelector('.flip-overlay');
-            document.querySelectorAll('.flip-card').forEach(c => { if(c!==card){ c.classList.remove('enlarged','flipped'); }});
-            const isE = card.classList.toggle('enlarged');
-            card.classList.toggle('flipped', isE);
-            overlay.style.display = isE ? 'block' : 'none';
-        }
-        function closeEnlarged(){
-            document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('enlarged','flipped'));
-            document.querySelector('.flip-overlay').style.display = 'none';
-        }
-        function openAboutModal(section){
-            const modal = document.getElementById('aboutModal');
-            const title = document.getElementById('modalTitle');
-            const body = document.getElementById('modalBody');
-            const c = {
-                education: { title:'🎓 Education', html:'<p><strong>MBA</strong>, Human Resources & Marketing — University of Madras</p><p><strong>Bachelor of Business Administration</strong> — University of Madras</p><p><strong>C2 in French</strong> — Alliance Française de Pune, India</p>' },
-                certifications: { title:'📜 Certifications', html:'<ul><li><strong>Google Project Management Professional Certificate</strong></li><li><strong>Google Cloud Digital Leader Professional Certificate</strong></li></ul>' },
-                tools: { title:'🛠️ Tools & Platforms', html:'<div class="skills-grid"><span class="skill-tag">Articulate Storyline</span><span class="skill-tag">Sana Learn</span><span class="skill-tag">Adobe Captivate</span><span class="skill-tag">Vyond</span><span class="skill-tag">Camtasia</span><span class="skill-tag">Canva</span><span class="skill-tag">Figma</span><span class="skill-tag">Miro</span><span class="skill-tag">Google Workspace</span><span class="skill-tag">Gemini</span><span class="skill-tag">Workday Learning</span><span class="skill-tag">Smartsheet</span></div>' },
-                interests: { title:'💡 Interests', html:'<p>Passionate about travel, dance, and cultural exchange. Active advocate for career returners and women at work.</p>' },
-                volunteering: { title:'🤝 Volunteering', html:'<p>Program Director and active volunteer across STEM and community initiatives:</p><ul><li><strong>Program Director, Science Gurus:</strong> Lead STEM programming and outreach, connecting learners with hands‑on science experiences.</li><li><strong>Career Development:</strong> Mock interviews and mentoring for YearUp, JVS, Upwardly Global, and career returners.</li><li><strong>Community Engagement:</strong> Workday EBCs (Women at Workday, Dosti), CX Giving & Doing, Kids Against Hunger, IRUSA, and other local initiatives.</li></ul>' }
-            };
-            title.innerHTML = c[section].title;
-            body.innerHTML = c[section].html;
-            modal.classList.add('active');
-        }
-        function closeModal(){ document.getElementById('aboutModal').classList.remove('active'); }
-
-        let currentTestimonialSet = 0;
-        const totalTestimonialSets = 3;
-        function moveCarousel(dir){
-            const sets = document.querySelectorAll('.testimonial-set');
-            sets[currentTestimonialSet].classList.remove('active');
-            currentTestimonialSet += dir;
-            if(currentTestimonialSet < 0) currentTestimonialSet = totalTestimonialSets - 1;
-            if(currentTestimonialSet >= totalTestimonialSets) currentTestimonialSet = 0;
-            sets[currentTestimonialSet].classList.add('active');
-        }
-
         // Ecosystem honeycomb interactions
         document.addEventListener('DOMContentLoaded', function(){
             const honeycomb = document.querySelector('.honeycomb');
@@ -504,6 +359,8 @@
                 quickList.innerHTML = d.items.map(i => `<li>${i}</li>`).join('');
             }
 
+            const centerHex = document.querySelector('.honeycomb-hex[data-hex="1"]');
+
             hexes.forEach(hex => {
                 hex.addEventListener('mouseenter', () => {
                     hexes.forEach(h => h.classList.remove('active'));
@@ -517,16 +374,19 @@
             honeycomb.addEventListener('mouseleave', () => {
                 honeycomb.classList.remove('dim-others');
                 hexes.forEach(h => h.classList.remove('active'));
+                // return focus to center
+                if(centerHex){
+                    centerHex.classList.add('active');
+                    setQuickView(1);
+                }
             });
 
-            // Initialize with first category
-            setQuickView(1);
-            if(hexes[0]) hexes[0].classList.add('active');
+            // Initialize with center category
+            if(centerHex){
+                centerHex.classList.add('active');
+                setQuickView(1);
+            }
         });
-
-        window.onclick = function(e){
-            if(e.target === document.getElementById('aboutModal')) closeModal();
-        }
     </script>
 </head>
 <body>
@@ -538,7 +398,6 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#experience">Expertise</a></li>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#ecosystem">Ecosystem</a></li>
                 <li><a href="#metrics">Metrics</a></li>
                 <li><a href="#recognition">Awards</a></li>
@@ -617,10 +476,7 @@
         </div>
     </section>
 
-    <!-- 3. IMPACT STORIES / PROJECTS -->
-    <!-- (Use your existing Projects section here, unchanged) -->
-
-    <!-- 4. THE ENABLEMENT ECOSYSTEM HONEYCOMB -->
+    <!-- 3. THE ENABLEMENT ECOSYSTEM HONEYCOMB -->
     <section id="ecosystem">
         <h2 class="section-title">The Enablement Ecosystem</h2>
         <div class="section-divider"></div>
@@ -630,35 +486,34 @@
 
         <div class="ecosystem-layout">
             <div class="honeycomb">
-                <!-- Arrange in a cluster / honeycomb style -->
-                <div class="honeycomb-hex" data-hex="1">
-                    <div class="honeycomb-hex-inner">
-                        <div class="honeycomb-hex-icon">📐</div>
-                        <div class="honeycomb-hex-title">Architecture &amp;<br>Program Design</div>
-                    </div>
-                </div>
                 <div class="honeycomb-hex" data-hex="2">
                     <div class="honeycomb-hex-inner">
                         <div class="honeycomb-hex-icon">🎮</div>
-                        <div class="honeycomb-hex-title">Interactive Media</div>
+                        <div class="honeycomb-hex-title">Interactive Media &amp;<br>Technical Innovation</div>
                     </div>
                 </div>
                 <div class="honeycomb-hex" data-hex="3">
                     <div class="honeycomb-hex-inner">
                         <div class="honeycomb-hex-icon">⚡</div>
-                        <div class="honeycomb-hex-title">Performance Support</div>
+                        <div class="honeycomb-hex-title">Performance Support &amp;<br>Just-in-Time Assets</div>
+                    </div>
+                </div>
+                <div class="honeycomb-hex" data-hex="1">
+                    <div class="honeycomb-hex-inner">
+                        <div class="honeycomb-hex-icon">📐</div>
+                        <div class="honeycomb-hex-title">Strategic Architecture &amp;<br>Program Design</div>
                     </div>
                 </div>
                 <div class="honeycomb-hex" data-hex="4">
                     <div class="honeycomb-hex-inner">
                         <div class="honeycomb-hex-icon">📣</div>
-                        <div class="honeycomb-hex-title">Comms &amp; Adoption</div>
+                        <div class="honeycomb-hex-title">Strategic Comms &amp;<br>Adoption Campaigns</div>
                     </div>
                 </div>
                 <div class="honeycomb-hex" data-hex="5">
                     <div class="honeycomb-hex-inner">
                         <div class="honeycomb-hex-icon">📊</div>
-                        <div class="honeycomb-hex-title">Insights &amp; Data</div>
+                        <div class="honeycomb-hex-title">Learning Insights &amp;<br>Data Strategy</div>
                     </div>
                 </div>
             </div>
@@ -671,10 +526,19 @@
         </div>
     </section>
 
-    <!-- 5. IMPACT METRICS, 6. AWARDS, 7. FEEDBACK, 8. ABOUT, 9. CONNECT -->
-    <!-- Keep your existing sections here unchanged from the previous full file -->
+    <!-- 4. METRICS (keep your previous content if needed) -->
+    <section id="metrics">
+        <h2 class="section-title">Impact Metrics</h2>
+        <div class="section-divider"></div>
+        <div class="metrics-grid">
+            <div class="metric-card"><div class="metric-number">400+</div><div class="metric-label">New Workmates Onboarded (6 months)</div></div>
+            <div class="metric-card"><div class="metric-number">4.89/5</div><div class="metric-label">Average Satisfaction Score (CX Lift Off)</div></div>
+            <div class="metric-card"><div class="metric-number">829+</div><div class="metric-label">AI Slides GEM Views</div></div>
+            <div class="metric-card"><div class="metric-number">690+</div><div class="metric-label">Workmates Virtually Trained on Gemini GEMs &amp; Miro AI</div></div>
+        </div>
+    </section>
 
-    <!-- ABOUT MODAL -->
+    <!-- ABOUT MODAL (minimal, keep your full version if already there) -->
     <div id="aboutModal" class="modal">
         <div class="modal-content">
             <h2 id="modalTitle" style="margin-bottom:1.5rem;"></h2>
@@ -683,7 +547,7 @@
         </div>
     </div>
 
-    <!-- CONNECT (example; keep full block from your last version) -->
+    <!-- CONNECT -->
     <section id="contact">
         <h2 class="section-title">Connect</h2>
         <div class="section-divider"></div>
