@@ -29,9 +29,7 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -197,7 +195,7 @@
             line-height: 1.7;
         }
 
-        /* ===== AREAS OF EXPERTISE (PILLARS) ===== */
+        /* ===== AREAS OF EXPERTISE ===== */
         .pillars {
             display: grid;
             grid-auto-flow: column;
@@ -451,12 +449,12 @@
         }
 
         .toolkit-tab {
-            flex: 1; /* equal width */
+            flex: 1;
             text-align: center;
-            padding: 0.8rem 0.5rem 0.75rem;
+            padding: 1rem 0.5rem 0.8rem;
             cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
             color: var(--color-text-light);
             background: #111831;
             border-top-left-radius: 12px;
@@ -472,14 +470,13 @@
             margin-right: 0.3rem;
         }
 
-        .toolkit-tab span {
-            display: block;
-        }
+        .toolkit-tab span { display: block; }
 
         .toolkit-tab small {
             display: block;
-            font-size: 0.72rem;
-            opacity: 0.8;
+            font-size: 0.8rem;
+            opacity: 0.85;
+            font-weight: 500;
         }
 
         .toolkit-tab.active {
@@ -495,20 +492,15 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
             padding: 1.6rem 1.8rem;
             display: grid;
-            grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
             gap: 1.6rem;
         }
 
-        .toolkit-panel {
-            display: none;
-        }
-
-        .toolkit-panel.active {
-            display: grid;
-        }
+        .toolkit-panel { display: none; }
+        .toolkit-panel.active { display: grid; }
 
         .toolkit-text h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 0.4rem;
             color: var(--color-text);
         }
@@ -535,40 +527,23 @@
             color: var(--color-text);
         }
 
-        .toolkit-hex-wrap {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .toolkit-right {
+            display:flex;
+            align-items:center;
+            justify-content:center;
         }
 
-        .toolkit-hex {
-            width: 150px;
-            height: 130px;
-            clip-path: polygon(
-                25% 0,
-                75% 0,
-                100% 50%,
-                75% 100%,
-                25% 100%,
-                0 50%
-            );
-            background: radial-gradient(
-                    circle at top,
-                    rgba(255, 255, 255, 0.18),
-                    transparent 55%
-                ),
-                #1b263b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--color-text-light);
-            text-align: center;
-            padding: 0.75rem;
-            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .toolkit-icon-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.25);
+            background: radial-gradient(circle at top, rgba(255,255,255,0.15), transparent 60%);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size: 1.8rem;
+            color: var(--color-primary);
         }
 
         /* ===== METRICS ===== */
@@ -637,10 +612,7 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
-        .artifact-icon {
-            font-size: 2.5rem;
-        }
-
+        .artifact-icon { font-size: 2.5rem; }
         .artifact-description {
             font-size: 0.95rem;
             color: var(--color-text-light);
@@ -658,9 +630,7 @@
             flex-direction: column;
         }
 
-        .testimonial-card:hover {
-            border-color: var(--color-primary);
-        }
+        .testimonial-card:hover { border-color: var(--color-primary); }
 
         .quote-icon {
             font-size: 3rem;
@@ -704,9 +674,7 @@
             gap: 1.5rem;
         }
 
-        .testimonial-set.active {
-            display: grid;
-        }
+        .testimonial-set.active { display: grid; }
 
         .carousel-btn {
             position: absolute;
@@ -723,17 +691,9 @@
             transition: 0.3s;
         }
 
-        .carousel-btn:hover {
-            background: #fff;
-        }
-
-        .carousel-btn.prev {
-            left: 0;
-        }
-
-        .carousel-btn.next {
-            right: 0;
-        }
+        .carousel-btn:hover { background: #fff; }
+        .carousel-btn.prev { left: 0; }
+        .carousel-btn.next { right: 0; }
 
         /* ===== ABOUT ===== */
         .about-grid {
@@ -783,9 +743,7 @@
             justify-content: center;
         }
 
-        .modal.active {
-            display: flex;
-        }
+        .modal.active { display: flex; }
 
         .modal-content {
             background: var(--color-bg-light);
@@ -888,9 +846,7 @@
                 font-size: 2.5rem;
             }
 
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
 
             .projects {
                 grid-template-columns: 1fr;
@@ -908,9 +864,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .flip-card.enlarged {
-                width: 95%;
-            }
+            .flip-card.enlarged { width: 95%; }
 
             .pillars {
                 grid-auto-flow: row;
@@ -927,9 +881,7 @@
             padding-left: var(--spacing-lg);
         }
 
-        li {
-            margin-bottom: var(--spacing-sm);
-        }
+        li { margin-bottom: var(--spacing-sm); }
     </style>
     <script>
         function filterProjects(category) {
@@ -959,9 +911,7 @@
             document
                 .querySelectorAll('.flip-card')
                 .forEach(c => {
-                    if (c !== card) {
-                        c.classList.remove('enlarged', 'flipped');
-                    }
+                    if (c !== card) c.classList.remove('enlarged', 'flipped');
                 });
             const isE = card.classList.toggle('enlarged');
             card.classList.toggle('flipped', isE);
@@ -1119,7 +1069,7 @@
         </div>
     </header>
 
-    <!-- 1. HOME (NAME / DESCRIPTION) -->
+    <!-- 1. HOME -->
     <section id="home" class="hero">
         <h1>Chitra Srisankar</h1>
         <div class="section-divider"></div>
@@ -1214,7 +1164,7 @@
         </div>
     </section>
 
-    <!-- 3. PROJECTS (IMPACT STORIES) -->
+    <!-- 3. PROJECTS -->
     <section id="projects">
         <h2 class="section-title">Impact Stories</h2>
         <div class="section-divider"></div>
@@ -1232,39 +1182,280 @@
         </p>
 
         <div class="filter-buttons">
-            <button
-                class="filter-btn active"
-                onclick="filterProjects('all')"
-            >
-                All Projects
-            </button>
-            <button class="filter-btn" onclick="filterProjects('onboarding')">
-                Onboarding
-            </button>
-            <button class="filter-btn" onclick="filterProjects('ai')">
-                AI Enablement
-            </button>
-            <button class="filter-btn" onclick="filterProjects('ma')">
-                M&amp;A
-            </button>
-            <button class="filter-btn" onclick="filterProjects('program')">
-                Program
-            </button>
-            <button class="filter-btn" onclick="filterProjects('skills')">
-                Skills
-            </button>
-            <button class="filter-btn" onclick="filterProjects('process')">
-                Process
-            </button>
+            <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('onboarding')">Onboarding</button>
+            <button class="filter-btn" onclick="filterProjects('ai')">AI Enablement</button>
+            <button class="filter-btn" onclick="filterProjects('ma')">M&amp;A</button>
+            <button class="filter-btn" onclick="filterProjects('program')">Program</button>
+            <button class="filter-btn" onclick="filterProjects('skills')">Skills</button>
+            <button class="filter-btn" onclick="filterProjects('process')">Process</button>
         </div>
 
         <div class="projects">
-            <!-- PASTE ALL EXISTING FLIP-CARD PROJECTS FROM YOUR ORIGINAL FILE HERE (EVERYDAY AI, CX LIFT OFF, CONSULTING ESSENTIALS, PARADOX, CX CENTRAL, SANA, ETC.) -->
+            <!-- EverydayAI -->
+            <div class="flip-card" data-category="ai" onclick="enlargeCard(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="project-category">AI Strategy</span>
+                        <h3 class="project-title">EverydayAI for CX</h3>
+                        <p class="project-description">
+                            Embedding AI into daily workflows for CX teams.
+                        </p>
+                        <div class="impact-number">62%</div>
+                        <div class="impact-label">Usage Target • FY26</div>
+                        <p class="click-hint">Click to explore →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="project-back-content">
+                            <span class="project-category">AI Strategy</span>
+                            <h3>EverydayAI for CX</h3>
+                            <p>
+                                <strong>Challenge:</strong> Move from AI curiosity to
+                                day‑to‑day habit while aiming for a 62% adoption target
+                                in FY26.
+                            </p>
+                            <p>
+                                <strong>Solution:</strong> Designed EverydayAI
+                                experiences on CX Central, including an interactive
+                                prompt‑engineering course, custom AI GEMs, and live
+                                labs that turned real CX workflows into reusable AI
+                                templates.
+                            </p>
+                            <p>
+                                <strong>Impact:</strong> Enabled 690+ Workmates on
+                                Gemini GEMs and Miro AI, established a reusable GEM
+                                library, and made AI usage visible as an operational
+                                metric.
+                            </p>
+                            <div>
+                                <span class="project-tag">AI Adoption</span>
+                                <span class="project-tag">GEM Design</span>
+                                <span class="project-tag">Live Labs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CX Lift Off -->
+            <div class="flip-card" data-category="onboarding program" onclick="enlargeCard(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="project-category">Onboarding</span>
+                        <h3 class="project-title">CX Lift Off</h3>
+                        <p class="project-description">
+                            First global onboarding for CX with zero starting content.
+                        </p>
+                        <div class="impact-number">4.89/5</div>
+                        <div class="impact-label">Satisfaction • 400+ in 6 Months</div>
+                        <p class="click-hint">Click to explore →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="project-back-content">
+                            <span class="project-category">Onboarding</span>
+                            <h3>CX Lift Off: Enterprise CX Onboarding</h3>
+                            <p>
+                                <strong>Challenge:</strong> Design and launch the first
+                                enterprise onboarding for CX employees globally with
+                                zero existing curriculum.
+                            </p>
+                            <p>
+                                <strong>Solution:</strong> Architected a two‑day
+                                immersive experience, built content from the ground up
+                                (modules, activities, facilitator guides, comms) in six
+                                weeks, and anchored everything in real CX use cases.
+                            </p>
+                            <p>
+                                <strong>Impact:</strong> 4.89/5 satisfaction, 4.71/5
+                                confidence lift, and scale to 400+ Workmates in six
+                                months; cited by leadership as the best onboarding of a
+                                20‑year career.
+                            </p>
+                            <div>
+                                <span class="project-tag">Global Onboarding</span>
+                                <span class="project-tag">Greenfield Build</span>
+                                <span class="project-tag">Six‑Week Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consulting Essentials -->
+            <div class="flip-card" data-category="onboarding program process" onclick="enlargeCard(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="project-category">Onboarding</span>
+                        <h3 class="project-title">Consulting Essentials</h3>
+                        <p class="project-description">
+                            Workday‑specific onboarding for consultants.
+                        </p>
+                        <div class="impact-number">33%</div>
+                        <div class="impact-label">Program Duration Reduction</div>
+                        <p class="click-hint">Click to explore →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="project-back-content">
+                            <span class="project-category">Onboarding</span>
+                            <h3>Consulting Essentials Enablement</h3>
+                            <p>
+                                <strong>Challenge:</strong> Replace a generic,
+                                vendor‑led onboarding with a program aligned to
+                                Workday’s consulting reality.
+                            </p>
+                            <p>
+                                <strong>Solution:</strong> Designed a Workday‑specific
+                                curriculum with scenario‑based practice drawn from
+                                actual projects and aligned to internal processes and
+                                roles.
+                            </p>
+                            <p>
+                                <strong>Impact:</strong> Reduced program length by 33%,
+                                avoided vendor spend, and increased relevance and
+                                satisfaction for new consultants.
+                            </p>
+                            <div>
+                                <span class="project-tag">Scenario Design</span>
+                                <span class="project-tag">Cost Avoidance</span>
+                                <span class="project-tag">Role‑Specific</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paradox M&A -->
+            <div class="flip-card" data-category="ai ma" onclick="enlargeCard(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="project-category">M&amp;A</span>
+                        <h3 class="project-title">Paradox M&amp;A Enablement</h3>
+                        <p class="project-description">
+                            Multi‑release readiness for new AI capabilities.
+                        </p>
+                        <div class="impact-number">207%</div>
+                        <div class="impact-label">Readiness Increase</div>
+                        <p class="click-hint">Click to explore →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="project-back-content">
+                            <span class="project-category">M&amp;A</span>
+                            <h3>Paradox &amp; HiredScore Integration</h3>
+                            <p>
+                                <strong>Challenge:</strong> Enable CX quickly on new
+                                Paradox and HiredScore capabilities with limited
+                                existing training materials.
+                            </p>
+                            <p>
+                                <strong>Solution:</strong> Built a multi‑release
+                                enablement plan that combined overview enablement,
+                                office hours, and performance support assets aligned to
+                                the go‑to‑market rhythm.
+                            </p>
+                            <p>
+                                <strong>Impact:</strong> 207% readiness lift and
+                                4.95/5 satisfaction, with critical assets delivered in
+                                under 48 hours for key releases.
+                            </p>
+                            <div>
+                                <span class="project-tag">M&amp;A Readiness</span>
+                                <span class="project-tag">Rapid Execution</span>
+                                <span class="project-tag">AI Capabilities</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CX Central Launch -->
+            <div class="flip-card" data-category="program process ai" onclick="enlargeCard(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="project-category">Platform Adoption</span>
+                        <h3 class="project-title">CX Central Launch Campaign</h3>
+                        <p class="project-description">
+                            Gamified launch of a new enablement hub.
+                        </p>
+                        <div class="impact-number">664%</div>
+                        <div class="impact-label">View Increase</div>
+                        <p class="click-hint">Click to explore →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="project-back-content">
+                            <span class="project-category">Platform Adoption</span>
+                            <h3>CX Central Launch (Project Trident)</h3>
+                            <p>
+                                <strong>Challenge:</strong> Drive adoption of a
+                                reorganized CX Central hub across 4,500+ CX employees
+                                amid competing initiatives.
+                            </p>
+                            <p>
+                                <strong>Solution:</strong> Led Project Trident, a
+                                multi‑channel campaign with an explainer video, a
+                                Sana‑based “Amazing Race” experience, and a social
+                                tagging challenge to spotlight content.
+                            </p>
+                            <p>
+                                <strong>Impact:</strong> 664% view increase, 95% new
+                                viewers, 252% viewer growth, 4.8/5 satisfaction, and
+                                Challenge Coin recognition for impact.
+                            </p>
+                            <div>
+                                <span class="project-tag">Gamification</span>
+                                <span class="project-tag">Multi‑Channel Comms</span>
+                                <span class="project-tag">Sana</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sana Labs -->
+            <div class="flip-card" data-category="ma skills" onclick="enlargeCard(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="project-category">M&amp;A</span>
+                        <h3 class="project-title">Sana Labs M&amp;A Enablement</h3>
+                        <p class="project-description">
+                            Microlearning to support phased rollout.
+                        </p>
+                        <div class="impact-number">85%</div>
+                        <div class="impact-label">Readiness Increase</div>
+                        <p class="click-hint">Click to explore →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="project-back-content">
+                            <span class="project-category">M&amp;A</span>
+                            <h3>Sana Labs Integration</h3>
+                            <p>
+                                <strong>Challenge:</strong> Support a multi‑release
+                                Sana Labs integration without overloading the field.
+                            </p>
+                            <p>
+                                <strong>Solution:</strong> Created microlearning
+                                assets including “Sana Learn Snapshots” and 24‑hour
+                                at‑a‑glance overviews that fit into existing rhythms.
+                            </p>
+                            <p>
+                                <strong>Impact:</strong> 85% readiness lift within
+                                weeks and strong stakeholder feedback on clarity and
+                                pacing.
+                            </p>
+                            <div>
+                                <span class="project-tag">Microlearning</span>
+                                <span class="project-tag">Change Navigation</span>
+                                <span class="project-tag">Field‑Friendly</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="flip-overlay" onclick="closeEnlarged()"></div>
     </section>
 
-    <!-- 4. ENABLEMENT TOOLKIT (HORIZONTAL TABS) -->
+    <!-- 4. ENABLEMENT TOOLKIT -->
     <section id="toolkit">
         <h2 class="section-title">Enablement Toolkit</h2>
         <div class="section-divider"></div>
@@ -1298,36 +1489,18 @@
                 <div class="toolkit-text">
                     <h3>Strategic Architecture &amp; Program Design</h3>
                     <p>
-                        Structured curricula that align learning with functional
-                        business goals and high‑stakes milestones.
+                        Structured curricula that align learning with functional business
+                        goals and high‑stakes milestones.
                     </p>
                     <ul class="toolkit-list">
-                        <li>
-                            <strong>Immersive In‑Person Programs</strong>: End‑to‑end
-                            architecture for multi‑day, high‑impact sessions (e.g.,
-                            Consulting Essentials 2‑day onboarding).
-                        </li>
-                        <li>
-                            <strong>Multi‑Module Digital Courses</strong>: Scalable,
-                            self‑paced learning curricula designed to build specific
-                            functional competencies.
-                        </li>
-                        <li>
-                            <strong>Strategic Learning Paths</strong>: Logic‑based
-                            sequencing of courses that guide learners through complex
-                            product launches or M&amp;A integrations.
-                        </li>
-                        <li>
-                            <strong>Curriculum Blueprints</strong>: Structural design
-                            for blended experiences combining live sessions, labs, and
-                            digital follow‑ups.
-                        </li>
+                        <li><strong>Immersive In‑Person Programs</strong>: End‑to‑end architecture for multi‑day, high‑impact sessions (e.g., Consulting Essentials 2‑day onboarding).</li>
+                        <li><strong>Multi‑Module Digital Courses</strong>: Scalable, self‑paced curricula designed to build specific functional competencies.</li>
+                        <li><strong>Strategic Learning Paths</strong>: Logic‑based sequencing of courses for launches and M&amp;A integrations.</li>
+                        <li><strong>Curriculum Blueprints</strong>: Blended frameworks that combine live sessions, labs, and digital follow‑ups.</li>
                     </ul>
                 </div>
-                <div class="toolkit-hex-wrap">
-                    <div class="toolkit-hex">
-                        Strategy<br />Design
-                    </div>
+                <div class="toolkit-right">
+                    <div class="toolkit-icon-circle">S1</div>
                 </div>
             </div>
 
@@ -1336,36 +1509,18 @@
                 <div class="toolkit-text">
                     <h3>Interactive Media &amp; Technical Innovation</h3>
                     <p>
-                        Custom‑built interactions and media that make critical content
-                        feel dynamic, memorable, and modern.
+                        Custom‑built code and media that make critical enablement feel
+                        dynamic, modern, and memorable.
                     </p>
                     <ul class="toolkit-list">
-                        <li>
-                            <strong>Vibe‑Coded Training Assets</strong>: Custom
-                            interactive components used in VILT and ILT sessions like
-                            CX Lift Off.
-                        </li>
-                        <li>
-                            <strong>Gamified Learning Experiences</strong>:
-                            Story‑driven, challenge‑based paths that unlock content as
-                            teams progress.
-                        </li>
-                        <li>
-                            <strong>Simulated Practice Environments</strong>:
-                            Tool‑based simulations and role‑play scenarios for safe,
-                            realistic skill application.
-                        </li>
-                        <li>
-                            <strong>Embedded Learning Validation</strong>: Knowledge
-                            checks and assessments woven directly into the learning
-                            flow.
-                        </li>
+                        <li><strong>Vibe‑Coded Training Assets</strong>: Interactive components for VILT/ILT experiences like CX Lift Off.</li>
+                        <li><strong>Gamified Experiences</strong>: Story‑driven paths (e.g., “Amazing Race”) that unlock content as teams progress.</li>
+                        <li><strong>Simulated Practice Environments</strong>: Tool‑based simulations and role‑plays for safe, realistic skill application.</li>
+                        <li><strong>Embedded Validation</strong>: Knowledge checks and assessments built directly into the learning journey.</li>
                     </ul>
                 </div>
-                <div class="toolkit-hex-wrap">
-                    <div class="toolkit-hex">
-                        Media<br />Labs
-                    </div>
+                <div class="toolkit-right">
+                    <div class="toolkit-icon-circle">S2</div>
                 </div>
             </div>
 
@@ -1374,34 +1529,18 @@
                 <div class="toolkit-text">
                     <h3>Performance Support &amp; Just‑in‑Time Assets</h3>
                     <p>
-                        High‑impact resources designed for the exact moment of need,
-                        not just the moment of training.
+                        High‑impact resources built for the moment of need, not just the
+                        moment of training.
                     </p>
                     <ul class="toolkit-list">
-                        <li>
-                            <strong>Technical Video Tutorials</strong>: Step‑by‑step
-                            “how‑to” walkthroughs for internal enterprise platforms.
-                        </li>
-                        <li>
-                            <strong>Performance Support Assets</strong>: At‑a‑glance
-                            guides, quick cards, and one‑pagers built for fast
-                            problem‑solving.
-                        </li>
-                        <li>
-                            <strong>Digital Job Aids</strong>: Standardized playbooks
-                            and procedural templates embedded in daily workflows.
-                        </li>
-                        <li>
-                            <strong>Rapid Enablement Kits</strong>: Just‑in‑time
-                            materials delivered under compressed timelines for M&amp;A
-                            and product launches.
-                        </li>
+                        <li><strong>Technical Video Tutorials</strong>: Step‑by‑step walkthroughs for internal tools, optimized for quick reference.</li>
+                        <li><strong>Performance Support Assets</strong>: At‑a‑glance guides, quick cards, and one‑pagers for fast problem‑solving.</li>
+                        <li><strong>Digital Job Aids</strong>: Standardized playbooks and templates embedded into daily workflows.</li>
+                        <li><strong>Rapid Enablement Kits</strong>: Just‑in‑time materials delivered under compressed timelines for launches and M&amp;A.</li>
                     </ul>
                 </div>
-                <div class="toolkit-hex-wrap">
-                    <div class="toolkit-hex">
-                        In‑Flow<br />Support
-                    </div>
+                <div class="toolkit-right">
+                    <div class="toolkit-icon-circle">S3</div>
                 </div>
             </div>
 
@@ -1414,30 +1553,14 @@
                         and easy to act on.
                     </p>
                     <ul class="toolkit-list">
-                        <li>
-                            <strong>Explainer Videos</strong>: High‑impact motion
-                            graphics simplifying complex organizational changes or new
-                            tool rollouts.
-                        </li>
-                        <li>
-                            <strong>Enablement Newsletters</strong>: Curated updates
-                            highlighting new programs, success patterns, and team wins.
-                        </li>
-                        <li>
-                            <strong>Multi‑Channel Engagement</strong>: Slack banners,
-                            intranet placements, and campaigns that keep initiatives
-                            top‑of‑mind.
-                        </li>
-                        <li>
-                            <strong>Adoption Tracking</strong>: Monitoring reach and
-                            sentiment so campaigns can be tuned in real‑time.
-                        </li>
+                        <li><strong>Explainer Videos</strong>: Motion graphics that simplify complex changes and tool rollouts.</li>
+                        <li><strong>Enablement Newsletters</strong>: Curated updates highlighting launches, success patterns, and wins.</li>
+                        <li><strong>Multi‑Channel Engagement</strong>: Slack banners, intranet features, and campaigns that keep initiatives top‑of‑mind.</li>
+                        <li><strong>Adoption Tracking</strong>: Monitoring reach and sentiment so campaigns can be tuned in real time.</li>
                     </ul>
                 </div>
-                <div class="toolkit-hex-wrap">
-                    <div class="toolkit-hex">
-                        Comms<br />Engine
-                    </div>
+                <div class="toolkit-right">
+                    <div class="toolkit-icon-circle">S4</div>
                 </div>
             </div>
 
@@ -1446,35 +1569,18 @@
                 <div class="toolkit-text">
                     <h3>Learning Insights &amp; Data Strategy</h3>
                     <p>
-                        Data‑driven reporting that connects learning activity to
-                        readiness, proficiency, and leadership decisions.
+                        Data‑driven views that connect enablement activity to readiness,
+                        proficiency, and business decisions.
                     </p>
                     <ul class="toolkit-list">
-                        <li>
-                            <strong>Real‑Time Readiness Insights</strong>: Using
-                            platform widgets to visualize completion, engagement, and
-                            risk areas.
-                        </li>
-                        <li>
-                            <strong>Learning Impact Evaluation</strong>: CSAT and
-                            pre/post‑confidence measurements to prove and improve
-                            program value.
-                        </li>
-                        <li>
-                            <strong>Proficiency Benchmarking</strong>: KPIs like
-                            time‑to‑proficiency to track ramp for new hires.
-                        </li>
-                        <li>
-                            <strong>Enablement Labs &amp; Reporting</strong>:
-                            Facilitated labs plus executive‑ready views of program
-                            reach and readiness.
-                        </li>
+                        <li><strong>Real‑Time Readiness Insights</strong>: Platform views (e.g., Sana widgets) that show completion and engagement.</li>
+                        <li><strong>Impact Evaluation</strong>: CSAT plus pre/post‑confidence data to prove and improve program value.</li>
+                        <li><strong>Proficiency Benchmarking</strong>: KPIs such as time‑to‑proficiency for new hire ramp.</li>
+                        <li><strong>Enablement Labs &amp; Reporting</strong>: Hands‑on labs and executive‑ready dashboards for high‑stakes milestones.</li>
                     </ul>
                 </div>
-                <div class="toolkit-hex-wrap">
-                    <div class="toolkit-hex">
-                        Insight<br />Layer
-                    </div>
+                <div class="toolkit-right">
+                    <div class="toolkit-icon-circle">S5</div>
                 </div>
             </div>
         </div>
@@ -1485,7 +1591,34 @@
         <h2 class="section-title">Impact Metrics</h2>
         <div class="section-divider"></div>
         <div class="metrics-grid">
-            <!-- paste your existing metric cards here -->
+            <div class="metric-card">
+                <div class="metric-number">400+</div>
+                <div class="metric-label">New Workmates Onboarded (6 months)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">4.89/5</div>
+                <div class="metric-label">Average Satisfaction (CX Lift Off)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">829+</div>
+                <div class="metric-label">AI Slides GEM Views</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">690+</div>
+                <div class="metric-label">Workmates Trained on Gemini &amp; Miro AI</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">664%</div>
+                <div class="metric-label">CX Central View Increase</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">207%</div>
+                <div class="metric-label">Paradox Readiness Lift</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">85%</div>
+                <div class="metric-label">Sana Readiness Lift</div>
+            </div>
         </div>
     </section>
 
@@ -1494,7 +1627,27 @@
         <h2 class="section-title">Awards &amp; Recognition</h2>
         <div class="section-divider"></div>
         <div class="awards-grid">
-            <!-- paste your existing awards artifact-card elements here -->
+            <div class="artifact-card">
+                <div class="artifact-icon">🏅</div>
+                <h4>CX Challenge Coin</h4>
+                <p class="artifact-description">
+                    Recognized by CX leadership for designing and delivering the CX Central launch campaign that dramatically increased engagement and visibility.
+                </p>
+            </div>
+            <div class="artifact-card">
+                <div class="artifact-icon">🏆</div>
+                <h4>Manager Spotlight</h4>
+                <p class="artifact-description">
+                    Highlighted for building greenfield programs under compressed timelines while maintaining high satisfaction and clear stakeholder communication.
+                </p>
+            </div>
+            <div class="artifact-card">
+                <div class="artifact-icon">🌟</div>
+                <h4>Peer &amp; Partner Recognition</h4>
+                <p class="artifact-description">
+                    Consistent feedback from cross‑functional partners citing clarity, reliability, and learner‑first design as key strengths.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -1503,15 +1656,108 @@
         <h2 class="section-title">Feedback</h2>
         <div class="section-divider"></div>
         <div class="carousel-container">
-            <button class="carousel-btn prev" onclick="moveCarousel(-1)">
-                ‹
-            </button>
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
             <div class="testimonials-carousel">
-                <!-- paste your existing testimonial-set blocks (3 sets) here -->
+                <div class="testimonial-set active">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="testimonial-text">
+                            Chitra built CX Lift Off from a blank slate and turned it into the best onboarding of my 20‑year career. The program is thoughtful, practical, and extremely high quality.
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>CX Leader</strong><br />
+                            Global CX organization
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="testimonial-text">
+                            She anticipates what leaders and learners will need before we say it out loud. Her ability to simplify complexity and ship under pressure is unmatched.
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Senior Director</strong><br />
+                            Consulting &amp; Enablement
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="testimonial-text">
+                            Chitra is the rare partner who can operate at both strategy and execution levels. She listens deeply, brings strong point‑of‑view, and delivers assets our teams actually use.
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Product &amp; Ops Partner</strong><br />
+                            Enterprise Technology
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-set">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="testimonial-text">
+                            EverydayAI felt less like a training and more like someone wiring AI directly into how we already work. Colleagues are still referencing her examples months later.
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>CX Manager</strong><br />
+                            EverydayAI participant
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="testimonial-text">
+                            The Paradox readiness work was a masterclass in rapid enablement. We were prepared at every milestone, with clear communications and just‑enough training.
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Program Leader</strong><br />
+                            M&amp;A Integration
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="testimonial-text">
+                            Her facilitation creates psychological safety for questions while still moving the session forward. People walk away energized and confident.
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Workshop Participant</strong><br />
+                            CX Lift Off cohort
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-set">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="testimonial-text">
+                            Chitra’s materials consistently set the bar for what ‘great’ looks like in our org—clear, on‑brand, and grounded in real‑world scenarios.
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Design Partner</strong><br />
+                            Internal Collaborator
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="testimonial-text">
+                            She is a multiplier. When she’s involved, our programs land better, scale faster, and are easier to sustain.
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>People Leader</strong><br />
+                            CX &amp; Consulting
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <div class="testimonial-text">
+                            Thoughtful, calm under pressure, and always focused on the learner. I trust her judgment on how and when we introduce new capabilities.
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Stakeholder</strong><br />
+                            Platform Owner
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="carousel-btn next" onclick="moveCarousel(1)">
-                ›
-            </button>
+            <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
         </div>
     </section>
 
@@ -1535,7 +1781,26 @@
                 stakeholder trust, and learner‑first design.
             </p>
             <div class="about-grid">
-                <!-- paste your about cards for Education, Certifications, Tools, Interests, Volunteering -->
+                <div class="about-card" onclick="openAboutModal('education')">
+                    <div class="about-card-icon">🎓</div>
+                    <h3>Education</h3>
+                </div>
+                <div class="about-card" onclick="openAboutModal('certifications')">
+                    <div class="about-card-icon">📜</div>
+                    <h3>Certifications</h3>
+                </div>
+                <div class="about-card" onclick="openAboutModal('tools')">
+                    <div class="about-card-icon">🛠️</div>
+                    <h3>Tools &amp; Platforms</h3>
+                </div>
+                <div class="about-card" onclick="openAboutModal('interests')">
+                    <div class="about-card-icon">💡</div>
+                    <h3>Interests</h3>
+                </div>
+                <div class="about-card" onclick="openAboutModal('volunteering')">
+                    <div class="about-card-icon">🤝</div>
+                    <h3>Volunteering</h3>
+                </div>
             </div>
         </div>
     </section>
