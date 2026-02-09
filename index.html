@@ -22,180 +22,81 @@
             --spacing-xxl: 4rem;
             --header-height: 56px;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--color-text);
-            background: #0A0E27;
-            font-size: 18px;
-            overflow-x: hidden;
+            line-height: 1.6; color: var(--color-text);
+            background: #0A0E27; font-size: 18px; overflow-x: hidden;
         }
 
         /* ===== HEADER ===== */
         header {
-            background: rgba(10, 14, 39, 0.92);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            height: var(--header-height);
+            background: rgba(10,14,39,0.92);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            position: fixed; top: 0; left: 0; width: 100%;
+            z-index: 1000; height: var(--header-height);
         }
-
         header .header-inner {
-            width: 100%;
-            padding: 0 2.5rem;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            width: 100%; padding: 0 2.5rem; height: 100%;
+            display: flex; align-items: center; justify-content: space-between;
         }
-
         .logo {
-            font-size: 1.05rem;
-            font-weight: 500;
-            letter-spacing: 0.14em;
-            color: var(--color-text-light);
-            text-transform: uppercase;
+            font-size: 1.05rem; font-weight: 500; letter-spacing: 0.14em;
+            color: var(--color-text-light); text-transform: uppercase;
             white-space: nowrap;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 0;
-            list-style: none;
-            align-items: center;
-        }
-
+        .nav-links { display: flex; gap: 0; list-style: none; align-items: center; }
         .nav-links a {
-            text-decoration: none;
-            color: var(--color-text-light);
-            font-size: 0.72rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            padding: 0.5rem 0.9rem;
-            border-radius: 50px;
-            transition: color 0.25s, background 0.25s;
-            white-space: nowrap;
+            text-decoration: none; color: var(--color-text-light);
+            font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.12em; padding: 0.5rem 0.9rem;
+            border-radius: 50px; transition: color 0.25s, background 0.25s; white-space: nowrap;
         }
-
-        .nav-links a:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.06);
-        }
+        .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
 
         /* ===== FULL-WIDTH SECTIONS ===== */
-        section {
-            padding: var(--spacing-xxl) 3.5rem;
-            scroll-margin-top: var(--header-height);
-        }
-
-        section:nth-child(even) {
-            background: rgba(19, 24, 54, 0.25);
-        }
-
+        section { padding: var(--spacing-xxl) 3.5rem; scroll-margin-top: var(--header-height); }
+        section:nth-child(even) { background: rgba(19,24,54,0.25); }
         .section-title {
-            font-size: 2.4rem;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-size: 2.4rem; text-align: center;
+            font-weight: 700; letter-spacing: -0.02em;
         }
-
         .section-divider {
             width: 60%;
             max-width: 260px;
             height: 1px;
             margin: 0.75rem auto var(--spacing-lg);
-            background: linear-gradient(
-                to right,
-                transparent,
-                rgba(255, 255, 255, 0.3),
-                transparent
-            );
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
         }
 
         /* ===== HERO ===== */
         .hero {
-            padding: calc(var(--header-height) + var(--spacing-xxl)) 3.5rem
-                var(--spacing-xxl);
+            padding: calc(var(--header-height) + var(--spacing-xxl)) 3.5rem var(--spacing-xxl);
             text-align: center;
-            background: radial-gradient(
-                        circle at top right,
-                        rgba(32, 201, 151, 0.08),
-                        transparent 40%
-                    ),
-                    radial-gradient(
-                        circle at top left,
-                        rgba(179, 136, 255, 0.08),
-                        transparent 40%
-                    );
+            background: radial-gradient(circle at top right, rgba(32,201,151,0.08), transparent 40%),
+                        radial-gradient(circle at top left, rgba(179,136,255,0.08), transparent 40%);
         }
-
         .hero h1 {
-            font-size: 3.8rem;
-            line-height: 1.1;
-            margin-bottom: var(--spacing-md);
-            font-weight: 800;
-            background: linear-gradient(
-                to bottom,
-                #fff 40%,
-                rgba(255, 255, 255, 0.7)
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.03em;
+            font-size: 3.8rem; line-height: 1.1; margin-bottom: var(--spacing-md); font-weight: 800;
+            background: linear-gradient(to bottom, #fff 40%, rgba(255,255,255,0.7));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.03em;
         }
-
-        .hero-badges {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: var(--spacing-xl);
-        }
-
+        .hero-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: var(--spacing-xl); }
         .hero-badge {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1.1rem;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--color-text-light);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: 0.3s;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.5rem 1.1rem; border-radius: 100px; font-size: 0.85rem;
+            font-weight: 600; color: var(--color-text-light);
+            display: flex; align-items: center; gap: 0.5rem; transition: 0.3s;
         }
-
-        .hero-badge:hover {
-            border-color: var(--color-primary);
-            color: var(--color-primary);
-            background: rgba(32, 201, 151, 0.05);
-        }
-
+        .hero-badge:hover { border-color: var(--color-primary); color: var(--color-primary); background: rgba(32,201,151,0.05); }
         .hero .tagline {
-            font-size: 1.05rem;
-            max-width: 880px;
-            margin: 0 auto;
-            color: var(--color-text-light);
-            line-height: 1.7;
+            font-size: 1.05rem; max-width: 880px; margin: 0 auto;
+            color: var(--color-text-light); line-height: 1.7;
         }
 
-        /* ===== AREAS OF EXPERTISE ===== */
+        /* ===== EXPERTISE PILLARS ===== */
         .pillars {
             display: grid;
             grid-auto-flow: column;
@@ -204,9 +105,8 @@
             margin-top: var(--spacing-xl);
             overflow-x: auto;
         }
-
         .pillar-card {
-            background: rgba(27, 38, 59, 0.4);
+            background: rgba(27,38,59,0.4);
             padding: var(--spacing-md);
             border-radius: 24px;
             border: 1px solid var(--color-border);
@@ -215,19 +115,16 @@
             display: flex;
             flex-direction: column;
         }
-
         .pillar-title {
-            min-height: 4.5rem;
+            min-height: 4.5rem; /* ensures all descriptions start at same height */
             display: flex;
             align-items: flex-end;
         }
-
         .pillar-title h3 {
             font-size: 1.35rem;
             margin: 0;
             color: var(--color-primary);
         }
-
         .pillar-card p {
             font-size: 0.98rem;
             color: var(--color-text-light);
@@ -235,393 +132,68 @@
             margin-top: 0.75rem;
         }
 
-        /* ===== IMPACT STORIES (PROJECTS) ===== */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(300px, 1fr)
-            );
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-xl);
+        /* ===== IMPACT STORIES FLIP CARDS ===== */
+        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
+        @media (min-width:1024px){ .projects { grid-template-columns: repeat(3,1fr); } }
+        .flip-card { height: 400px; perspective: 1000px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back {
+            position: absolute; width: 100%; height: 100%;
+            backface-visibility: hidden; border-radius: 24px;
+            padding: 2rem; border: 1px solid var(--color-border); overflow: hidden;
         }
-
-        @media (min-width: 1024px) {
-            .projects {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .flip-card {
-            height: 400px;
-            perspective: 1000px;
-            cursor: pointer;
-        }
-
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-
-        .flip-card.flipped .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flip-card-front,
-        .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 24px;
-            padding: 2rem;
-            border: 1px solid var(--color-border);
-            overflow: hidden;
-        }
-
         .flip-card-front {
-            background: rgba(27, 38, 59, 0.8);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            background: rgba(27,38,59,0.8);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
+        .flip-card-back { background: var(--color-bg-light); transform: rotateY(180deg); overflow-y: auto; }
+        .project-category { display: inline-block; background: rgba(32,201,151,0.12); color: var(--color-primary); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; }
+        .impact-number { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin: 0.4rem 0; }
+        .impact-label { font-size: 0.88rem; color: var(--color-accent); font-weight: 600; margin-bottom: 0.4rem; }
+        .project-title { font-size: 1.25rem; margin-bottom: 0.3rem; font-weight: 600; line-height: 1.3; }
+        .project-description { font-size: 0.92rem; color: var(--color-text-light); line-height: 1.4; }
+        .click-hint { font-size: 0.82rem; opacity: 0.65; margin-top: 0.5rem; }
+        .project-back-content { width: 100%; }
+        .project-back-content h3 { font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem; font-weight: 600; }
+        .project-back-content p { font-size: 1rem; line-height: 1.7; margin-bottom: 0.8rem; }
+        .project-tag { display: inline-block; background: rgba(255,193,7,0.15); color: var(--color-accent); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.82rem; margin-right: 0.5rem; margin-top: 0.5rem; }
+        .filter-buttons { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+        .filter-btn { background: transparent; border: 1px solid var(--color-primary); color: var(--color-text); padding: 0.55rem 1.4rem; border-radius: 50px; cursor: pointer; transition: 0.3s; font-weight: 600; font-size: 0.92rem; }
+        .filter-btn.active, .filter-btn:hover { background: var(--color-primary); color: #000; }
+        .flip-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1500; }
+        .flip-card.enlarged { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) !important; width: 80%; max-width: 800px; height: auto; min-height: 500px; max-height: 80vh; z-index: 1600; cursor: default; }
+        .flip-card.enlarged .flip-card-inner { min-height: 500px; height: auto; }
+        .flip-card.enlarged .flip-card-back { min-height: 500px; position: relative; }
+        .flip-card.enlarged .flip-card-front { min-height: 500px; }
 
-        .flip-card-back {
-            background: var(--color-bg-light);
-            transform: rotateY(180deg);
-            overflow-y: auto;
+        /* ===== PORTFOLIO ARTIFACTS ===== */
+        .artifacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.5rem; margin-top: var(--spacing-lg); }
+        .artifact-card {
+            background: rgba(255,255,255,0.03); border-radius: 20px; padding: 2rem;
+            border: 1px solid var(--color-border); transition: 0.3s;
+            display: flex; flex-direction: column; gap: 0.75rem; text-align: center;
         }
-
-        .project-category {
-            display: inline-block;
-            background: rgba(32, 201, 151, 0.12);
-            color: var(--color-primary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-        }
-
-        .impact-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--color-primary);
-            margin: 0.4rem 0;
-        }
-
-        .impact-label {
-            font-size: 0.88rem;
-            color: var(--color-accent);
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.3rem;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        .project-description {
-            font-size: 0.92rem;
-            color: var(--color-text-light);
-            line-height: 1.4;
-        }
-
-        .click-hint {
-            font-size: 0.82rem;
-            opacity: 0.65;
-            margin-top: 0.5rem;
-        }
-
-        .project-back-content {
-            width: 100%;
-        }
-
-        .project-back-content h3 {
-            font-size: 1.5rem;
-            color: var(--color-primary);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .project-back-content p {
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 0.8rem;
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: rgba(255, 193, 7, 0.15);
-            color: var(--color-accent);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.82rem;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid var(--color-primary);
-            color: var(--color-text);
-            padding: 0.55rem 1.4rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: 600;
-            font-size: 0.92rem;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--color-primary);
-            color: #000;
-        }
-
-        .flip-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1500;
-        }
-
-        .flip-card.enlarged {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) !important;
-            width: 80%;
-            max-width: 800px;
-            height: auto;
-            min-height: 500px;
-            max-height: 80vh;
-            z-index: 1600;
-            cursor: default;
-        }
-
-        .flip-card.enlarged .flip-card-inner {
-            min-height: 500px;
-            height: auto;
-        }
-
-        .flip-card.enlarged .flip-card-back {
-            min-height: 500px;
-            position: relative;
-        }
-
-        .flip-card.enlarged .flip-card-front {
-            min-height: 500px;
-        }
-
-        /* ===== ENABLEMENT TOOLKIT – HORIZONTAL TABS ===== */
-        .toolkit-wrapper {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .toolkit-tabs {
-            display: flex;
-            width: 100%;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-            margin-bottom: 1rem;
-        }
-
-        .toolkit-tab {
-            flex: 1;
-            text-align: center;
-            padding: 1rem 0.5rem 0.8rem;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--color-text-light);
-            background: #111831;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-            border: 1px solid transparent;
-            border-bottom: none;
-            position: relative;
-            transition: background 0.25s, color 0.25s, transform 0.2s,
-                border-color 0.25s;
-        }
-
-        .toolkit-tab:not(:last-child) {
-            margin-right: 0.3rem;
-        }
-
-        .toolkit-tab span { display: block; }
-
-        .toolkit-tab small {
-            display: block;
-            font-size: 0.8rem;
-            opacity: 0.85;
-            font-weight: 500;
-        }
-
-        .toolkit-tab.active {
-            background: var(--color-bg-light);
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.25);
-            transform: translateY(1px);
-        }
-
-        .toolkit-body {
-            background: var(--color-bg-light);
-            border-radius: 0 16px 16px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 1.6rem 1.8rem;
-            display: grid;
-            grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
-            gap: 1.6rem;
-        }
-
-        .toolkit-panel { display: none; }
-        .toolkit-panel.active { display: grid; }
-
-        .toolkit-text h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.4rem;
-            color: var(--color-text);
-        }
-
-        .toolkit-text p {
-            font-size: 0.95rem;
-            color: var(--color-text-light);
-            margin-bottom: 0.7rem;
-        }
-
-        .toolkit-list {
-            list-style: disc;
-            padding-left: 1.2rem;
-        }
-
-        .toolkit-list li {
-            margin-bottom: 0.45rem;
-            font-size: 0.93rem;
-            color: var(--color-text-light);
-        }
-
-        .toolkit-list strong {
-            font-weight: 600;
-            color: var(--color-text);
-        }
-
-        .toolkit-right {
-            display:flex;
-            align-items:center;
-            justify-content:center;
-        }
-
-        .toolkit-icon-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 2px solid rgba(255,255,255,0.25);
-            background: radial-gradient(circle at top, rgba(255,255,255,0.15), transparent 60%);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size: 1.8rem;
-            color: var(--color-primary);
-        }
+        .artifact-card:hover { border-color: var(--color-primary); background: rgba(255,255,255,0.05); }
+        .artifact-card h4 { color: var(--color-primary); font-size: 1.2rem; }
+        .artifact-icon { font-size: 2.5rem; }
+        .artifact-description { font-size: 0.95rem; color: var(--color-text-light); line-height: 1.5; }
+        .artifact-btn { background: var(--color-primary); color: #000; border: none; padding: 0.7rem 1.4rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: auto; }
+        .artifact-btn:hover { background: var(--color-primary-dark); transform: scale(1.04); }
 
         /* ===== METRICS ===== */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(170px, 1fr)
-            );
-            gap: 1.5rem;
-            margin-top: var(--spacing-lg);
-        }
-
-        .metric-card {
-            text-align: center;
-            padding: var(--spacing-lg);
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 16px;
-            border: 1px solid var(--color-border);
-            transition: 0.3s;
-        }
-
-        .metric-card:hover {
-            border-color: var(--color-primary);
-            background: rgba(32, 201, 151, 0.06);
-        }
-
-        .metric-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--color-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .metric-label {
-            font-size: 0.92rem;
-            color: var(--color-text-light);
-            line-height: 1.4;
-        }
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap: 1.5rem; margin-top: var(--spacing-lg); }
+        .metric-card { text-align: center; padding: var(--spacing-lg); background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px solid var(--color-border); transition: 0.3s; }
+        .metric-card:hover { border-color: var(--color-primary); background: rgba(32,201,151,0.06); }
+        .metric-number { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.25rem; }
+        .metric-label { font-size: 0.92rem; color: var(--color-text-light); line-height: 1.4; }
 
         /* ===== AWARDS ===== */
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(250px, 1fr)
-            );
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-xl);
-        }
-
-        .artifact-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid var(--color-border);
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            text-align: center;
-        }
-
-        .artifact-card:hover {
-            border-color: var(--color-primary);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .artifact-icon { font-size: 2.5rem; }
-        .artifact-description {
-            font-size: 0.95rem;
-            color: var(--color-text-light);
-            line-height: 1.5;
-        }
+        .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl); }
 
         /* ===== FEEDBACK CAROUSEL ===== */
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255,255,255,0.03);
             padding: 2rem;
             border-radius: 20px;
             border: 1px solid var(--color-border);
@@ -629,258 +201,76 @@
             display: flex;
             flex-direction: column;
         }
-
         .testimonial-card:hover { border-color: var(--color-primary); }
-
-        .quote-icon {
-            font-size: 3rem;
-            opacity: 0.25;
-            color: var(--color-primary);
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-text {
-            font-size: 1rem;
-            margin: 0.75rem 0 1.25rem;
-            line-height: 1.7;
-            font-style: italic;
-        }
-
+        .quote-icon { font-size: 3rem; opacity: 0.25; color: var(--color-primary); font-family: Georgia, serif; }
+        .testimonial-text { font-size: 1rem; margin: 0.75rem 0 1.25rem; line-height: 1.7; font-style: italic; }
         .testimonial-author {
             border-top: 1px solid var(--color-border);
             padding-top: 0.75rem;
             margin-top: auto;
         }
-
-        .testimonial-author strong {
-            color: var(--color-primary);
-            font-size: 1.05rem;
-        }
-
-        .carousel-container {
-            position: relative;
-            padding: 0 50px;
-            margin-top: var(--spacing-xl);
-        }
-
-        .testimonials-carousel {
-            position: relative;
-            min-height: 350px;
-        }
-
-        .testimonial-set {
-            display: none;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
+        .testimonial-author strong { color: var(--color-primary); font-size: 1.05rem; }
+        .carousel-container { position: relative; padding: 0 50px; margin-top: var(--spacing-xl); }
+        .testimonials-carousel { position: relative; min-height: 350px; }
+        .testimonial-set { display: none; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
         .testimonial-set.active { display: grid; }
-
         .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--color-primary);
-            border: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            cursor: pointer;
-            color: #000;
-            font-size: 1.4rem;
-            transition: 0.3s;
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: var(--color-primary); border: none;
+            width: 44px; height: 44px; border-radius: 50%;
+            cursor: pointer; color: #000; font-size: 1.4rem; transition: 0.3s;
         }
-
         .carousel-btn:hover { background: #fff; }
         .carousel-btn.prev { left: 0; }
         .carousel-btn.next { right: 0; }
 
         /* ===== ABOUT ===== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-xl);
-        }
-
+        .about-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: var(--spacing-md); margin-top: var(--spacing-xl); }
         .about-card {
-            background: rgba(27, 38, 59, 0.5);
-            padding: var(--spacing-lg);
-            border-radius: 16px;
-            border: 1px solid var(--color-border);
-            cursor: pointer;
-            text-align: center;
-            transition: 0.3s;
+            background: rgba(27,38,59,0.5); padding: var(--spacing-lg); border-radius: 16px;
+            border: 1px solid var(--color-border); cursor: pointer; text-align: center; transition: 0.3s;
         }
-
-        .about-card:hover {
-            border-color: var(--color-primary);
-            background: rgba(27, 38, 59, 0.7);
-            transform: translateY(-3px);
-        }
-
-        .about-card-icon {
-            font-size: 2rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .about-card h3 {
-            color: var(--color-primary);
-            font-size: 1rem;
-        }
+        .about-card:hover { border-color: var(--color-primary); background: rgba(27,38,59,0.7); transform: translateY(-3px); }
+        .about-card-icon { font-size: 2rem; margin-bottom: 0.4rem; }
+        .about-card h3 { color: var(--color-primary); font-size: 1rem; }
 
         /* ===== MODAL ===== */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
         .modal.active { display: flex; }
-
-        .modal-content {
-            background: var(--color-bg-light);
-            padding: 2.5rem;
-            border-radius: 24px;
-            max-width: 800px;
-            width: 90%;
-            position: relative;
-            border: 1px solid var(--color-primary);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-md);
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.3rem 0.9rem;
-            border-radius: 999px;
-            border: 1px solid var(--color-border);
-            font-size: 0.9rem;
-        }
+        .modal-content { background: var(--color-bg-light); padding: 2.5rem; border-radius: 24px; max-width: 800px; width: 90%; position: relative; border: 1px solid var(--color-primary); }
+        .close-btn { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 1.5rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); margin-top: var(--spacing-md); }
+        .skill-tag { background: rgba(255,255,255,0.05); padding: 0.3rem 0.9rem; border-radius: 999px; border: 1px solid var(--color-border); font-size: 0.9rem; }
 
         /* ===== CONNECT ===== */
-        .contact-info {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-xl);
-            flex-wrap: wrap;
-        }
-
+        .contact-info { text-align: center; max-width: 600px; margin: 0 auto; }
+        .contact-links { display: flex; justify-content: center; gap: var(--spacing-lg); margin-top: var(--spacing-xl); flex-wrap: wrap; }
         .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            padding: var(--spacing-md) var(--spacing-lg);
-            background: var(--color-primary);
-            color: #000;
-            text-decoration: none;
-            border-radius: 999px;
-            font-weight: 600;
-            transition: 0.3s;
+            display: inline-flex; align-items: center; gap: var(--spacing-xs);
+            padding: var(--spacing-md) var(--spacing-lg); background: var(--color-primary);
+            color: #000; text-decoration: none; border-radius: 999px; font-weight: 600; transition: 0.3s;
         }
-
-        .contact-btn:hover {
-            background: var(--color-primary-dark);
-            transform: translateY(-1px);
-        }
+        .contact-btn:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .testimonial-set.active {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .about-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        @media (max-width:1024px){
+            .testimonial-set.active { grid-template-columns: repeat(2,1fr); }
+            .about-grid { grid-template-columns: repeat(3,1fr); }
         }
-
-        @media (max-width: 768px) {
-            section {
-                padding: var(--spacing-xxl) 1.5rem;
-            }
-
-            .hero {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-
-            header .header-inner {
-                padding: 0 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
+        @media (max-width:768px){
+            section { padding: var(--spacing-xxl) 1.5rem; }
+            .hero { padding-left: 1.5rem; padding-right: 1.5rem; }
+            header .header-inner { padding: 0 1rem; }
+            .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonial-set.active {
-                grid-template-columns: 1fr;
-            }
-
-            .carousel-container {
-                padding: 0 35px;
-            }
-
-            .about-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
+            .projects { grid-template-columns: 1fr; }
+            .testimonial-set.active { grid-template-columns: 1fr; }
+            .carousel-container { padding: 0 35px; }
+            .about-grid { grid-template-columns: repeat(2,1fr); }
             .flip-card.enlarged { width: 95%; }
-
-            .pillars {
-                grid-auto-flow: row;
-                overflow-x: visible;
-            }
-
-            .toolkit-body {
-                grid-template-columns: 1fr;
-            }
+            .pillars { grid-auto-flow: row; overflow-x: visible; }
         }
-
-        ul {
-            margin: var(--spacing-md) 0;
-            padding-left: var(--spacing-lg);
-        }
-
+        ul { margin: var(--spacing-md) 0; padding-left: var(--spacing-lg); }
         li { margin-bottom: var(--spacing-sm); }
     </style>
     <script>
@@ -888,169 +278,56 @@
             const cards = document.querySelectorAll('.flip-card');
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            if (event && event.target) event.target.classList.add('active');
+            if(event && event.target) event.target.classList.add('active');
             cards.forEach(card => {
-                card.classList.remove('flipped', 'enlarged');
-                if (category === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = card
-                        .getAttribute('data-category')
-                        .split(' ')
-                        .includes(category)
-                        ? 'block'
-                        : 'none';
-                }
+                card.classList.remove('flipped','enlarged');
+                if(category === 'all'){ card.style.display = 'block'; }
+                else { card.style.display = card.getAttribute('data-category').split(' ').includes(category) ? 'block' : 'none'; }
             });
-            const overlay = document.querySelector('.flip-overlay');
-            if (overlay) overlay.style.display = 'none';
+            document.querySelector('.flip-overlay').style.display = 'none';
         }
-
-        function enlargeCard(card) {
+        function enlargeCard(card){
             const overlay = document.querySelector('.flip-overlay');
-            document
-                .querySelectorAll('.flip-card')
-                .forEach(c => {
-                    if (c !== card) c.classList.remove('enlarged', 'flipped');
-                });
+            document.querySelectorAll('.flip-card').forEach(c => { if(c!==card){ c.classList.remove('enlarged','flipped'); }});
             const isE = card.classList.toggle('enlarged');
             card.classList.toggle('flipped', isE);
-            if (overlay) overlay.style.display = isE ? 'block' : 'none';
+            overlay.style.display = isE ? 'block' : 'none';
         }
-
-        function closeEnlarged() {
-            document
-                .querySelectorAll('.flip-card')
-                .forEach(c => c.classList.remove('enlarged', 'flipped'));
-            const overlay = document.querySelector('.flip-overlay');
-            if (overlay) overlay.style.display = 'none';
+        function closeEnlarged(){
+            document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('enlarged','flipped'));
+            document.querySelector('.flip-overlay').style.display = 'none';
         }
-
-        function openAboutModal(section) {
+        function openAboutModal(section){
             const modal = document.getElementById('aboutModal');
             const title = document.getElementById('modalTitle');
             const body = document.getElementById('modalBody');
             const c = {
-                education: {
-                    title: '🎓 Education',
-                    html:
-                        '<p><strong>MBA</strong>, Human Resources & Marketing — University of Madras</p>' +
-                        '<p><strong>Bachelor of Business Administration</strong> — University of Madras</p>' +
-                        '<p><strong>C2 in French</strong> — Alliance Française de Pune, India</p>',
-                },
-                certifications: {
-                    title: '📜 Certifications',
-                    html:
-                        '<ul>' +
-                        '<li><strong>Google Project Management Professional Certificate</strong></li>' +
-                        '<li><strong>Google Cloud Digital Leader Professional Certificate</strong></li>' +
-                        '</ul>',
-                },
-                tools: {
-                    title: '🛠️ Tools & Platforms',
-                    html:
-                        '<div class="skills-grid">' +
-                        '<span class="skill-tag">Articulate Storyline</span>' +
-                        '<span class="skill-tag">Sana Learn</span>' +
-                        '<span class="skill-tag">Adobe Captivate</span>' +
-                        '<span class="skill-tag">Vyond</span>' +
-                        '<span class="skill-tag">Camtasia</span>' +
-                        '<span class="skill-tag">Canva</span>' +
-                        '<span class="skill-tag">Figma</span>' +
-                        '<span class="skill-tag">Miro</span>' +
-                        '<span class="skill-tag">Google Workspace</span>' +
-                        '<span class="skill-tag">Gemini</span>' +
-                        '<span class="skill-tag">Workday Learning</span>' +
-                        '<span class="skill-tag">Smartsheet</span>' +
-                        '</div>',
-                },
-                interests: {
-                    title: '💡 Interests',
-                    html:
-                        '<p>Passionate about travel, dance, and cultural exchange. Active advocate for career returners and women at work.</p>',
-                },
-                volunteering: {
-                    title: '🤝 Volunteering',
-                    html:
-                        '<p>Program Director and active volunteer across STEM and community initiatives:</p>' +
-                        '<ul>' +
-                        '<li><strong>Program Director, Science Gurus:</strong> Lead STEM programming and outreach, connecting learners with hands‑on science experiences.</li>' +
-                        '<li><strong>Career Development:</strong> Mock interviews and mentoring for YearUp, JVS, Upwardly Global, and career returners.</li>' +
-                        '<li><strong>Community Engagement:</strong> Workday EBCs (Women at Workday, Dosti), CX Giving & Doing, Kids Against Hunger, IRUSA, and other local initiatives.</li>' +
-                        '</ul>',
-                },
+                education: { title:'🎓 Education', html:'<p><strong>MBA</strong>, Human Resources & Marketing — University of Madras</p><p><strong>Bachelor of Business Administration</strong> — University of Madras</p><p><strong>C2 in French</strong> — Alliance Française de Pune, India</p>' },
+                certifications: { title:'📜 Certifications', html:'<ul><li><strong>Google Project Management Professional Certificate</strong></li><li><strong>Google Cloud Digital Leader Professional Certificate</strong></li></ul>' },
+                tools: { title:'🛠️ Tools & Platforms', html:'<div class="skills-grid"><span class="skill-tag">Articulate Storyline</span><span class="skill-tag">Sana Learn</span><span class="skill-tag">Adobe Captivate</span><span class="skill-tag">Vyond</span><span class="skill-tag">Camtasia</span><span class="skill-tag">Canva</span><span class="skill-tag">Figma</span><span class="skill-tag">Miro</span><span class="skill-tag">Google Workspace</span><span class="skill-tag">Gemini</span><span class="skill-tag">Workday Learning</span><span class="skill-tag">Smartsheet</span></div>' },
+                interests: { title:'💡 Interests', html:'<p>Passionate about travel, dance, and cultural exchange. Active advocate for career returners and women at work.</p>' },
+                volunteering: { title:'🤝 Volunteering', html:'<p>Program Director and active volunteer across STEM and community initiatives:</p><ul><li><strong>Program Director, Science Gurus:</strong> Lead STEM programming and outreach, connecting learners with hands‑on science experiences.</li><li><strong>Career Development:</strong> Mock interviews and mentoring for YearUp, JVS, Upwardly Global, and career returners.</li><li><strong>Community Engagement:</strong> Workday EBCs (Women at Workday, Dosti), CX Giving & Doing, Kids Against Hunger, IRUSA, and other local initiatives.</li></ul>' }
             };
             title.innerHTML = c[section].title;
             body.innerHTML = c[section].html;
             modal.classList.add('active');
         }
-
-        function closeModal() {
-            document.getElementById('aboutModal').classList.remove('active');
-        }
+        function closeModal(){ document.getElementById('aboutModal').classList.remove('active'); }
 
         let currentTestimonialSet = 0;
         const totalTestimonialSets = 3;
-
-        function moveCarousel(dir) {
+        function moveCarousel(dir){
             const sets = document.querySelectorAll('.testimonial-set');
-            if (!sets.length) return;
             sets[currentTestimonialSet].classList.remove('active');
             currentTestimonialSet += dir;
-            if (currentTestimonialSet < 0)
-                currentTestimonialSet = totalTestimonialSets - 1;
-            if (currentTestimonialSet >= totalTestimonialSets)
-                currentTestimonialSet = 0;
+            if(currentTestimonialSet < 0) currentTestimonialSet = totalTestimonialSets - 1;
+            if(currentTestimonialSet >= totalTestimonialSets) currentTestimonialSet = 0;
             sets[currentTestimonialSet].classList.add('active');
         }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // smooth scrolling
-            document
-                .querySelectorAll('.nav-links a[href^="#"]')
-                .forEach(link => {
-                    link.addEventListener('click', function (ev) {
-                        const id = this.getAttribute('href').substring(1);
-                        const el = document.getElementById(id);
-                        if (el) {
-                            ev.preventDefault();
-                            const y =
-                                el.getBoundingClientRect().top +
-                                window.scrollY -
-                                60;
-                            window.scrollTo({ top: y, behavior: 'smooth' });
-                        }
-                    });
-                });
-
-            // Enablement Toolkit tabs
-            const tabs = document.querySelectorAll('.toolkit-tab');
-            const panels = document.querySelectorAll('.toolkit-panel');
-
-            function activateToolkit(id) {
-                tabs.forEach(t =>
-                    t.classList.toggle('active', t.dataset.tab === id)
-                );
-                panels.forEach(p =>
-                    p.classList.toggle('active', p.dataset.tab === id)
-                );
-            }
-
-            tabs.forEach(t =>
-                t.addEventListener('click', () => activateToolkit(t.dataset.tab))
-            );
-
-            if (tabs.length) {
-                activateToolkit('1');
-            }
-        });
-
-        window.onclick = function (e) {
-            if (e.target === document.getElementById('aboutModal')) closeModal();
-        };
     </script>
 </head>
 <body>
+
     <!-- HEADER -->
     <header>
         <div class="header-inner">
@@ -1088,16 +365,12 @@
             </div>
         </div>
         <p class="tagline">
-            Enterprise Learning &amp; Enablement Program Leader driving measurable
-            business outcomes at scale.<br />
-            Fourteen years of cross‑industry experience spanning education, SaaS,
-            and enterprise technology, with the last four years specializing in
-            tech enablement programs that accelerate readiness, improve
-            performance, and earn stakeholder trust.
+            Enterprise Learning &amp; Enablement Program Leader driving measurable business outcomes at scale.<br>
+            Fourteen years of cross‑industry experience spanning education, SaaS, and enterprise technology, with the last four years specializing in tech enablement programs that accelerate readiness, improve performance, and earn stakeholder trust.
         </p>
     </section>
 
-    <!-- 2. AREAS OF EXPERTISE -->
+    <!-- 2. EXPERTISE -->
     <section id="experience">
         <h2 class="section-title">Areas of Expertise</h2>
         <div class="section-divider"></div>
@@ -1106,80 +379,46 @@
                 <div class="pillar-title">
                     <h3>🚀 Enterprise Enablement Programs at Scale</h3>
                 </div>
-                <p>
-                    Design and delivery of global onboarding, consulting readiness,
-                    and workforce development programs for organizations of 4,500+
-                    employees.
-                </p>
+                <p>Design and delivery of global onboarding, consulting readiness, and workforce development programs for organizations of 4,500+ employees.</p>
             </div>
             <div class="pillar-card">
                 <div class="pillar-title">
                     <h3>🤖 AI Adoption &amp; Strategic Enablement</h3>
                 </div>
-                <p>
-                    Drive organizational AI adoption to a 62%+ usage target in FY26
-                    through embedded workflows, live labs, and enablement campaigns.
-                </p>
+                <p>Drive organizational AI adoption to a 62%+ usage target in FY26 through embedded workflows, live labs, and enablement campaigns.</p>
             </div>
             <div class="pillar-card">
                 <div class="pillar-title">
                     <h3>🔄 M&amp;A Integration Enablement</h3>
                 </div>
-                <p>
-                    Rapid‑response learning strategies for acquisitions like
-                    Paradox, HiredScore, and Sana Labs, focused on readiness lift
-                    under aggressive timelines.
-                </p>
+                <p>Rapid‑response learning strategies for acquisitions like Paradox, HiredScore, and Sana Labs, focused on readiness lift under aggressive timelines.</p>
             </div>
             <div class="pillar-card">
                 <div class="pillar-title">
                     <h3>🎯 Learning Architecture &amp; Instructional Design</h3>
                 </div>
-                <p>
-                    Blended learning ecosystems combining ILT/VILT, eLearning,
-                    microlearning, simulations, and job aids grounded in adult
-                    learning principles.
-                </p>
+                <p>Blended learning ecosystems combining ILT/VILT, eLearning, microlearning, simulations, and job aids grounded in adult learning principles.</p>
             </div>
             <div class="pillar-card">
                 <div class="pillar-title">
                     <h3>📋 Strategic Program Management</h3>
                 </div>
-                <p>
-                    End‑to‑end ownership of complex, cross‑functional programs with
-                    compressed timelines, stakeholder alignment, and measurable
-                    outcomes.
-                </p>
+                <p>End‑to‑end ownership of complex, cross‑functional programs with compressed timelines, stakeholder alignment, and measurable outcomes.</p>
             </div>
             <div class="pillar-card">
                 <div class="pillar-title">
                     <h3>⚙️ Technical Learning Systems</h3>
                 </div>
-                <p>
-                    Technical enablement for engineering and operations teams,
-                    including simulations and project‑based learning experiences for
-                    complex tools and platforms.
-                </p>
+                <p>Technical enablement for engineering and operations teams, including simulations and project‑based learning experiences for complex tools and platforms.</p>
             </div>
         </div>
     </section>
 
-    <!-- 3. PROJECTS -->
+    <!-- 3. IMPACT STORIES / PROJECTS -->
     <section id="projects">
         <h2 class="section-title">Impact Stories</h2>
         <div class="section-divider"></div>
-        <p
-            style="
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto var(--spacing-md);
-                font-size: 1.05rem;
-                color: var(--color-text-light);
-            "
-        >
-            Program design, stakeholder engagement, and measurable outcomes. Click
-            any card to explore the full story.
-        </p>
+        <p style="text-align:center; max-width:800px; margin:0 auto var(--spacing-md); font-size:1.05rem; color:var(--color-text-light);">Program design, stakeholder engagement, and measurable outcomes. Click any card to explore the full story.</p>
 
         <div class="filter-buttons">
             <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
@@ -1198,9 +437,7 @@
                     <div class="flip-card-front">
                         <span class="project-category">AI Strategy</span>
                         <h3 class="project-title">EverydayAI for CX</h3>
-                        <p class="project-description">
-                            Embedding AI into daily workflows for CX teams.
-                        </p>
+                        <p class="project-description">Embedding AI into daily workflows for CX teams</p>
                         <div class="impact-number">62%</div>
                         <div class="impact-label">Usage Target • FY26</div>
                         <p class="click-hint">Click to explore →</p>
@@ -1209,43 +446,22 @@
                         <div class="project-back-content">
                             <span class="project-category">AI Strategy</span>
                             <h3>EverydayAI for CX</h3>
-                            <p>
-                                <strong>Challenge:</strong> Move from AI curiosity to
-                                day‑to‑day habit while aiming for a 62% adoption target
-                                in FY26.
-                            </p>
-                            <p>
-                                <strong>Solution:</strong> Designed EverydayAI
-                                experiences on CX Central, including an interactive
-                                prompt‑engineering course, custom AI GEMs, and live
-                                labs that turned real CX workflows into reusable AI
-                                templates.
-                            </p>
-                            <p>
-                                <strong>Impact:</strong> Enabled 690+ Workmates on
-                                Gemini GEMs and Miro AI, established a reusable GEM
-                                library, and made AI usage visible as an operational
-                                metric.
-                            </p>
-                            <div>
-                                <span class="project-tag">AI Adoption</span>
-                                <span class="project-tag">GEM Design</span>
-                                <span class="project-tag">Live Labs</span>
-                            </div>
+                            <p><strong>Challenge:</strong> Drive organizational AI adoption toward a 62% usage target in FY26 by moving from AI curiosity to day‑to‑day habit.</p>
+                            <p><strong>Solution:</strong> Designed EverydayAI learning experiences on CX Central—including an interactive prompt‑engineering course—built custom AI GEMs, and led VILT sessions and live labs that converted real CX workflows into reusable AI‑powered templates.</p>
+                            <p><strong>Impact:</strong> VILT enablement for 690+ Workmates on Gemini GEMs and Miro AI, a growing library of reusable GEMs, and clear visibility into AI usage as an operational metric.</p>
+                            <div><span class="project-tag">AI Adoption</span><span class="project-tag">VILT</span><span class="project-tag">GEM Design</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- CX Lift Off -->
-            <div class="flip-card" data-category="onboarding program" onclick="enlargeCard(this)">
+            <div class="flip-card" data-category="onboarding" onclick="enlargeCard(this)">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <span class="project-category">Onboarding</span>
                         <h3 class="project-title">CX Lift Off</h3>
-                        <p class="project-description">
-                            First global onboarding for CX with zero starting content.
-                        </p>
+                        <p class="project-description">First global onboarding for CX with zero starting content</p>
                         <div class="impact-number">4.89/5</div>
                         <div class="impact-label">Satisfaction • 400+ in 6 Months</div>
                         <p class="click-hint">Click to explore →</p>
@@ -1254,42 +470,22 @@
                         <div class="project-back-content">
                             <span class="project-category">Onboarding</span>
                             <h3>CX Lift Off: Enterprise CX Onboarding</h3>
-                            <p>
-                                <strong>Challenge:</strong> Design and launch the first
-                                enterprise onboarding for CX employees globally with
-                                zero existing curriculum.
-                            </p>
-                            <p>
-                                <strong>Solution:</strong> Architected a two‑day
-                                immersive experience, built content from the ground up
-                                (modules, activities, facilitator guides, comms) in six
-                                weeks, and anchored everything in real CX use cases.
-                            </p>
-                            <p>
-                                <strong>Impact:</strong> 4.89/5 satisfaction, 4.71/5
-                                confidence lift, and scale to 400+ Workmates in six
-                                months; cited by leadership as the best onboarding of a
-                                20‑year career.
-                            </p>
-                            <div>
-                                <span class="project-tag">Global Onboarding</span>
-                                <span class="project-tag">Greenfield Build</span>
-                                <span class="project-tag">Six‑Week Delivery</span>
-                            </div>
+                            <p><strong>Challenge:</strong> Design and launch the first enterprise onboarding for CX employees globally with zero existing curriculum.</p>
+                            <p><strong>Solution:</strong> Architected a two‑day immersive experience and created all assets needed—modules, activities, facilitator guides, and comms—within a compressed six‑week timeline.</p>
+                            <p><strong>Impact:</strong> 4.89/5 satisfaction for CX Lift Off, 4.71/5 post‑session confidence gains, and scale to 400+ Workmates in the first six months, cited by leadership as the best onboarding of a 20‑year career.</p>
+                            <div><span class="project-tag">Global Onboarding</span><span class="project-tag">Greenfield Build</span><span class="project-tag">Six‑Week Delivery</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Consulting Essentials -->
-            <div class="flip-card" data-category="onboarding program process" onclick="enlargeCard(this)">
+            <div class="flip-card" data-category="onboarding program" onclick="enlargeCard(this)">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <span class="project-category">Onboarding</span>
                         <h3 class="project-title">Consulting Essentials</h3>
-                        <p class="project-description">
-                            Workday‑specific onboarding for consultants.
-                        </p>
+                        <p class="project-description">Workday‑specific onboarding for consultants</p>
                         <div class="impact-number">33%</div>
                         <div class="impact-label">Program Duration Reduction</div>
                         <p class="click-hint">Click to explore →</p>
@@ -1298,41 +494,22 @@
                         <div class="project-back-content">
                             <span class="project-category">Onboarding</span>
                             <h3>Consulting Essentials Enablement</h3>
-                            <p>
-                                <strong>Challenge:</strong> Replace a generic,
-                                vendor‑led onboarding with a program aligned to
-                                Workday’s consulting reality.
-                            </p>
-                            <p>
-                                <strong>Solution:</strong> Designed a Workday‑specific
-                                curriculum with scenario‑based practice drawn from
-                                actual projects and aligned to internal processes and
-                                roles.
-                            </p>
-                            <p>
-                                <strong>Impact:</strong> Reduced program length by 33%,
-                                avoided vendor spend, and increased relevance and
-                                satisfaction for new consultants.
-                            </p>
-                            <div>
-                                <span class="project-tag">Scenario Design</span>
-                                <span class="project-tag">Cost Avoidance</span>
-                                <span class="project-tag">Role‑Specific</span>
-                            </div>
+                            <p><strong>Challenge:</strong> Replace a generic, vendor‑led onboarding with a program aligned to Workday’s consulting reality.</p>
+                            <p><strong>Solution:</strong> Designed a Workday‑specific curriculum that reflects internal processes, roles, and engagement patterns, with scenario‑based practice built from real projects.</p>
+                            <p><strong>Impact:</strong> Reduced program length by 33%, eliminated vendor spend, and delivered a more relevant, Workday‑grounded experience that received strong learner feedback.</p>
+                            <div><span class="project-tag">Workday Context</span><span class="project-tag">Scenario Design</span><span class="project-tag">Cost Avoidance</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Paradox M&A -->
+            <!-- Paradox -->
             <div class="flip-card" data-category="ai ma" onclick="enlargeCard(this)">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <span class="project-category">M&amp;A</span>
                         <h3 class="project-title">Paradox M&amp;A Enablement</h3>
-                        <p class="project-description">
-                            Multi‑release readiness for new AI capabilities.
-                        </p>
+                        <p class="project-description">Multi‑release readiness for new AI capabilities</p>
                         <div class="impact-number">207%</div>
                         <div class="impact-label">Readiness Increase</div>
                         <p class="click-hint">Click to explore →</p>
@@ -1341,41 +518,22 @@
                         <div class="project-back-content">
                             <span class="project-category">M&amp;A</span>
                             <h3>Paradox &amp; HiredScore Integration</h3>
-                            <p>
-                                <strong>Challenge:</strong> Enable CX quickly on new
-                                Paradox and HiredScore capabilities with limited
-                                existing training materials.
-                            </p>
-                            <p>
-                                <strong>Solution:</strong> Built a multi‑release
-                                enablement plan that combined overview enablement,
-                                office hours, and performance support assets aligned to
-                                the go‑to‑market rhythm.
-                            </p>
-                            <p>
-                                <strong>Impact:</strong> 207% readiness lift and
-                                4.95/5 satisfaction, with critical assets delivered in
-                                under 48 hours for key releases.
-                            </p>
-                            <div>
-                                <span class="project-tag">M&amp;A Readiness</span>
-                                <span class="project-tag">Rapid Execution</span>
-                                <span class="project-tag">AI Capabilities</span>
-                            </div>
+                            <p><strong>Challenge:</strong> Quickly enable CX on new Paradox and HiredScore capabilities with minimal existing training assets.</p>
+                            <p><strong>Solution:</strong> Designed a multi‑release enablement plan that blended overview enablement, just‑in‑time assets, and field‑facing communications.</p>
+                            <p><strong>Impact:</strong> 207% readiness increase and 4.95/5 satisfaction, with critical assets delivered in under 48 hours at key milestones.</p>
+                            <div><span class="project-tag">Rapid Execution</span><span class="project-tag">M&amp;A Readiness</span><span class="project-tag">Performance Support</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CX Central Launch -->
-            <div class="flip-card" data-category="program process ai" onclick="enlargeCard(this)">
+            <!-- CX Central -->
+            <div class="flip-card" data-category="ai program" onclick="enlargeCard(this)">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <span class="project-category">Platform Adoption</span>
                         <h3 class="project-title">CX Central Launch Campaign</h3>
-                        <p class="project-description">
-                            Gamified launch of a new enablement hub.
-                        </p>
+                        <p class="project-description">Gamified launch of a new enablement hub</p>
                         <div class="impact-number">664%</div>
                         <div class="impact-label">View Increase</div>
                         <p class="click-hint">Click to explore →</p>
@@ -1383,42 +541,23 @@
                     <div class="flip-card-back">
                         <div class="project-back-content">
                             <span class="project-category">Platform Adoption</span>
-                            <h3>CX Central Launch (Project Trident)</h3>
-                            <p>
-                                <strong>Challenge:</strong> Drive adoption of a
-                                reorganized CX Central hub across 4,500+ CX employees
-                                amid competing initiatives.
-                            </p>
-                            <p>
-                                <strong>Solution:</strong> Led Project Trident, a
-                                multi‑channel campaign with an explainer video, a
-                                Sana‑based “Amazing Race” experience, and a social
-                                tagging challenge to spotlight content.
-                            </p>
-                            <p>
-                                <strong>Impact:</strong> 664% view increase, 95% new
-                                viewers, 252% viewer growth, 4.8/5 satisfaction, and
-                                Challenge Coin recognition for impact.
-                            </p>
-                            <div>
-                                <span class="project-tag">Gamification</span>
-                                <span class="project-tag">Multi‑Channel Comms</span>
-                                <span class="project-tag">Sana</span>
-                            </div>
+                            <h3>CX Central Launch Campaign (Project Trident)</h3>
+                            <p><strong>Challenge:</strong> Drive adoption of a reorganized CX Central hub across 4,500+ CX employees amid competing priorities.</p>
+                            <p><strong>Solution:</strong> Led Project Trident, combining an overview video, a Sana‑based “Amazing Race” experience, and a social tagging campaign.</p>
+                            <p><strong>Impact:</strong> 664% view increase, 95% new viewers, 252% viewer growth, 4.8/5 satisfaction, and Challenge Coin recognition.</p>
+                            <div><span class="project-tag">Gamification</span><span class="project-tag">Campaign Design</span><span class="project-tag">Multi‑Channel</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Sana Labs -->
-            <div class="flip-card" data-category="ma skills" onclick="enlargeCard(this)">
+            <div class="flip-card" data-category="ma" onclick="enlargeCard(this)">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <span class="project-category">M&amp;A</span>
                         <h3 class="project-title">Sana Labs M&amp;A Enablement</h3>
-                        <p class="project-description">
-                            Microlearning to support phased rollout.
-                        </p>
+                        <p class="project-description">Microlearning to support phased rollout</p>
                         <div class="impact-number">85%</div>
                         <div class="impact-label">Readiness Increase</div>
                         <p class="click-hint">Click to explore →</p>
@@ -1427,198 +566,148 @@
                         <div class="project-back-content">
                             <span class="project-category">M&amp;A</span>
                             <h3>Sana Labs Integration</h3>
-                            <p>
-                                <strong>Challenge:</strong> Support a multi‑release
-                                Sana Labs integration without overloading the field.
-                            </p>
-                            <p>
-                                <strong>Solution:</strong> Created microlearning
-                                assets including “Sana Learn Snapshots” and 24‑hour
-                                at‑a‑glance overviews that fit into existing rhythms.
-                            </p>
-                            <p>
-                                <strong>Impact:</strong> 85% readiness lift within
-                                weeks and strong stakeholder feedback on clarity and
-                                pacing.
-                            </p>
-                            <div>
-                                <span class="project-tag">Microlearning</span>
-                                <span class="project-tag">Change Navigation</span>
-                                <span class="project-tag">Field‑Friendly</span>
-                            </div>
+                            <p><strong>Challenge:</strong> Support a multi‑release Sana Labs integration while keeping the learning footprint lightweight and scalable.</p>
+                            <p><strong>Solution:</strong> Designed microlearning assets including “Sana Learn Snapshots” and 24‑hour at‑a‑glance overviews that fit into existing field rhythms.</p>
+                            <p><strong>Impact:</strong> Delivered an 85% readiness increase within weeks and strong stakeholder feedback on clarity and speed of enablement.</p>
+                            <div><span class="project-tag">Microlearning</span><span class="project-tag">Fast Turnaround</span><span class="project-tag">Rollout Support</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manager Development -->
+            <div class="flip-card" data-category="skills program" onclick="enlargeCard(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="project-category">Manager Development</span>
+                        <h3 class="project-title">Support People Leader Development</h3>
+                        <p class="project-description">Building CX Support leadership capability</p>
+                        <div class="impact-number">In Progress</div>
+                        <div class="impact-label">Learn–Support–Apply Model</div>
+                        <p class="click-hint">Click to explore →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="project-back-content">
+                            <span class="project-category">Manager Development</span>
+                            <h3>Support People Leader Development</h3>
+                            <p><strong>Challenge:</strong> Equip Support leaders with stronger skills in escalation management, decision support, and queue health in a high‑volume environment.</p>
+                            <p><strong>Solution:</strong> Designed a three‑part model of learn‑on‑demand content, performance support, and applied learning labs, anchored by discovery workshops with leaders and SMEs.</p>
+                            <p><strong>Impact / In‑Flight:</strong> Built a Sana Agent workflow to simplify raw feedback and data collation, clarified role‑based expectations, and created a scalable structure for future cohorts.</p>
+                            <div><span class="project-tag">Manager Capability</span><span class="project-tag">Discovery Workshops</span><span class="project-tag">Sana Agent Workflow</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Artemis -->
+            <div class="flip-card" data-category="program process" onclick="enlargeCard(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="project-category">Content Governance</span>
+                        <h3 class="project-title">Project Artemis</h3>
+                        <p class="project-description">Unified governance for SPOT content</p>
+                        <div class="impact-number">100%</div>
+                        <div class="impact-label">SPOT Compliance</div>
+                        <p class="click-hint">Click to explore →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="project-back-content">
+                            <span class="project-category">Content Governance</span>
+                            <h3>Project Artemis: SPOT Governance</h3>
+                            <p><strong>Challenge:</strong> Achieve 95% SPOT compliance across Global Revenue and CX with no unified governance standard.</p>
+                            <p><strong>Solution:</strong> Co‑created the Workday Unified Content Governance Credential, including explainer videos, interactive learning, and clear “publish to archive” workflows.</p>
+                            <p><strong>Impact:</strong> Reached 100% compliance on targeted attributes with 74.25 CSAT and 4/5 skill application scores.</p>
+                            <div><span class="project-tag">Cross‑Functional</span><span class="project-tag">Standards Creation</span><span class="project-tag">Governance Enablement</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SRE Skills -->
+            <div class="flip-card" data-category="skills" onclick="enlargeCard(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span class="project-category">Skills Inventory</span>
+                        <h3 class="project-title">SRE Skills Inventory</h3>
+                        <p class="project-description">Surfacing capability gaps across SRE roles</p>
+                        <div class="impact-number">11</div>
+                        <div class="impact-label">Technical Roles Assessed</div>
+                        <p class="click-hint">Click to explore →</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="project-back-content">
+                            <span class="project-category">Skills Inventory</span>
+                            <h3>SRE Skills Inventory Project</h3>
+                            <p><strong>Challenge:</strong> Understand capabilities and gaps across 11 Site Reliability Engineering roles without a single, consolidated view.</p>
+                            <p><strong>Solution:</strong> Built a skills framework, ran stakeholder interviews, and mapped expectations into a clear capability matrix.</p>
+                            <p><strong>Impact:</strong> Delivered a strategic view of SRE skills that informs workforce planning, targeted learning investments, and future enablement work.</p>
+                            <div><span class="project-tag">Workforce Planning</span><span class="project-tag">Capability Mapping</span><span class="project-tag">SRE Enablement</span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="flip-overlay" onclick="closeEnlarged()"></div>
     </section>
 
-    <!-- 4. ENABLEMENT TOOLKIT -->
-    <section id="toolkit">
-        <h2 class="section-title">Enablement Toolkit</h2>
+    <!-- 4. PORTFOLIO SHOWCASE -->
+    <section id="portfolio">
+        <h2 class="section-title">Portfolio Showcase</h2>
         <div class="section-divider"></div>
+        <p style="text-align:center; font-size:0.95rem; font-style:italic; opacity:0.85; margin-bottom:var(--spacing-lg);">Example shown for interview review purposes only.</p>
 
-        <div class="toolkit-wrapper">
-            <div class="toolkit-tabs">
-                <div class="toolkit-tab" data-tab="1">
-                    <span>Strategy</span>
-                    <small>Architecture &amp; Programs</small>
-                </div>
-                <div class="toolkit-tab" data-tab="2">
-                    <span>Innovation</span>
-                    <small>Interactive Media</small>
-                </div>
-                <div class="toolkit-tab" data-tab="3">
-                    <span>Support</span>
-                    <small>Performance &amp; JIT</small>
-                </div>
-                <div class="toolkit-tab" data-tab="4">
-                    <span>Adoption</span>
-                    <small>Comms &amp; Campaigns</small>
-                </div>
-                <div class="toolkit-tab" data-tab="5">
-                    <span>Insights</span>
-                    <small>Data &amp; Labs</small>
-                </div>
+        <div class="artifacts-grid">
+            <div class="artifact-card">
+                <div class="artifact-icon">🎥</div>
+                <h4>Explainer Videos</h4>
+                <p class="artifact-description">Concise videos that clarify complex changes and accelerate understanding.</p>
+                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/1cJNTNUd2jp28l-36tIl_zRUMLLWfCgxq','_blank')">View Videos</button>
             </div>
-
-            <!-- Tab 1 -->
-            <div class="toolkit-body toolkit-panel" data-tab="1">
-                <div class="toolkit-text">
-                    <h3>Strategic Architecture &amp; Program Design</h3>
-                    <p>
-                        Structured curricula that align learning with functional business
-                        goals and high‑stakes milestones.
-                    </p>
-                    <ul class="toolkit-list">
-                        <li><strong>Immersive In‑Person Programs</strong>: End‑to‑end architecture for multi‑day, high‑impact sessions (e.g., Consulting Essentials 2‑day onboarding).</li>
-                        <li><strong>Multi‑Module Digital Courses</strong>: Scalable, self‑paced curricula designed to build specific functional competencies.</li>
-                        <li><strong>Strategic Learning Paths</strong>: Logic‑based sequencing of courses for launches and M&amp;A integrations.</li>
-                        <li><strong>Curriculum Blueprints</strong>: Blended frameworks that combine live sessions, labs, and digital follow‑ups.</li>
-                    </ul>
-                </div>
-                <div class="toolkit-right">
-                    <div class="toolkit-icon-circle">S1</div>
-                </div>
+            <div class="artifact-card">
+                <div class="artifact-icon">📚</div>
+                <h4>Tutorial Series</h4>
+                <p class="artifact-description">Step‑by‑step walkthroughs that build confidence using key tools.</p>
+                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/1Cpb8nRkJUvzVT9GFevM615VxIaujGcq4','_blank')">Explore Tutorials</button>
             </div>
-
-            <!-- Tab 2 -->
-            <div class="toolkit-body toolkit-panel" data-tab="2">
-                <div class="toolkit-text">
-                    <h3>Interactive Media &amp; Technical Innovation</h3>
-                    <p>
-                        Custom‑built code and media that make critical enablement feel
-                        dynamic, modern, and memorable.
-                    </p>
-                    <ul class="toolkit-list">
-                        <li><strong>Vibe‑Coded Training Assets</strong>: Interactive components for VILT/ILT experiences like CX Lift Off.</li>
-                        <li><strong>Gamified Experiences</strong>: Story‑driven paths (e.g., “Amazing Race”) that unlock content as teams progress.</li>
-                        <li><strong>Simulated Practice Environments</strong>: Tool‑based simulations and role‑plays for safe, realistic skill application.</li>
-                        <li><strong>Embedded Validation</strong>: Knowledge checks and assessments built directly into the learning journey.</li>
-                    </ul>
-                </div>
-                <div class="toolkit-right">
-                    <div class="toolkit-icon-circle">S2</div>
-                </div>
+            <div class="artifact-card">
+                <div class="artifact-icon">⚡</div>
+                <h4>Performance Support</h4>
+                <p class="artifact-description">Snapshots and at‑a‑glance guides for just‑in‑time support.</p>
+                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/1zHeKfJ3MnO7vDv9zNmYJNRsQMgHu2Dre','_blank')">View Resources</button>
             </div>
-
-            <!-- Tab 3 -->
-            <div class="toolkit-body toolkit-panel" data-tab="3">
-                <div class="toolkit-text">
-                    <h3>Performance Support &amp; Just‑in‑Time Assets</h3>
-                    <p>
-                        High‑impact resources built for the moment of need, not just the
-                        moment of training.
-                    </p>
-                    <ul class="toolkit-list">
-                        <li><strong>Technical Video Tutorials</strong>: Step‑by‑step walkthroughs for internal tools, optimized for quick reference.</li>
-                        <li><strong>Performance Support Assets</strong>: At‑a‑glance guides, quick cards, and one‑pagers for fast problem‑solving.</li>
-                        <li><strong>Digital Job Aids</strong>: Standardized playbooks and templates embedded into daily workflows.</li>
-                        <li><strong>Rapid Enablement Kits</strong>: Just‑in‑time materials delivered under compressed timelines for launches and M&amp;A.</li>
-                    </ul>
-                </div>
-                <div class="toolkit-right">
-                    <div class="toolkit-icon-circle">S3</div>
-                </div>
+            <div class="artifact-card">
+                <div class="artifact-icon">🎨</div>
+                <h4>Slack Banners</h4>
+                <p class="artifact-description">SRE and CX campaign visuals that keep programs top‑of‑mind in Slack.</p>
+                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/1o1xYTC3HLv3wulg3KxkKN2JbHs2gUaDP','_blank')">View Banners</button>
             </div>
-
-            <!-- Tab 4 -->
-            <div class="toolkit-body toolkit-panel" data-tab="4">
-                <div class="toolkit-text">
-                    <h3>Strategic Comms &amp; Adoption Campaigns</h3>
-                    <p>
-                        Multi‑channel campaigns that make enablement visible, exciting,
-                        and easy to act on.
-                    </p>
-                    <ul class="toolkit-list">
-                        <li><strong>Explainer Videos</strong>: Motion graphics that simplify complex changes and tool rollouts.</li>
-                        <li><strong>Enablement Newsletters</strong>: Curated updates highlighting launches, success patterns, and wins.</li>
-                        <li><strong>Multi‑Channel Engagement</strong>: Slack banners, intranet features, and campaigns that keep initiatives top‑of‑mind.</li>
-                        <li><strong>Adoption Tracking</strong>: Monitoring reach and sentiment so campaigns can be tuned in real time.</li>
-                    </ul>
-                </div>
-                <div class="toolkit-right">
-                    <div class="toolkit-icon-circle">S4</div>
-                </div>
+            <div class="artifact-card">
+                <div class="artifact-icon">📰</div>
+                <h4>Newsletters</h4>
+                <p class="artifact-description">SRE enablement newsletters highlighting launches, patterns, and wins.</p>
+                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/1krZs21EPx6s5t2bwM_Rw0422d_MFFham','_blank')">View Newsletters</button>
             </div>
-
-            <!-- Tab 5 -->
-            <div class="toolkit-body toolkit-panel" data-tab="5">
-                <div class="toolkit-text">
-                    <h3>Learning Insights &amp; Data Strategy</h3>
-                    <p>
-                        Data‑driven views that connect enablement activity to readiness,
-                        proficiency, and business decisions.
-                    </p>
-                    <ul class="toolkit-list">
-                        <li><strong>Real‑Time Readiness Insights</strong>: Platform views (e.g., Sana widgets) that show completion and engagement.</li>
-                        <li><strong>Impact Evaluation</strong>: CSAT plus pre/post‑confidence data to prove and improve program value.</li>
-                        <li><strong>Proficiency Benchmarking</strong>: KPIs such as time‑to‑proficiency for new hire ramp.</li>
-                        <li><strong>Enablement Labs &amp; Reporting</strong>: Hands‑on labs and executive‑ready dashboards for high‑stakes milestones.</li>
-                    </ul>
-                </div>
-                <div class="toolkit-right">
-                    <div class="toolkit-icon-circle">S5</div>
-                </div>
+            <div class="artifact-card">
+                <div class="artifact-icon">✨</div>
+                <h4>Vibe Coding</h4>
+                <p class="artifact-description">Learning solutions that shorten build time while delivering elevated, interactive experiences that drive engagement.</p>
+                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/159soCgMcc6KuDaXvKD_I_3ANW3b2OomH','_blank')">Explore Vibe Coding</button>
             </div>
         </div>
     </section>
 
-    <!-- 5. METRICS -->
+    <!-- 5. IMPACT METRICS -->
     <section id="metrics">
         <h2 class="section-title">Impact Metrics</h2>
         <div class="section-divider"></div>
         <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-number">400+</div>
-                <div class="metric-label">New Workmates Onboarded (6 months)</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-number">4.89/5</div>
-                <div class="metric-label">Average Satisfaction (CX Lift Off)</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-number">829+</div>
-                <div class="metric-label">AI Slides GEM Views</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-number">690+</div>
-                <div class="metric-label">Workmates Trained on Gemini &amp; Miro AI</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-number">664%</div>
-                <div class="metric-label">CX Central View Increase</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-number">207%</div>
-                <div class="metric-label">Paradox Readiness Lift</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-number">85%</div>
-                <div class="metric-label">Sana Readiness Lift</div>
-            </div>
+            <div class="metric-card"><div class="metric-number">400+</div><div class="metric-label">New Workmates Onboarded (6 months)</div></div>
+            <div class="metric-card"><div class="metric-number">4.89/5</div><div class="metric-label">Average Satisfaction Score (CX Lift Off)</div></div>
+            <div class="metric-card"><div class="metric-number">829+</div><div class="metric-label">AI Slides GEM Views</div></div>
+            <div class="metric-card"><div class="metric-number">690+</div><div class="metric-label">Workmates Virtually Trained on Gemini GEMs &amp; Miro AI</div></div>
+            <div class="metric-card"><div class="metric-number">664%</div><div class="metric-label">CX Central View Increase</div></div>
+            <div class="metric-card"><div class="metric-number">207%</div><div class="metric-label">Paradox Readiness Lift</div></div>
+            <div class="metric-card"><div class="metric-number">85%</div><div class="metric-label">Sana Readiness Lift</div></div>
         </div>
     </section>
 
@@ -1628,25 +717,24 @@
         <div class="section-divider"></div>
         <div class="awards-grid">
             <div class="artifact-card">
-                <div class="artifact-icon">🏅</div>
-                <h4>CX Challenge Coin</h4>
-                <p class="artifact-description">
-                    Recognized by CX leadership for designing and delivering the CX Central launch campaign that dramatically increased engagement and visibility.
-                </p>
-            </div>
-            <div class="artifact-card">
                 <div class="artifact-icon">🏆</div>
-                <h4>Manager Spotlight</h4>
-                <p class="artifact-description">
-                    Highlighted for building greenfield programs under compressed timelines while maintaining high satisfaction and clear stakeholder communication.
-                </p>
+                <h4>Diamond Award</h4>
+                <p class="artifact-description"><strong>FY26 Q2</strong> — Major strategic contribution for CX onboarding, recognizing the design and launch of CX Lift Off.</p>
             </div>
             <div class="artifact-card">
-                <div class="artifact-icon">🌟</div>
-                <h4>Peer &amp; Partner Recognition</h4>
-                <p class="artifact-description">
-                    Consistent feedback from cross‑functional partners citing clarity, reliability, and learner‑first design as key strengths.
-                </p>
+                <div class="artifact-icon">⭐</div>
+                <h4>High Five Award</h4>
+                <p class="artifact-description"><strong>FY26 Q1</strong> — Honors expert collaborators who bridge teams and find innovative solutions across CX Enablement.</p>
+            </div>
+            <div class="artifact-card">
+                <div class="artifact-icon">🎖️</div>
+                <h4>Challenge Coin</h4>
+                <p class="artifact-description"><strong>FY26 Q1</strong> — Awarded for invaluable contribution to Project Trident and the CX Central launch campaign.</p>
+            </div>
+            <div class="artifact-card">
+                <div class="artifact-icon">🤝</div>
+                <h4>Outstanding Team Collaboration</h4>
+                <p class="artifact-description"><strong>FY26 Q2</strong> — Honorable Mention for CX Lift Off and CX onboarding delivery excellence in a cross‑functional setting.</p>
             </div>
         </div>
     </section>
@@ -1655,105 +743,65 @@
     <section id="voices">
         <h2 class="section-title">Feedback</h2>
         <div class="section-divider"></div>
+        <p style="text-align:center; max-width:800px; margin:0 auto var(--spacing-xl); font-size:1.05rem; color:var(--color-text-light);">Selected feedback from leaders, partners, and learners.</p>
+
         <div class="carousel-container">
             <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
             <div class="testimonials-carousel">
+                <!-- Set 1 -->
                 <div class="testimonial-set active">
                     <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <div class="testimonial-text">
-                            Chitra built CX Lift Off from a blank slate and turned it into the best onboarding of my 20‑year career. The program is thoughtful, practical, and extremely high quality.
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>CX Leader</strong><br />
-                            Global CX organization
-                        </div>
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">That was, by far, the best onboarding experience I have seen delivered in my 9 years in Enablement or 20 years of Field Facing in tech. It was deep, meaningful, purposeful yet, super simple to follow, understand, and demonstrate. The best part? It was super fun!</p>
+                        <div class="testimonial-author"><strong>Alex Salicrup</strong><br>Sr. Director, CX Enablement</div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <div class="testimonial-text">
-                            She anticipates what leaders and learners will need before we say it out loud. Her ability to simplify complexity and ship under pressure is unmatched.
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>Senior Director</strong><br />
-                            Consulting &amp; Enablement
-                        </div>
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Thank you so much for your constant willingness to serve as a mentor and guide for others on our team. Your expertise in learning and instructional design elevates our entire team.</p>
+                        <div class="testimonial-author"><strong>Elizabeth Smith</strong><br>Director, CX Enablement</div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <div class="testimonial-text">
-                            Chitra is the rare partner who can operate at both strategy and execution levels. She listens deeply, brings strong point‑of‑view, and delivers assets our teams actually use.
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>Product &amp; Ops Partner</strong><br />
-                            Enterprise Technology
-                        </div>
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Chitra, you are adding a level of value to our CX organization that is well beyond my expectations. I appreciate your leadership, candor and “Glad to be here” mindset execution. You have been a key to CXe success in this first half of FY26.</p>
+                        <div class="testimonial-author"><strong>Alex Salicrup</strong><br>Sr. Director, CX Enablement</div>
                     </div>
                 </div>
 
+                <!-- Set 2 -->
                 <div class="testimonial-set">
                     <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <div class="testimonial-text">
-                            EverydayAI felt less like a training and more like someone wiring AI directly into how we already work. Colleagues are still referencing her examples months later.
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>CX Manager</strong><br />
-                            EverydayAI participant
-                        </div>
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">The Amazing Race to introduce the new CX Central was an absolute stroke of genius—fresh, fun, and incredibly engaging. With so much happening, this could have felt like just another task. Instead, it was one of the best trainings I've ever had.</p>
+                        <div class="testimonial-author"><strong>Nancy Houston</strong><br>Principal Customer Success Manager</div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <div class="testimonial-text">
-                            The Paradox readiness work was a masterclass in rapid enablement. We were prepared at every milestone, with clear communications and just‑enough training.
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>Program Leader</strong><br />
-                            M&amp;A Integration
-                        </div>
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Chitra and I collaborated on an eLearning project with a lot of moving parts and quick deadlines. Thank you for being an outstanding partner and learning expert throughout the design and development process!</p>
+                        <div class="testimonial-author"><strong>Justin Hughes</strong><br>Global Revenue Enablement Designer</div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <div class="testimonial-text">
-                            Her facilitation creates psychological safety for questions while still moving the session forward. People walk away energized and confident.
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>Workshop Participant</strong><br />
-                            CX Lift Off cohort
-                        </div>
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Thank you for your willingness to consult, advise, and champion the use of Sana Learn. You are my go‑to for understanding capabilities and how to apply them to our learning solutions.</p>
+                        <div class="testimonial-author"><strong>Annie Angelo</strong><br>Senior Principal, CX Enablement</div>
                     </div>
                 </div>
 
+                <!-- Set 3 -->
                 <div class="testimonial-set">
                     <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <div class="testimonial-text">
-                            Chitra’s materials consistently set the bar for what ‘great’ looks like in our org—clear, on‑brand, and grounded in real‑world scenarios.
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>Design Partner</strong><br />
-                            Internal Collaborator
-                        </div>
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">A huge thank you for being our office culture star! You bring people together, keep our team connected, and your positivity is a huge asset to our Pleasanton office.</p>
+                        <div class="testimonial-author"><strong>Melony Bravmann</strong><br>Principal, Sales Enablement</div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <div class="testimonial-text">
-                            She is a multiplier. When she’s involved, our programs land better, scale faster, and are easier to sustain.
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>People Leader</strong><br />
-                            CX &amp; Consulting
-                        </div>
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Chitra has been an invaluable team member, consistently assisting in resolving learning‑related inquiries. Your prompt responses and thorough guidance have significantly enhanced the quality of customer service we provide.</p>
+                        <div class="testimonial-author"><strong>Cruz Payan</strong><br>Instructional Designer, Customer Support</div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <div class="testimonial-text">
-                            Thoughtful, calm under pressure, and always focused on the learner. I trust her judgment on how and when we introduce new capabilities.
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>Stakeholder</strong><br />
-                            Platform Owner
-                        </div>
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">A massive thank you for the incredible work you put into the Support People Leader Development Program. The depth of your expertise is the foundation of this program's success.</p>
+                        <div class="testimonial-author"><strong>Ranisha Babbar</strong><br>Role Excellence Manager, Customer Support</div>
                     </div>
                 </div>
             </div>
@@ -1765,42 +813,16 @@
     <section id="about">
         <h2 class="section-title">About Me</h2>
         <div class="section-divider"></div>
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <p
-                style="
-                    text-align: center;
-                    font-size: 1.05rem;
-                    max-width: 800px;
-                    margin: 0 auto 2rem;
-                    color: var(--color-text-light);
-                "
-            >
-                I build learning and enablement programs that turn strategy into
-                day‑to‑day behavior change. My work spans education, SaaS, CX, and
-                SRE‑adjacent teams, with a through‑line of measurable impact,
-                stakeholder trust, and learner‑first design.
+        <div style="max-width:1000px; margin:0 auto;">
+            <p style="text-align:center; font-size:1.05rem; max-width:800px; margin:0 auto 2rem; color:var(--color-text-light);">
+                I build learning and enablement programs that turn strategy into day‑to‑day behavior change. My work spans education, SaaS, CX, and SRE‑adjacent teams, with a through‑line of measurable impact, stakeholder trust, and learner‑first design.
             </p>
             <div class="about-grid">
-                <div class="about-card" onclick="openAboutModal('education')">
-                    <div class="about-card-icon">🎓</div>
-                    <h3>Education</h3>
-                </div>
-                <div class="about-card" onclick="openAboutModal('certifications')">
-                    <div class="about-card-icon">📜</div>
-                    <h3>Certifications</h3>
-                </div>
-                <div class="about-card" onclick="openAboutModal('tools')">
-                    <div class="about-card-icon">🛠️</div>
-                    <h3>Tools &amp; Platforms</h3>
-                </div>
-                <div class="about-card" onclick="openAboutModal('interests')">
-                    <div class="about-card-icon">💡</div>
-                    <h3>Interests</h3>
-                </div>
-                <div class="about-card" onclick="openAboutModal('volunteering')">
-                    <div class="about-card-icon">🤝</div>
-                    <h3>Volunteering</h3>
-                </div>
+                <div class="about-card" onclick="openAboutModal('education')"><div class="about-card-icon">🎓</div><h3>Education</h3></div>
+                <div class="about-card" onclick="openAboutModal('certifications')"><div class="about-card-icon">📜</div><h3>Certifications</h3></div>
+                <div class="about-card" onclick="openAboutModal('tools')"><div class="about-card-icon">🛠️</div><h3>Tools &amp; Platforms</h3></div>
+                <div class="about-card" onclick="openAboutModal('interests')"><div class="about-card-icon">💡</div><h3>Interests</h3></div>
+                <div class="about-card" onclick="openAboutModal('volunteering')"><div class="about-card-icon">🤝</div><h3>Volunteering</h3></div>
             </div>
         </div>
     </section>
@@ -1808,7 +830,7 @@
     <!-- ABOUT MODAL -->
     <div id="aboutModal" class="modal">
         <div class="modal-content">
-            <h2 id="modalTitle" style="margin-bottom: 1.5rem;"></h2>
+            <h2 id="modalTitle" style="margin-bottom:1.5rem;"></h2>
             <button class="close-btn" onclick="closeModal()">&times;</button>
             <div id="modalBody"></div>
         </div>
@@ -1821,15 +843,10 @@
         <div class="contact-info">
             <div class="contact-links">
                 <span class="contact-btn">📧 kaycee.3025@gmail.com</span>
-                <a
-                    href="https://www.linkedin.com/in/chitrasrisankar"
-                    class="contact-btn"
-                    target="_blank"
-                >
-                    💼 LinkedIn
-                </a>
+                <a href="https://www.linkedin.com/in/chitrasrisankar" class="contact-btn" target="_blank">💼 LinkedIn</a>
             </div>
         </div>
     </section>
+
 </body>
 </html>
