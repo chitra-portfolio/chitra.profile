@@ -21,6 +21,13 @@
             --spacing-xl: 3rem;
             --spacing-xxl: 4rem;
             --header-height: 56px;
+
+            /* Ecosystem accent colors */
+            --eco-1: rgba(80, 156, 255, 0.18);
+            --eco-2: rgba(179, 136, 255, 0.18);
+            --eco-3: rgba(32, 201, 151, 0.18);
+            --eco-4: rgba(255, 193, 7, 0.18);
+            --eco-5: rgba(255, 99, 132, 0.18);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -238,7 +245,7 @@
         }
         .contact-btn:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
 
-        /* ===== ENABLEMENT ECOSYSTEM ===== */
+        /* ===== ENABLEMENT HONEYCOMB ===== */
         .ecosystem-intro {
             text-align: center;
             max-width: 900px;
@@ -246,38 +253,112 @@
             color: var(--color-text-light);
             font-size: 1.05rem;
         }
-        .ecosystem-grid {
+        .ecosystem-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: var(--spacing-lg);
+            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
+            gap: var(--spacing-xl);
+            align-items: center;
         }
-        .ecosystem-card {
-            background: rgba(255,255,255,0.03);
-            border-radius: 20px;
-            padding: var(--spacing-lg);
-            border: 1px solid var(--color-border);
+        @media (max-width: 900px) {
+            .ecosystem-layout {
+                grid-template-columns: 1fr;
+            }
         }
-        .ecosystem-card h3 {
-            color: var(--color-primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+
+        .honeycomb {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            position: relative;
         }
-        .ecosystem-card h4 {
-            font-size: 0.95rem;
-            text-transform: uppercase;
+        .honeycomb-hex {
+            width: 150px;
+            height: 170px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .honeycomb-hex-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+            padding: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .honeycomb-hex-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.45rem;
+        }
+        .honeycomb-hex-title {
+            font-size: 0.9rem;
+            font-weight: 700;
             letter-spacing: 0.08em;
-            color: var(--color-text-light);
-            margin-bottom: 0.75rem;
+            text-transform: uppercase;
         }
-        .ecosystem-card ul {
+
+        /* Color accents per hex */
+        .honeycomb-hex[data-hex="1"] .honeycomb-hex-inner { border-color: var(--eco-1); box-shadow: 0 18px 40px rgba(80,156,255,0.35); }
+        .honeycomb-hex[data-hex="2"] .honeycomb-hex-inner { border-color: var(--eco-2); box-shadow: 0 18px 40px rgba(179,136,255,0.35); }
+        .honeycomb-hex[data-hex="3"] .honeycomb-hex-inner { border-color: var(--eco-3); box-shadow: 0 18px 40px rgba(32,201,151,0.35); }
+        .honeycomb-hex[data-hex="4"] .honeycomb-hex-inner { border-color: var(--eco-4); box-shadow: 0 18px 40px rgba(255,193,7,0.35); }
+        .honeycomb-hex[data-hex="5"] .honeycomb-hex-inner { border-color: var(--eco-5); box-shadow: 0 18px 40px rgba(255,99,132,0.35); }
+
+        .honeycomb-hex:hover {
+            transform: translateY(-6px) scale(1.03);
+        }
+        .honeycomb.dim-others .honeycomb-hex {
+            opacity: 0.35;
+        }
+        .honeycomb.dim-others .honeycomb-hex.active {
+            opacity: 1;
+        }
+
+        .ecosystem-quickview {
+            background: rgba(10,14,39,0.7);
+            border-radius: 24px;
+            padding: var(--spacing-lg);
+            border: 1px solid rgba(255,255,255,0.14);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+        }
+        .ecosystem-quickview-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .ecosystem-quickview-focus {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-md);
+        }
+        .ecosystem-quickview-list {
             list-style: disc;
             margin: 0;
-            padding-left: 1.1rem;
+            padding-left: 1.2rem;
         }
-        .ecosystem-card li {
+        .ecosystem-quickview-list li {
             margin-bottom: 0.55rem;
             font-size: 0.97rem;
             color: var(--color-text-light);
+        }
+        .ecosystem-quickview-list strong {
+            font-weight: 700;
+            color: #fff;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -352,6 +433,96 @@
             if(currentTestimonialSet >= totalTestimonialSets) currentTestimonialSet = 0;
             sets[currentTestimonialSet].classList.add('active');
         }
+
+        // Ecosystem honeycomb interactions
+        document.addEventListener('DOMContentLoaded', function(){
+            const honeycomb = document.querySelector('.honeycomb');
+            const hexes = document.querySelectorAll('.honeycomb-hex');
+            const quickTitle = document.getElementById('ecoQuickTitle');
+            const quickFocus = document.getElementById('ecoQuickFocus');
+            const quickList = document.getElementById('ecoQuickList');
+
+            const data = {
+                1: {
+                    title: 'Strategic Architecture & Program Design',
+                    focus: 'Structured curricula that align learning with functional business goals.',
+                    items: [
+                        '<strong>Immersive In-Person Programs</strong>: End-to-end architecture for multi-day, high-impact sessions (e.g., Consulting Essentials 2-day onboarding).',
+                        '<strong>Multi-Module Digital Courses</strong>: Scalable, self-paced learning curricula designed to build specific functional competencies.',
+                        '<strong>Strategic Learning Paths</strong>: Logic-based sequencing of courses designed to navigate learners through complex product launches or M&A integrations.',
+                        '<strong>Curriculum Blueprints</strong>: Comprehensive structural design for blended learning experiences, combining live and digital elements.'
+                    ]
+                },
+                2: {
+                    title: 'Interactive Media & Technical Innovation',
+                    focus: 'Leveraging custom code and modern media to elevate the learner experience.',
+                    items: [
+                        '<strong>Vibe-Coded Training Assets</strong>: Custom-coded interactive components used to enhance engagement in both VILT and ILT sessions like CX Lift Off.',
+                        '<strong>Gamified Learning Experiences</strong>: Storytelling and challenge-based “unlockable” content (e.g., “The Amazing Race”) to drive platform adoption.',
+                        '<strong>Simulated Practice Environments</strong>: Tool-based simulations and role-play scenarios designed for risk-free skill application.',
+                        '<strong>Embedded Learning Validation</strong>: Integrated knowledge checks and assessments designed to verify mastery within the learning flow.'
+                    ]
+                },
+                3: {
+                    title: 'Performance Support & Just-in-Time Assets',
+                    focus: 'High-impact resources that support the workforce at the exact moment of need.',
+                    items: [
+                        '<strong>Technical Video Tutorials</strong>: Step-by-step “how-to” walkthroughs for internal enterprise platforms, designed for immediate use.',
+                        '<strong>Performance Support Assets</strong>: “At-a-glance” guides, quick cards, and one-pagers designed for immediate problem-solving.',
+                        '<strong>Digital Job Aids</strong>: Standardized playbooks and procedural templates integrated into daily field workflows.',
+                        '<strong>Rapid Enablement Kits</strong>: Just-in-time materials delivered under compressed timelines for M&A and product releases.'
+                    ]
+                },
+                4: {
+                    title: 'Strategic Comms & Adoption Campaigns',
+                    focus: 'Driving program awareness and “hype” through consistent multi-channel engagement.',
+                    items: [
+                        '<strong>Explainer Videos</strong>: High-impact motion graphics used to simplify complex organizational changes or new tool rollouts.',
+                        '<strong>Enablement Newsletters</strong>: Curated updates highlighting program launches, success patterns, and team wins.',
+                        '<strong>Multi-Channel Engagement</strong>: Strategic Slack banners and campaign assets designed to keep learning initiatives top-of-mind.',
+                        '<strong>Adoption Tracking</strong>: Monitoring campaign reach and sentiment to ensure program visibility across the organization.'
+                    ]
+                },
+                5: {
+                    title: 'Learning Insights & Data Strategy',
+                    focus: 'Visualizing readiness and program impact through data-driven reporting.',
+                    items: [
+                        '<strong>Real-time Readiness Insights</strong>: Using platform data (e.g., Sana widgets) to visualize completion rates and content engagement for leadership.',
+                        '<strong>Learning Impact Evaluation</strong>: Measuring success through CSAT and pre/post-training confidence assessments.',
+                        '<strong>Proficiency Benchmarking</strong>: Monitoring KPIs like Time-to-Proficiency to evaluate how quickly new hires reach full productivity.',
+                        '<strong>Enablement Labs</strong>: Facilitated workshop environments used to gauge hands-on capability and learner sentiment.',
+                        '<strong>Stakeholder Reporting</strong>: Executive visibility into program reach and field readiness during high-stakes milestones.'
+                    ]
+                }
+            };
+
+            function setQuickView(id){
+                const d = data[id];
+                if(!d) return;
+                quickTitle.textContent = d.title;
+                quickFocus.textContent = d.focus;
+                quickList.innerHTML = d.items.map(i => `<li>${i}</li>`).join('');
+            }
+
+            hexes.forEach(hex => {
+                hex.addEventListener('mouseenter', () => {
+                    hexes.forEach(h => h.classList.remove('active'));
+                    hex.classList.add('active');
+                    honeycomb.classList.add('dim-others');
+                    const id = hex.getAttribute('data-hex');
+                    setQuickView(id);
+                });
+            });
+
+            honeycomb.addEventListener('mouseleave', () => {
+                honeycomb.classList.remove('dim-others');
+                hexes.forEach(h => h.classList.remove('active'));
+            });
+
+            // Initialize with first category
+            setQuickView(1);
+            if(hexes[0]) hexes[0].classList.add('active');
+        });
 
         window.onclick = function(e){
             if(e.target === document.getElementById('aboutModal')) closeModal();
@@ -447,10 +618,9 @@
     </section>
 
     <!-- 3. IMPACT STORIES / PROJECTS -->
-    <!-- same Projects section as before -->
-    <!-- (for brevity, keep exactly as in your last version) -->
+    <!-- (Use your existing Projects section here, unchanged) -->
 
-    <!-- 4. THE ENABLEMENT ECOSYSTEM -->
+    <!-- 4. THE ENABLEMENT ECOSYSTEM HONEYCOMB -->
     <section id="ecosystem">
         <h2 class="section-title">The Enablement Ecosystem</h2>
         <div class="section-divider"></div>
@@ -458,67 +628,51 @@
             A strategic framework of assets and insights designed to accelerate workforce readiness and drive measurable performance.
         </p>
 
-        <div class="ecosystem-grid">
-            <div class="ecosystem-card">
-                <h3>1. Strategic Architecture &amp; Program Design</h3>
-                <h4>Focus: Structured curricula that align learning with functional business goals.</h4>
-                <ul>
-                    <li>Immersive In-Person Programs: End-to-end architecture for multi-day, high-impact sessions (e.g., Consulting Essentials 2-day onboarding).</li>
-                    <li>Multi-Module Digital Courses: Scalable, self-paced learning curricula designed to build specific functional competencies.</li>
-                    <li>Strategic Learning Paths: Logic-based sequencing of courses designed to navigate learners through complex product launches or M&amp;A integrations.</li>
-                    <li>Curriculum Blueprints: Comprehensive structural design for blended learning experiences, combining live and digital elements.</li>
-                </ul>
+        <div class="ecosystem-layout">
+            <div class="honeycomb">
+                <!-- Arrange in a cluster / honeycomb style -->
+                <div class="honeycomb-hex" data-hex="1">
+                    <div class="honeycomb-hex-inner">
+                        <div class="honeycomb-hex-icon">📐</div>
+                        <div class="honeycomb-hex-title">Architecture &amp;<br>Program Design</div>
+                    </div>
+                </div>
+                <div class="honeycomb-hex" data-hex="2">
+                    <div class="honeycomb-hex-inner">
+                        <div class="honeycomb-hex-icon">🎮</div>
+                        <div class="honeycomb-hex-title">Interactive Media</div>
+                    </div>
+                </div>
+                <div class="honeycomb-hex" data-hex="3">
+                    <div class="honeycomb-hex-inner">
+                        <div class="honeycomb-hex-icon">⚡</div>
+                        <div class="honeycomb-hex-title">Performance Support</div>
+                    </div>
+                </div>
+                <div class="honeycomb-hex" data-hex="4">
+                    <div class="honeycomb-hex-inner">
+                        <div class="honeycomb-hex-icon">📣</div>
+                        <div class="honeycomb-hex-title">Comms &amp; Adoption</div>
+                    </div>
+                </div>
+                <div class="honeycomb-hex" data-hex="5">
+                    <div class="honeycomb-hex-inner">
+                        <div class="honeycomb-hex-icon">📊</div>
+                        <div class="honeycomb-hex-title">Insights &amp; Data</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="ecosystem-card">
-                <h3>2. Interactive Media &amp; Technical Innovation</h3>
-                <h4>Focus: Leveraging custom code and modern media to elevate the learner experience.</h4>
-                <ul>
-                    <li>Vibe-Coded Training Assets: Custom-coded interactive components used to enhance engagement in both Virtual (VILT) and In-Person (ILT) sessions like CX Lift Off.</li>
-                    <li>Gamified Learning Experiences: Using storytelling and challenge-based “unlockable” content (e.g., “The Amazing Race”) to drive platform adoption.</li>
-                    <li>Simulated Practice Environments: Tool-based simulations and role-play scenarios designed for risk-free skill application.</li>
-                    <li>Embedded Learning Validation: Integrated knowledge checks and assessments designed to verify mastery within the learning flow.</li>
-                </ul>
-            </div>
-
-            <div class="ecosystem-card">
-                <h3>3. Performance Support &amp; Just-in-Time Assets</h3>
-                <h4>Focus: High-impact resources that support the workforce at the exact moment of need.</h4>
-                <ul>
-                    <li>Technical Video Tutorials: Step-by-step “how-to” walkthroughs for internal enterprise platforms, designed for immediate use.</li>
-                    <li>Performance Support Assets: High-impact “at-a-glance” guides, quick cards, and one-pagers designed for immediate problem-solving.</li>
-                    <li>Digital Job Aids: Standardized playbooks and procedural templates integrated into daily field workflows.</li>
-                    <li>Rapid Enablement Kits: Just-in-time materials delivered under compressed timelines for M&amp;A and product releases.</li>
-                </ul>
-            </div>
-
-            <div class="ecosystem-card">
-                <h3>4. Strategic Comms &amp; Adoption Campaigns</h3>
-                <h4>Focus: Driving program awareness and “hype” through consistent multi-channel engagement.</h4>
-                <ul>
-                    <li>Explainer Videos: High-impact motion graphics used to simplify complex organizational changes or new tool rollouts.</li>
-                    <li>Enablement Newsletters: Curated monthly updates highlighting program launches, success patterns, and team wins.</li>
-                    <li>Multi-Channel Engagement: Strategic Slack banners and campaign assets designed to keep learning initiatives top-of-mind.</li>
-                    <li>Adoption Tracking: Monitoring campaign reach and sentiment to ensure program visibility across the organization.</li>
-                </ul>
-            </div>
-
-            <div class="ecosystem-card">
-                <h3>5. Learning Insights &amp; Data Strategy</h3>
-                <h4>Focus: Visualizing readiness and program impact through data-driven reporting.</h4>
-                <ul>
-                    <li>Real-time Readiness Insights: Using platform data (e.g., Sana widgets) to visualize completion rates and content engagement for leadership.</li>
-                    <li>Learning Impact Evaluation: Measuring success through learner satisfaction (CSAT) and pre/post-training confidence assessments.</li>
-                    <li>Proficiency Benchmarking: Monitoring KPIs like Time-to-Proficiency to evaluate how quickly new hires reach full productivity.</li>
-                    <li>Enablement Labs: Facilitated workshop environments used to gauge hands-on capability and learner sentiment.</li>
-                    <li>Stakeholder Reporting: Providing executive visibility into program reach and field readiness during high-stakes milestones.</li>
-                </ul>
+            <div class="ecosystem-quickview">
+                <div class="ecosystem-quickview-title" id="ecoQuickTitle"></div>
+                <div class="ecosystem-quickview-focus" id="ecoQuickFocus"></div>
+                <ul class="ecosystem-quickview-list" id="ecoQuickList"></ul>
             </div>
         </div>
     </section>
 
-    <!-- 5. IMPACT METRICS -->
-    <!-- keep Metrics, Awards, Feedback, About, Connect exactly as in your last version -->
+    <!-- 5. IMPACT METRICS, 6. AWARDS, 7. FEEDBACK, 8. ABOUT, 9. CONNECT -->
+    <!-- Keep your existing sections here unchanged from the previous full file -->
 
     <!-- ABOUT MODAL -->
     <div id="aboutModal" class="modal">
@@ -529,7 +683,7 @@
         </div>
     </div>
 
-    <!-- 9. CONNECT -->
+    <!-- CONNECT (example; keep full block from your last version) -->
     <section id="contact">
         <h2 class="section-title">Connect</h2>
         <div class="section-divider"></div>
